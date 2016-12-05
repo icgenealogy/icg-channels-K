@@ -29,8 +29,9 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
 	SUFFIX iao
-	USEION k3 WRITE ik3 VALENCE 1
-	RANGE gabar, i
+	:USEION k3 WRITE ik3 VALENCE 1
+	USEION k READ ek WRITE ik
+        RANGE i, gabar
 	GLOBAL m_inf, tau_m, h_inf, tau_h, n_inf, tau_n, shm, shh, shn, hx, nx
 }
 
@@ -42,8 +43,8 @@ UNITS {
 PARAMETER {
 	v		(mV)
 	celsius	= 36	(degC)
-	erev	= -95 	(mV)
-	gabar	= 0.0	(mho/cm2)
+	:erev	= -95 	(mV)
+	gabar	= 1.0	(mho/cm2)
 	shm	= 15 	(mV)
 	shh	= 15 	(mV)
 	shn	= 15 	(mV)
@@ -56,7 +57,8 @@ STATE {
 }
 
 ASSIGNED {
-	ik3	(mA/cm2)
+        ek      (mV)
+	ik	(mA/cm2)
 	i	(mA/cm2)
 	m_inf
 	tau_m	(ms)
@@ -68,8 +70,8 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	i = gabar * (m*m*m*m*h * (v-erev) * 0.6 + m*m*m*m*n * (v-erev) * 0.4)
-        ik3 = i
+	i = gabar * (m*m*m*m*h * (v-ek) * 0.6 + m*m*m*m*n * (v-ek) * 0.4)
+        ik = i
 }
 
 DERIVATIVE states {

@@ -19,7 +19,7 @@ NEURON {
 	RANGE v1, v2, v3, v4, v5, v6
 }
 PARAMETER { 
-	gbar  	(mho/cm2)
+	gbar = 1.0  	(mho/cm2)
 	v ek 		(mV)  
 	v1 = 58 (mV)
 	v2 = 10.6 (mV)

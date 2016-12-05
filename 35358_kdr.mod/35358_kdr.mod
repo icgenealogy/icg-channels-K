@@ -1,9 +1,16 @@
-NEURON { SUFFIX kdr }
-NEURON { USEION k WRITE ik }         
-ASSIGNED { ik }
+NEURON {
+    SUFFIX kdr
+}
+NEURON {
+    USEION k READ ek WRITE ik
+}         
+ASSIGNED {
+    ik
+    ek (mV)
+}
 
 PARAMETER {
-	erev 		= -75.  (mV)
+	:erev 		= -75.  (mV)
 	gmax 		= 0.015    (mho/cm2)
 
 
@@ -35,7 +42,7 @@ PARAMETER {
 	vmin 		= -100 (mV)
 } : end PARAMETER
 
-INCLUDE "geneval_cvode.inc"
+INCLUDE "custom_code/inc_files/35358_geneval_cvode.inc"
 
-PROCEDURE iassign () { i = g*(v-erev) ik=i }
+PROCEDURE iassign () { i = g*(v-ek) ik=i }
 :* cal from calRT03 in ~/nrniv/place/mod/parameters.multi

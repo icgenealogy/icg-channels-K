@@ -13,7 +13,7 @@ UNITS {
 }
 
 PARAMETER {
-	gkamax=0 (mho/cm2) 
+	gkamax=1.0 (mho/cm2) 
 }
 
 ASSIGNED {

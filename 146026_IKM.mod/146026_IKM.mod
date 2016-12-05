@@ -38,7 +38,7 @@ PARAMETER {
 	vshift = 0
 	celsius = 36    (degC)
 	ek		(mV)
-	gbar	= 0	(pS/um2)
+	gbar	= 1.0	(pS/um2)
 	taumax	= 1000	(ms)		: peak value of tau
 }
 

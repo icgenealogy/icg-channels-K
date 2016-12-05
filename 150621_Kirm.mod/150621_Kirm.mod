@@ -16,7 +16,7 @@ UNITS {
  
 NEURON {
  	SUFFIX Kirm
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE gkirmbar, gkirm, minf
 }
  
@@ -24,7 +24,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
  
 PARAMETER {
   	
-	ek	= -90	(mV)
+	:ek	= -90	(mV)
 	gkirmbar= 0.00015 (mho/cm2) :0.15
 	tau	= 0.01	 (ms)
 	Vsm	= -100
@@ -36,6 +36,7 @@ STATE {
 }
  
 ASSIGNED {
+        ek (mV)
 	v  (mV)
         ik (mA/cm2)
 	celsius		(degC)

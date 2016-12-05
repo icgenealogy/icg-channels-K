@@ -4,10 +4,10 @@ NEURON
 {
 	SUFFIX Kv
 	
-	USEION Kv WRITE iKv VALENCE 1
+	:USEION Kv WRITE iKv VALENCE 1
+	USEION k READ ek WRITE ik
 	
-	
-        RANGE gKv,gKvbar, eKv
+        RANGE gKv, gKvbar
 	
 	
 	
@@ -27,7 +27,7 @@ PARAMETER
 {
         : potassium rectifier
         gKvbar = 2.0 (mS/cm2) <0,1e9>
-        eKv = -80 (mV)
+        :eKv = -80 (mV)
        
         
 
@@ -43,8 +43,8 @@ STATE
 ASSIGNED
 {
 	v (mV)
-	
-	iKv (mA/cm2)
+	ek (mV)
+	ik (mA/cm2)
               
           : potussium rectifier, K
 	infmKv
@@ -71,7 +71,7 @@ BREAKPOINT
 {
 	SOLVE states METHOD cnexp
 	gKv = (0.001)*gKvbar*mKv*mKv*mKv *hKv
-	iKv = gKv*(v - eKv)
+	ik = gKv*(v - ek)
 }
 
 DERIVATIVE states

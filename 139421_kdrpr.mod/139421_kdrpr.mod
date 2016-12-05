@@ -20,7 +20,7 @@ ENDCOMMENT
 NEURON {
 
 	SUFFIX kdrpr
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE gkdr, ik
 }
 	
@@ -34,11 +34,11 @@ UNITS {
 PARAMETER {
 
     gkdr =  15 (mS/cm2)
-    ek   = -75 (mV)
+    :ek   = -75 (mV)
 }
     
 ASSIGNED {
-
+    ek      (mV)
     v       (mV)
     ik      (mA/cm2)
     ninf    (1)
@@ -76,4 +76,4 @@ PROCEDURE rates(v(mV)) { LOCAL a, b
     taun = 1.0/(a+b)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/139421_aux_fun.inc"

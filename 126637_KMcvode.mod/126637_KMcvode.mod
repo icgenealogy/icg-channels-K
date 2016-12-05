@@ -11,7 +11,7 @@ UNITS {
  
 NEURON {
         SUFFIX KMcvode
-	  USEION k  WRITE ik
+	  USEION k READ ek WRITE ik
         RANGE  gkbar, gk, minf
 } 
  
@@ -22,7 +22,7 @@ PARAMETER {
         celsius = 37 (degC)
         mon = 1
         gkbar	= .00004 (mho/cm2)
-        ekcvode	= -85 (mV)
+        :ekcvode	= -85 (mV)
 
 }
  
@@ -31,6 +31,7 @@ STATE {
 }
  
 ASSIGNED {
+        ek (mV)
         ik (mA/cm2)
         gk minf tau q10 alpha beta sum 
 }
@@ -38,7 +39,7 @@ ASSIGNED {
 BREAKPOINT {
         SOLVE state METHOD cnexp : see http://www.neuron.yale.edu/phpBB/viewtopic.php?f=28&t=592
         gk = gkbar *m
-    	  ik = gk* (v-ekcvode)
+    	  ik = gk* (v-ek)
 }
  
 UNITSOFF

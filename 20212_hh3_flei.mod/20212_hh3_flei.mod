@@ -25,9 +25,9 @@ PARAMETER {
 	v (mV)
 	celsius = 37	(degC)
 	dt (ms)
-	gnabar=.20 (mho/cm2)
+	gnabar=0.0 (mho/cm2)
 	gkbar=.12 (mho/cm2)
-	gl=.0001 (mho/cm2)
+	gl=0.0 (mho/cm2)
 	ena = 40 (mV)
 	ek = -100 (mV)
 	el = -70.0 (mV)	: steady state at v = -65 mV

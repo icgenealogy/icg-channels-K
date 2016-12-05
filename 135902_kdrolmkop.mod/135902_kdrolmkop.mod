@@ -22,7 +22,7 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX KdrOlmKop
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 }
 	
 UNITS {
@@ -33,10 +33,11 @@ UNITS {
 
 PARAMETER {
     gkdr =   23 (mS/cm2)
-    ek   = -100 (mV)
+    :ek   = -100 (mV)
 }
     
 ASSIGNED {
+    ek      (mV)
     v       (mV)
     ik      (mA/cm2)
 	ninf    (1)
@@ -73,4 +74,4 @@ PROCEDURE rates(v(mV)) { LOCAL an, bn
     taon = 1./(an+bn)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/135902_aux_fun.inc"

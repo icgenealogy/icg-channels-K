@@ -8,9 +8,9 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX IKa
-	USEION k WRITE ik
-	RANGE gk, ik, gkbar
-	GLOBAL ainf, taua, binf, taub, ek
+	USEION k READ ek WRITE ik
+	RANGE gk, gkbar
+	GLOBAL ainf, taua, binf, taub
 }
 
 UNITS {
@@ -20,10 +20,11 @@ UNITS {
 
 PARAMETER {
 	gkbar 	= 0.001	(mho/cm2)	<0,1e9>
-	ek 	= -80	(mV)
+	:ek 	= -80	(mV)
 }
 
 ASSIGNED {
+        ek (mV)
 	v	(mV)
 	gk	(mho/cm2)
 	ik	(mA/cm2)

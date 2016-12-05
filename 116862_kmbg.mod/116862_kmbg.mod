@@ -1,9 +1,15 @@
-NEURON { SUFFIX kmbg }
-NEURON {  USEION k WRITE ik }
-ASSIGNED { ik }
+NEURON {
+    SUFFIX kmbg
+}
+NEURON {  USEION k READ ek WRITE ik }
+ASSIGNED {
+	ik
+	ek (mV)
+}
 PARAMETER {
-	erev 		= -90    (mV)
-	gmax 		= 0.1    (S/cm2)
+	:erev 		= -90    (mV)
+	:ek		(mV)
+        gmax 		= 0.1    (S/cm2)
         vrest           = 0.
 
 	mvalence 	= 3.5
@@ -33,7 +39,7 @@ PARAMETER {
 	vmin 		= -100 (mV)
 } : end PARAMETER
 
-INCLUDE "bg_cvode.inc"
-PROCEDURE iassign () { i = g*(v-erev) ik=i }
+INCLUDE "custom_code/inc_files/116862_bg_cvode.inc"
+PROCEDURE iassign () { i = g*(v-ek) ik=i }
 :* SYNAPSES
 :** AMPA

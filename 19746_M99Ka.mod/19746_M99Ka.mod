@@ -20,7 +20,7 @@ UNITS {
  
 NEURON {
         SUFFIX M99Ka
-        USEION k WRITE ik
+        USEION k READ ek WRITE ik
         RANGE gkbar,gk,ik,tmfac,afac,bfac,thfac,vms,vhs,minf,hinf,mexp,hexp,thmin
 :        GLOBAL minf, hinf, mexp, hexp
 }
@@ -32,7 +32,7 @@ PARAMETER {
         celsius = 35 (degC)
         dt (ms)
         gkbar = 0.048 (mho/cm2)
-        ek = -90 (mV)
+        :ek = -90 (mV)
         tmfac = 4 (1)   : activation time constant factor (def. proximal)
         thfac = 1 (1)   : inactivation time constant factor
         thmin = 2 (ms)  : minimum inactivation time constant
@@ -47,6 +47,7 @@ STATE {
 }
  
 ASSIGNED {
+        ek (mV)
         ik (mA/cm2)
         minf hinf mexp hexp
 }

@@ -23,7 +23,7 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX KdrPyrKop
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE gmax
 }
 	
@@ -35,10 +35,11 @@ UNITS {
 
 PARAMETER {
     gmax =  10.0 (mS/cm2)
-    ek   = -90.0 (mV)
+    :ek   = -90.0 (mV)
 }
     
 ASSIGNED {
+    ek      (mV)
     v       (mV)
     ik      (mA/cm2)
 	ninf    (1)
@@ -75,4 +76,4 @@ PROCEDURE rates(v(mV)) { LOCAL an, bn
     taon = max(2.0,50.0*bn/(1.0+an))*1.0(ms)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/139421_aux_fun.inc"

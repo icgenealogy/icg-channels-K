@@ -8,7 +8,7 @@ ENDCOMMENT
 NEURON {
 
 	SUFFIX kdr
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE gkbar, ik
 }
 	
@@ -22,7 +22,7 @@ UNITS {
 PARAMETER {
 
     gkbar =  15 (mS/cm2)
-    ek   = -75 (mV)
+    :ek   = -75 (mV)
 }
     
 ASSIGNED {
@@ -31,6 +31,7 @@ ASSIGNED {
     ik      (mA/cm2)
     ninf    (1)
     taun    (ms)
+    ek      (mV)
 }
 
 STATE { n }

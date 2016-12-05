@@ -3,7 +3,7 @@ TITLE K-A Proximal channel
 
 NEURON {
 	SUFFIX kap
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE gbar,gka,ik
 	GLOBAL ninf,linf,taul,taun,lmin
 }
@@ -40,6 +40,7 @@ STATE {
 }
 
 ASSIGNED {
+        ek (mV)
 	ik (mA/cm2)
 	ninf
 	linf      
@@ -57,7 +58,7 @@ INITIAL {
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	gka = gbar*n*l
-	ik = gka*(v+90.0)
+	ik = gka*(v-ek)
 }
 
 

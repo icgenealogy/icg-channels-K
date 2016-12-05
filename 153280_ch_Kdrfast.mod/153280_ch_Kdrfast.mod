@@ -42,7 +42,7 @@ PARAMETER {
 	dt (ms) 
 
 	ek  (mV)
-	gmax (mho/cm2)
+	gmax = 1.0 (mho/cm2)
 }
  
 STATE {

@@ -29,7 +29,7 @@ NEURON {
 }
 
 PARAMETER {
-	gbar = 0   	(S/cm2)	: 
+	gbar = 1.0   	(S/cm2)	: 
 	vshift = 0	(mV)		: voltage shift (affects all)
 								
 	v05a = -14.3	(mV)		: v 1/2 for act (a) 

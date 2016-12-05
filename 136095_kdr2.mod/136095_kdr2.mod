@@ -1,11 +1,18 @@
-NEURON { SUFFIX kdr2 }
+NEURON {
+    SUFFIX kdr2
+}
   
-NEURON { USEION k WRITE ik }         
+NEURON {
+    USEION k READ ek WRITE ik
+}         
 
-ASSIGNED { ik }
+ASSIGNED {
+    ik
+    ek (mV)
+}
 
 PARAMETER {
-	erev 		= -95        (mV)
+	:erev 		= -95        (mV)
 	gmax 		= 0.005     (umho)
 
         vrest           = 0.0
@@ -39,7 +46,7 @@ PARAMETER {
 
 } : end PARAMETER
 
-INCLUDE "bg_cvode.inc"
+INCLUDE "custom_code/inc_files/136095_bg_cvode.inc"
 
-PROCEDURE iassign () { i = g*(v-erev) ik=i }
+PROCEDURE iassign () { i = g*(v-ek) ik=i }
 :** kmbg 

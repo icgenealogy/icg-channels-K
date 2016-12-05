@@ -1,10 +1,17 @@
-NEURON { SUFFIX kmRT03 }
-NEURON {  USEION k READ ek WRITE ik }
-ASSIGNED { ik }
+NEURON {
+    SUFFIX kmRT03
+}
+NEURON {
+    USEION k READ ek WRITE ik
+}
+ASSIGNED {
+    ik
+    ek (mV)
+}
 
 PARAMETER {
-	erev 		= 0    (mV)
-	gmax 		= 0    (mho/cm^2)
+	:erev 		= 0    (mV)
+	gmax 		= 1.0    (mho/cm^2)
         vrest           = 0
 
 	maflag 		= 2
@@ -29,10 +36,10 @@ PARAMETER {
 	hbetaV0		= 0
 	hq10		= 3
 	hexp 		= 0
-        ek
+        :ek
 } : end PARAMETER
 
-INCLUDE "geneval_cvode.inc"
+INCLUDE "custom_code/inc_files/64229_geneval_cvode.inc"
 
 PROCEDURE iassign () { i = g*(v-ek) ik=i }
  

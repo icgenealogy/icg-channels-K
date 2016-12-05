@@ -17,7 +17,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gkdrbar = 0
+	gkdrbar = 1.0
 	:gbar= 0.0338 (mho/cm2) <0,1e9>
 	
 	

@@ -15,7 +15,7 @@ UNITS {
  
 NEURON {
         SUFFIX Khcvode
-  	  USEION k WRITE ik
+  	  USEION k READ ek WRITE ik
         RANGE  gkbar, gk, ik
 } 
  
@@ -28,7 +28,7 @@ PARAMETER {
 	  man = 1
 	  nan = 1
         gkbar = .0003 (mho/cm2)
-        ekcvode	= -30 (mV)
+        :ekcvode	= -30 (mV)
 
 }
  
@@ -37,6 +37,7 @@ STATE {
 }
  
 ASSIGNED {
+        ek (mV)
         ik (mA/cm2)
         gk minf mtau ntau q10
 }
@@ -44,7 +45,7 @@ ASSIGNED {
 BREAKPOINT {
         SOLVE state METHOD cnexp
         gk = gkbar *m
-	ik = gk* (v-ekcvode)
+	ik = gk* (v-ek)
 }
  
 UNITSOFF

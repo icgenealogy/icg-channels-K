@@ -20,10 +20,10 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	celsius = 37	(degC)
-	gnabar=.20 (mho/cm2)
+	gnabar=0.0 (mho/cm2)
 	gkbar=.12 (mho/cm2)
-	ena = 40 (mV)
-	ek = -85 (mV)
+	:ena = 40 (mV)
+	:ek = -85 (mV)
 	naactvha = 40 (mV)
 	naiactvha = 45 (mV)
 	kactvha = 40 (mV)	
@@ -38,6 +38,8 @@ STATE {
 }
 
 ASSIGNED {
+	ena (mV)
+	ek (mV)
 	ina (mA/cm2)
 	ik (mA/cm2)
 	inf[3]

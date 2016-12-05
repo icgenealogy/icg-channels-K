@@ -4,8 +4,9 @@
 
 NEURON {
 	SUFFIX ks
-	NONSPECIFIC_CURRENT i
-	RANGE gbar, ena
+	:NONSPECIFIC_CURRENT i
+	USEION k READ ek WRITE ik
+        RANGE gbar
 }
 
 UNITS {
@@ -16,7 +17,7 @@ UNITS {
 
 PARAMETER {
 	gbar = 0.2e-6 : =2e-9/(100e-12*1e8) (S/cm2) : 2(nS)/100(um)^2
-	ek=-85 (mV)
+	:ek=-85 (mV)
 
 	A_anS = 0.00122 (/ms) : A for alpha n
 	B_anS = -10.5 (mV)
@@ -28,8 +29,9 @@ PARAMETER {
 }
 
 ASSIGNED {
+        ek (mV)
 	v	(mV) : NEURON provides this
-	i	(mA/cm2)
+	ik	(mA/cm2)
 	g	(S/cm2)
 	tau_n	(ms)
 	ninf
@@ -40,7 +42,7 @@ STATE { n }
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	g = gbar * n : not n^4 bug fix by Marcus Petersson 20100215
-	i = g * (v-ek)
+	ik = g * (v-ek)
 }
 
 INITIAL {

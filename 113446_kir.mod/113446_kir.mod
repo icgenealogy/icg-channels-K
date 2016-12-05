@@ -6,9 +6,9 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX kir
-	USEION na READ nao
-	USEION k READ ko, ek WRITE ik
-	USEION cl READ clo VALENCE -1
+	:USEION na READ nao
+	USEION k READ ko,ek WRITE ik
+	:USEION cl READ clo VALENCE -1
 	RANGE gbar, ik, qk
 	GLOBAL vs
 }
@@ -27,7 +27,7 @@ UNITS {
 STATE { qk }
 
 PARAMETER {
-	gbar	= 0	(mho/cm2)
+	gbar	= 1.0	(mho/cm2)
 	vs	= 1	:voltage-dependency factor in boltzmann equation was 4
 	vh	= 0 (mV)	:halfmaximal activation relative to ek was -10
 }
@@ -37,8 +37,8 @@ ASSIGNED {
 	v	(mV)
 	ek	(mV)
 	ko 	(mM)
-	nao	(mM)
-	clo	(mM)
+	:nao	(mM)
+	:clo	(mM)
 	diam	(um)
 }
 

@@ -28,10 +28,12 @@ ENDCOMMENT
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
-	POINT_PROCESS kleak
+	SUFFIX kleak
+	:POINT_PROCESS kleak
+	USEION k READ ek WRITE ik
 	RANGE gmax
-	GLOBAL Erev
-	NONSPECIFIC_CURRENT i
+	:GLOBAL Erev
+	:NONSPECIFIC_CURRENT i
 }
 UNITS {
 	(nA) = (nanoamp)
@@ -41,19 +43,20 @@ UNITS {
 
 PARAMETER {
 	gmax	= 0.004	(umho)		: maximum conductance (microSiemens)
-	Erev	= -100	(mV)		: reversal potential (potassium)
+	:Erev	= -100	(mV)		: reversal potential (potassium)
 }
 
 
 ASSIGNED {
+	ek (mV)
 	v		(mV)		: postsynaptic voltage
-	i 		(nA)		: current = g*(v - Erev)
+	ik 		(nA)		: current = g*(v - Erev)
 }
 
 INITIAL {
 }
 
 BREAKPOINT {
-	i = gmax * (v - Erev)
+	ik = gmax * (v - ek)
 }
 

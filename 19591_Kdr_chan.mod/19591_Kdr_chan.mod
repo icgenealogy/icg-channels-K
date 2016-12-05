@@ -11,9 +11,10 @@ UNITS {
  
 NEURON {
         SUFFIX kdr_chan
-        RANGE gbar, i
-        NONSPECIFIC_CURRENT i
-        GLOBAL e, minf, hinf,
+        RANGE gbar
+        :NONSPECIFIC_CURRENT i
+        USEION k READ ek WRITE ik
+        GLOBAL minf, hinf,
                am, bm, cm, dm, taum_min,
                a1h, b1h, c1h, d1h, e1h, a2h, b2h, c2h, tauh_min
 }
@@ -23,7 +24,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
         v (mV)
         dt (ms)
-        e = -90 (mV)
+        :e = -90 (mV)
 
         gbar = 1.939e-2 (mho/cm2)
 
@@ -49,7 +50,8 @@ STATE {
 }
  
 ASSIGNED {
-        i (mA/cm2)
+        ek (mV)
+        ik (mA/cm2)
         minf hinf
 }
  
@@ -57,7 +59,7 @@ LOCAL mexp, hexp
  
 BREAKPOINT {
         SOLVE states
-        i = gbar*m*m*m*m*h*(v - e)
+        ik = gbar*m*m*m*m*h*(v - ek)
 }
  
 UNITSOFF

@@ -4,8 +4,8 @@ COMMENT
     modified for Neuron by FE GANNIER
 	francois.gannier@univ-tours.fr (University of TOURS)
 ENDCOMMENT
-INCLUDE "Unit.inc"
-INCLUDE "Volume.inc"
+INCLUDE "custom_code/inc_files/144520_Unit.inc"
+INCLUDE "custom_code/inc_files/144520_Volume.inc"
 NEURON {
 	SUFFIX ikd
 	USEION k READ ek, ki, ko WRITE ik

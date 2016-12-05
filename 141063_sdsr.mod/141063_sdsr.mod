@@ -66,7 +66,7 @@ BREAKPOINT {
 	SOLVE states METHOD cnexp
     rho = 1.3^((celsius - 25 (degC))/10(degC))
 	isd = rho * gsd * asd * (v - ena)
-	ina = isd
+	:ina = isd
 	ik  = rho * gsr * (v - ek) * asr^n /(Kd^n + asr^n)
 }
 

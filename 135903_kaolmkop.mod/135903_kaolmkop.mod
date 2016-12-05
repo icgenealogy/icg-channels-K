@@ -22,7 +22,7 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX KaOlmKop
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 }
 	
 UNITS {
@@ -33,10 +33,11 @@ UNITS {
 
 PARAMETER {
     gka =   16 (mS/cm2)
-    ek  =  -90 (mV)
+    :ek  =  -90 (mV)
 }
     
 ASSIGNED {
+    ek      (mV)
     v       (mV)
     ik      (mA/cm2)
 }
@@ -65,4 +66,4 @@ FUNCTION atau(v(mV))(ms) { atau = 5(ms) }
 FUNCTION binf(v(mV))     { binf = fun2(v, -71, 1, 7.3)*1(ms) }
 FUNCTION btau(v(mV))(ms) { btau = 1(ms)/(0.000009*exp(-(v-26)/18.5(mV)) + 0.014/(0.2+exp(-(v+70)/11(mV)))) }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/135903_aux_fun.inc"

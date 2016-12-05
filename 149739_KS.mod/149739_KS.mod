@@ -18,7 +18,7 @@ NEURON {
 }
 
 PARAMETER { 
-	gbar =  0.0 	(mho/cm2)
+	gbar =  1.0 	(mho/cm2)
 	ek   = -70	(mV)
 	k    =  1.5       : 1.5 !!!
 	sha  =  0   (mV)

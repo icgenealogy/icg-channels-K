@@ -5,8 +5,9 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX akfast
-	NONSPECIFIC_CURRENT i
-	RANGE i, Erev, gbar, n, tau_n, ninf
+	:NONSPECIFIC_CURRENT i
+	USEION k READ ek WRITE ik
+        RANGE gbar, n, tau_n, ninf
 	GLOBAL taun_min
 }
 
@@ -18,12 +19,13 @@ UNITS {
 
 PARAMETER {
 	gbar = 24073e-6	(S/cm2) < 0, 1e9 >
-	Erev = -82 (mV)
+	:Erev = -82 (mV)
 	taun_min = 0.8 (ms)
 }
 
 ASSIGNED {
-	i (mA/cm2)
+        ek (mV)
+	ik (mA/cm2)
 	v (mV)
 	g (S/cm2)
 	ninf
@@ -35,7 +37,7 @@ STATE {	n }
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	g = gbar * n^3
-	i = g * (v - Erev)
+	ik = g * (v - ek)
 }
 
 INITIAL {

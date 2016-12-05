@@ -52,7 +52,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
         v (mV)
         ek = -90 (mV)
-        gbar = 0 (mho/cm2) <0,1e9>
+        gbar = 1.0 (mho/cm2) <0,1e9>
         tfac = 0.5
 }
 

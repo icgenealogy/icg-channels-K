@@ -8,15 +8,16 @@ UNITS {
  
 NEURON {
   SUFFIX kacurrent
-  NONSPECIFIC_CURRENT ika, ikad
+  :NONSPECIFIC_CURRENT ika, ikad
+  USEION k READ ek WRITE ik
   RANGE g, gd, e, ninf, ntau, ndinf, ndtau, linf, ltau
 }
  
 PARAMETER {
   celsius	(degC)
   g= 0.048	(mho/cm2)
-  gd= 0		(mho/cm2)
-  e= -90	(mV)
+  gd= 1.0		(mho/cm2)
+  :e= -90	(mV)
 }
  
 STATE {
@@ -26,6 +27,8 @@ STATE {
 }
  
 ASSIGNED {
+  ek (mV)
+  ik (mA/cm2)
   v	(mV)
   ika	(mA/cm2) 
   ikad	(mA/cm2)
@@ -38,8 +41,9 @@ ASSIGNED {
 }
 
 PROCEDURE iassign () {
-  ika=g*n*l*(v-e)
-  ikad=gd*nd*l*(v-e)
+  ika=g*n*l*(v-ek)
+  ikad=gd*nd*l*(v-ek)
+  ik = ika
 }
  
 BREAKPOINT {

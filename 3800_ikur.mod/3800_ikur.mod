@@ -5,9 +5,9 @@ TITLE Cardiac IKur  current & nonspec cation current with identical kinetics
 NEURON {
 	SUFFIX IKur
 	USEION k READ ek,ki,ko WRITE ik
-	USEION na READ nai,nao
-	USEION no WRITE ino VALENCE 1: nonspecific cation current
-	RANGE gKur, ik, ino, Tauact, Tauinactf,Tauinacts, gnonspec, nao, nai, ko,ki
+	:USEION na READ nai,nao
+	:USEION no WRITE ino VALENCE 1: nonspecific cation current
+	RANGE gKur, ik, ino, Tauact, Tauinactf,Tauinacts, gnonspec, nao, nai
 	GLOBAL minf, ninf, uinf, mtau , ntau, utau
 }
 
@@ -39,12 +39,10 @@ ASSIGNED {
         ntau (ms)
 	utau (ms)
 	ek (mV)
-	ino (mA/cm2)
+	:ino (mA/cm2)
 	ki (mM)
 	ko (mM)
-	nai (mM)
-	nao (mM)
-}
+	}
 
 INITIAL {
 	rates(v)
@@ -57,7 +55,7 @@ BREAKPOINT { LOCAL z
 	z = (R*(celsius+273.15))/F
 	SOLVE states METHOD derivimplicit
 		ik = gKur*(0.1 + 1/(1 + exp(-(v - 15)/13)))*m*m*m*n*u*(v - ek)
-	ino=gnonspec*(0.1 + 1/(1 + exp(-(v - 15)/13)))*m*m*m*n*u*(v - z*log((nao+ko)/(nai+ki)))
+	:ino=gnonspec*(0.1 + 1/(1 + exp(-(v - 15)/13)))*m*m*m*n*u*(v - z*log((nao+ko)/(nai+ki)))
 }
 
 DERIVATIVE states {	: exact when v held constant

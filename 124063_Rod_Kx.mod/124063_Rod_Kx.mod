@@ -4,11 +4,12 @@ NEURON
 {
 	SUFFIX Kx
 	
-	USEION Kx WRITE iKx VALENCE 1
-	
+	:USEION Kx WRITE iKx VALENCE 1
+	USEION k READ ek WRITE ik
+
 	
 	RANGE gKx, gKxbar, VhalfKx, SKx
-	RANGE eKx, aoKx
+	RANGE aoKx
 	
 	
 
@@ -25,7 +26,7 @@ PARAMETER
 {
 	gKxbar = 1.04 (mS/cm2) <0,1e9>
 	
-        eKx = -74 (mV)
+        :eKx = -74 (mV)
                 
         VhalfKx=-49.9 (mV)
         
@@ -48,8 +49,9 @@ ASSIGNED
 {
 	v (mV)
 	
+	ek (mV)
 	
-	iKx (mA/cm2)
+	ik (mA/cm2)
 	
 	infKx
 	tauKx  (ms)
@@ -69,7 +71,7 @@ BREAKPOINT
 {
 	SOLVE states METHOD cnexp
 	gKx = (0.001)*gKxbar*nKx
-	iKx = gKx*(v - eKx)
+	ik = gKx*(v - ek)
 	
 	
 }

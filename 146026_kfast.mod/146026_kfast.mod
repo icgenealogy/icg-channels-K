@@ -31,7 +31,7 @@ UNITS {
 } 
 
 PARAMETER {
-	gbar = 0   	(pS/um2)	: 0.03 mho/cm2
+	gbar = 1.0   	(pS/um2)	: 0.03 mho/cm2
 	v 		(mV)
 	vshift = 0	(mV)
 								

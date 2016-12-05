@@ -23,8 +23,8 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX KaPyrKop
-	USEION k WRITE ik
-	RANGE  ck, dk, ek, fk, gmax, ik, atau, btau, ainf, binf
+	USEION k READ ek WRITE ik
+	RANGE  ck, dk, fk, gmax, ik, atau, btau, ainf, binf
 }
 	
 UNITS {
@@ -34,15 +34,16 @@ UNITS {
 }
 
 PARAMETER {
-    gmax =    0.0 (mS/cm2)
-    erev =  -90.0 (mV)
+    gmax =    1.0 (mS/cm2)
+    :erev =  -90.0 (mV)
     ck   =    0.0 (1)
     dk   =    0.0 (1)
-    ek   =    0.0 (mV)
+    :ek   =    0.0 (mV)
     fk   =    0.0 (1)
 }
     
 ASSIGNED {
+    ek      (mV)
     v       (mV)
     ik      (mA/cm2)
     ainf	(1)
@@ -61,7 +62,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik = (1e-3) * gmax * a * b * (v-erev)
+	ik = (1e-3) * gmax * a * b * (v-ek)
 }
 
 
@@ -91,4 +92,4 @@ PROCEDURE rates(v (mV)) { LOCAL aa, ba
 }
 
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/139421_aux_fun.inc"

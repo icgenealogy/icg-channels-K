@@ -22,7 +22,7 @@ PARAMETER {
 
 NEURON {
 	SUFFIX KdrM99SL
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
         RANGE  gkdr,gbar,ik
 	GLOBAL ninf,taun
 }
@@ -30,6 +30,7 @@ NEURON {
 STATE { n }
 
 ASSIGNED {
+        ek      (mV)
 	ik 	(mA/cm2)
         ninf	
         gkdr
@@ -39,7 +40,7 @@ ASSIGNED {
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	gkdr 	= gbar * n
-	ik 	= gkdr * ( v + 90.0 )
+	ik 	= gkdr * ( v - ek )
 }
 
 INITIAL {

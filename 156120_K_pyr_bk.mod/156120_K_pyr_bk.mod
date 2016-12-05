@@ -1,5 +1,5 @@
 	
-tassium Current 
+TITLE Potassium Current 
 COMMENT
 	Author: Ronald van Elburg 
 	Taken from  model for fast spiking neuron in J. Tegner, A. Compte, 

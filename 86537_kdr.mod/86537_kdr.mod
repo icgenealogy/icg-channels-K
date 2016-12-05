@@ -5,8 +5,9 @@
 
 NEURON {
 	SUFFIX kdr
-	NONSPECIFIC_CURRENT i
-	RANGE gbar, ek
+	:NONSPECIFIC_CURRENT i
+	USEION k READ ek WRITE ik
+        RANGE gbar
 	RANGE tau_n, n
 }
 
@@ -19,7 +20,7 @@ UNITS {
 PARAMETER {
 	gbar = 0.0021 (S/cm2)
 	: ek=-70 (mV) : this does not represent value in paper
-      ek = -92.34 (mV) : correction by Tom Andersson
+      :ek = -92.34 (mV) : correction by Tom Andersson
 : Baker 2005 values
 	A_anF = 0.001265 (/ms) : 0.00798 Baker '05 : A for alpha n
 	B_anF = 14.273 (mV) : 72.2 Baker '05
@@ -41,8 +42,9 @@ PARAMETER {
 }
 
 ASSIGNED {
+        ek (mV)
 	v	(mV) : NEURON provides this
-	i	(mA/cm2)
+	ik	(mA/cm2)
 	g	(S/cm2)
 	tau_n	(ms)
 	ninf
@@ -53,7 +55,7 @@ STATE { n }
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	g = gbar * n
-	i = g * (v-ek)
+	ik = g * (v-ek)
 }
 
 INITIAL {

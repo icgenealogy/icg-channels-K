@@ -1,4 +1,5 @@
-NEURON { SUFFIX kmbg }
+NEURON {
+    SUFFIX kmbg }
 NEURON {  USEION k READ ek WRITE ik }
 ASSIGNED { ik }
 PARAMETER {
@@ -36,7 +37,7 @@ PARAMETER {
 	vmin 		= -100 (mV)
 } : end PARAMETER
 
-INCLUDE "bg_cvode.inc"
+INCLUDE "custom_code/inc_files/37819_bg_cvode.inc"
 PROCEDURE iassign () { i = g*(v-ek) ik=i }
 :* SYNAPSES
 :** AMPA

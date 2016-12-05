@@ -11,7 +11,7 @@ PARAMETER {
 	v (mV)
         ek (mV)		: must be explicitely def. in hoc
 	celsius		(degC)
-	gkdbar=.0 (mho/cm2)
+	gkdbar=1.0 (mho/cm2)
         vhalfn=-33   (mV)
         a0n=0.01      (/ms)
         zetan=3    (1)

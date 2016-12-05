@@ -33,8 +33,8 @@ UNITS {
 NEURON {
         SUFFIX kir
         USEION k READ ek WRITE ik
-        RANGE  gkbar, ik, mvhalf, mslope, mshift, qfact
-		POINTER mu
+        RANGE  gkbar, ik, mvhalf, mslope, mshift, qfact, mu
+	:POINTER mu
 }
  
 PARAMETER {
@@ -45,6 +45,7 @@ PARAMETER {
 	mshift = 30			(mV)	: fit to Kubo 2001 fig 2B left - with ek = -84.3,
 						:  mshift can range from 20 to 30 to fit slope of IR
 	qfact = 0.5				: match in vitro data
+	mu = 1
 }
  
 STATE { m }
@@ -58,7 +59,7 @@ ASSIGNED {
         minf		
         ek				(mV)
 		
-		mu (1)
+	:mu (1)
    }
  
 BREAKPOINT {

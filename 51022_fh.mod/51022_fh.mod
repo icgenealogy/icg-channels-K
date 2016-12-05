@@ -10,12 +10,12 @@ NEURON {
 	GLOBAL inf,tau
 }
 
-INCLUDE "standard.inc"
+INCLUDE "custom_code/inc_files/51022_standard.inc"
 PARAMETER {
 	v (mV)
 	celsius (degC) : 20
-	pnabar=8e-3 (cm/s)
-	ppbar=.54e-3 (cm/s)
+	pnabar=0.0 (cm/s)
+	ppbar=0.0 (cm/s)
 	pkbar=1.2e-3 (cm/s)
 	nai (mM) : 13.74
 	nao (mM) : 114.5

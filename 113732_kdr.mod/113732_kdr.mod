@@ -33,7 +33,7 @@ PARAMETER {
 } : end PARAMETER
 
 
-PROCEDURE iassign() { i = g * (v - erev) ik=i }
+PROCEDURE iassign() { i = g * (v - ek) ik=i }
 
 TITLE Borg-Graham Channel Model
 
@@ -75,9 +75,9 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
 	SUFFIX kdr
-	USEION na WRITE ina
-	USEION k WRITE ik
-	USEION ca READ cao,cai  WRITE ica
+	:USEION na WRITE ina
+	USEION k READ ek WRITE ik
+	:USEION ca READ cao,cai  WRITE ica
 	RANGE gmax, g, i, mbaserate
 	GLOBAL erev, Inf, Tau, Mult, Add, vmin, vmax
 } : end NEURON
@@ -99,7 +99,7 @@ COMMENT
 ** Parameter values should come from files specific to particular channels
 PARAMETER {
 	erev 		= 0    (mV)
-	gmax 		= 0    (mho/cm^2)
+	gmax 		= 1.0    (mho/cm^2)
 
 	mvalence 	= 0
 	mgamma 		= 0
@@ -132,9 +132,10 @@ PARAMETER {
 ENDCOMMENT
 
 ASSIGNED {
+	ek (mV)
 	i (mA/cm^2)		
-	ica (mA/cm^2)
-	ina (mA/cm^2)		
+	:ica (mA/cm^2)
+	:ina (mA/cm^2)		
 	ik  (mA/cm^2)		
 	g (mho/cm^2)
 	Inf[2]		: 0 = m and 1 = h

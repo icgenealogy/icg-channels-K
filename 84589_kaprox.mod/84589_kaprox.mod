@@ -18,11 +18,11 @@ NEURON {
 
 } 
 
-INCLUDE "inact_k_currs.inc"
+INCLUDE "custom_code/inc_files/84589_inact_k_currs.inc"
 
-INCLUDE "inact_gate_states.inc"
+INCLUDE "custom_code/inc_files/84589_kaprox_inact_gate_states.inc"
 
-INCLUDE "var_funcs.inc"
+INCLUDE "custom_code/inc_files/84589_var_funcs.inc"
 
 
 

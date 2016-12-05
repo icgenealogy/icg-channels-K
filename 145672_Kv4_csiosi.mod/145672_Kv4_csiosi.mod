@@ -16,7 +16,7 @@ UNITS {
 } 
 
 PARAMETER {
-      	gmax = 0.00	(mho/cm2)		
+      	gmax = 1.00	(mho/cm2)		
       	celsius 	(deg C)			
       	F = 9.6485e4 				:Faraday constant
       	R = 8.3145e3 				:Gas constant

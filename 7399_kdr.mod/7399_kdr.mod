@@ -1,11 +1,16 @@
-NEURON { SUFFIX kdr }
+NEURON {
+    SUFFIX kdr }
   
-NEURON { USEION k WRITE ik }         
+NEURON {
+    USEION k READ ek WRITE ik }         
 
-ASSIGNED { ik }
+ASSIGNED {
+     ik
+     ek (mV)
+}
 
 PARAMETER {
-	erev 		= -75        (mV)
+	:erev 		= -75        (mV)
 	gmax 		= 0.005     (umho)
         vrest           = 0     : added in with bills change to borg
 
@@ -41,9 +46,9 @@ PARAMETER {
 
 } : end PARAMETER
 
-INCLUDE "bg.inc"
+INCLUDE "custom_code/inc_files/7399_bg.inc"
 
-PROCEDURE iassign () { i = g*(v-erev) ik=i }
+PROCEDURE iassign () { i = g*(v-ek) ik=i }
 :**anaf
 :________________________________________________________________
 : Borg-Graham version of fast sodium

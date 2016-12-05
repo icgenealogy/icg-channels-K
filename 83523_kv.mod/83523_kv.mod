@@ -23,7 +23,7 @@ UNITS {
 } 
 
 PARAMETER {
-	gbar = 0   	(pS/um2)	
+	gbar = 1.0   	(pS/um2)	
 	v 		(mV)
 								
 	v05 = -15 (mV)

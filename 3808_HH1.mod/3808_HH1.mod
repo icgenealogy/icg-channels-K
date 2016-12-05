@@ -28,7 +28,7 @@ PARAMETER {
         v		(mV)
         celsius		(degC)
         dt		(ms)
-        gnabar= 0.1	(mho/cm2)
+        gnabar= 0.0	(mho/cm2)
         ena		(mV)
         gkbar= 0.01	(mho/cm2)
         ek		(mV)

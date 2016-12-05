@@ -15,7 +15,7 @@ UNITS {
  
 NEURON {
  	SUFFIX Krpm
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE gkrpmbar, gkrpm, minf, hinf, mtau, htau
 }
  
@@ -23,7 +23,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
  
 PARAMETER {
   	
-	ek	= -77.5	(mV)
+	:ek	= -77.5	(mV)
 	gkrpmbar= 0.00042 (mho/cm2) :0.42 mS
 	Etemp	= 22 : Delord correspondence 11/15/06
 	Vsm	= -13.4
@@ -43,7 +43,8 @@ STATE {
         m h
 }
  
-ASSIGNED {
+ASSIGNED { 
+        ek (mV)
 	v  (mV)
       ik (mA/cm2)
 	celsius		(degC)

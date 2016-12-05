@@ -15,7 +15,7 @@ UNITS {
  
 NEURON {
  	SUFFIX KAfm
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE gkafmbar, gkafm
 }
  
@@ -23,7 +23,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
  
 PARAMETER {
   	
-	ek	= -73	(mV)
+	:ek	= -73	(mV)
 	gkafmbar= 0.00009 (mho/cm2) :0.09 mS
 	Etemp	= 22 :delord correspondence 11/15/06
 	Vsm	= -33.1
@@ -39,6 +39,7 @@ STATE {
 }
  
 ASSIGNED {
+        ek (mV)
         ik (mA/cm2)
  	v  (mV)
 	celsius		(degC)

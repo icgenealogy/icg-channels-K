@@ -21,7 +21,7 @@ PARAMETER {
 	v (mV)
 	celsius		(degC)
 	Tscale = 10	(degC)
-	gbar=0.0 (pS/um2)
+	gbar=1.0 (pS/um2)
       vhalfn=-47   (mV)
       vhalfl=-66   (mV)
       kn=29   (mV)

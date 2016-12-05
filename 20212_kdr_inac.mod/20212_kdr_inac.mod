@@ -21,7 +21,7 @@ PARAMETER {
         
 	celsius = 34	(degC)
 	dt (ms)
-	gkbar=0 (mho/cm2)
+	gkbar=1.0 (mho/cm2)
 	ek = -77 (mV)
         v (mV)
 }

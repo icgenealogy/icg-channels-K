@@ -30,7 +30,7 @@ UNITS {
 }
 
 PARAMETER {
-	gkbar=0		(mho/cm2)	: default max. perm.
+	gkbar=1.0		(mho/cm2)	: default max. perm.
 	scaletaun=1.5
 	shiftn=50	(mV)
 }

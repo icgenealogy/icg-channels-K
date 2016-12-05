@@ -9,8 +9,9 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
 	SUFFIX parak75
-	NONSPECIFIC_CURRENT ik
-	RANGE gkbar, ek
+	:NONSPECIFIC_CURRENT ik
+	USEION k READ ek WRITE ik
+        RANGE gkbar
 	RANGE n_inf
 	RANGE tau_n
 }
@@ -24,7 +25,7 @@ UNITS {
 PARAMETER {
 
 	gkbar   = 0.01	(mho/cm2)
-	ek      = -85.0 (mV)
+	:ek      = -85.0 (mV)
 	celsius		(degC)
 	dt              (ms)
 	v               (mV)
@@ -42,6 +43,7 @@ STATE {
 }
 
 ASSIGNED {
+        ek      (mV)
 	ik      (mA/cm2)
 	n_inf
 	tau_n

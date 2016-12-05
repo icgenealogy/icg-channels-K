@@ -1,6 +1,6 @@
 
 PARAMETER {
-	erev 		= -90    (mV)
+	:erev 		= -90    (mV)
 	gmax 		= 0.08   (umho)
 
 	mvalence 	= 3.
@@ -21,8 +21,8 @@ PARAMETER {
         hq10            = 3
 	hexp 		= 0
 
-	cao                (mM)
-	cai                (mM)
+	:cao                (mM)
+	:cai                (mM)
 
 	celsius		= 37	(degC)
 	dt 				   (ms)
@@ -33,7 +33,7 @@ PARAMETER {
 } : end PARAMETER
 
 
-PROCEDURE iassign() { i = g * (v - erev) ik=i }
+PROCEDURE iassign() { i = g * (v - ek) ik=i }
 
 TITLE Borg-Graham Channel Model
 
@@ -75,11 +75,11 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
 	SUFFIX kdr
-	USEION na WRITE ina
-	USEION k WRITE ik
-	USEION ca READ cao,cai  WRITE ica
+	:USEION na WRITE ina
+	USEION k READ ek WRITE ik
+	:USEION ca READ cao,cai  WRITE ica
 	RANGE gmax, g, i, mbaserate
-	GLOBAL erev, Inf, Tau, Mult, Add, vmin, vmax
+	GLOBAL Inf, Tau, Mult, Add, vmin, vmax
 } : end NEURON
 
 CONSTANT {
@@ -98,8 +98,8 @@ UNITS {
 COMMENT
 ** Parameter values should come from files specific to particular channels
 PARAMETER {
-	erev 		= 0    (mV)
-	gmax 		= 0    (mho/cm^2)
+	:erev 		= 0    (mV)
+	gmax 		= 1.0    (mho/cm^2)
 
 	mvalence 	= 0
 	mgamma 		= 0
@@ -119,8 +119,8 @@ PARAMETER {
 	hq10		= 3
 	hexp 		= 0
 
-	cao                (mM)
-	cai                (mM)
+	:cao                (mM)
+	:cai                (mM)
 
 	celsius			   (degC)
 	dt 				   (ms)
@@ -132,9 +132,10 @@ PARAMETER {
 ENDCOMMENT
 
 ASSIGNED {
+        ek (mV)
 	i (mA/cm^2)		
-	ica (mA/cm^2)
-	ina (mA/cm^2)		
+	:ica (mA/cm^2)
+	:ina (mA/cm^2)		
 	ik  (mA/cm^2)		
 	g (mho/cm^2)
 	Inf[2]		: 0 = m and 1 = h
@@ -286,14 +287,14 @@ FUNCTION FRT(temperature) {
 } : end FUNCTION FRT (temperature)
 
 :-------------------------------------------------------------------
- FUNCTION ghkca (v) { : Goldman-Hodgkin-Katz eqn
-       LOCAL nu, efun
-
-       nu = v*2*FRT(celsius)
-       if(fabs(nu) < 1.e-6) {
-               efun = 1.- nu/2.
-       } else {
-               efun = nu/(exp(nu)-1.) }
-
-       ghkca = -FARADAY*2.e-3*efun*(cao - cai*exp(nu))
- } : end FUNCTION ghkca()
+ :FUNCTION ghkca (v) { : Goldman-Hodgkin-Katz eqn
+ :      LOCAL nu, efun
+:
+:       nu = v*2*FRT(celsius)
+:       if(fabs(nu) < 1.e-6) {
+:               efun = 1.- nu/2.
+:       } else {
+:               efun = nu/(exp(nu)-1.) }
+:
+:       ghkca = -FARADAY*2.e-3*efun*(cao - cai*exp(nu))
+: } : end FUNCTION ghkca()

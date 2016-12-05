@@ -13,7 +13,7 @@ UNITS {
 } 
 
 PARAMETER {
-      gbar = 0     (pS/um2)
+      gbar = 1.0     (pS/um2)
       a12 = 0.01   (/ms)
       a21 = 0.02   (/ms)
       z12 = 0.01   (/mV)

@@ -4,8 +4,9 @@ TITLE Ohmic K Current
 
 NEURON {
 	SUFFIX kO
-	USEION O READ eO WRITE iO VALENCE 1
-	RANGE gkbar, iO, eO
+	:USEION O READ eO WRITE iO VALENCE 1
+	USEION k READ ek WRITE ik
+        RANGE gkbar
 }
 
 UNITS {
@@ -18,16 +19,17 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gkbar = 0 (mho/cm2)
-	eO = -90 (mV)
+	gkbar = 1.0 (mho/cm2)
+	:eO = -90 (mV)
 }
 
 ASSIGNED {
-	iO (mA/cm2)
+	ik (mA/cm2)
+        ek (mV)
 }
 
 BREAKPOINT {
-	iO = gkbar*(v - eO)
+	ik = gkbar*(v - ek)
 }
 
 

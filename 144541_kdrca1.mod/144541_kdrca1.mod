@@ -24,7 +24,7 @@ PARAMETER {
 
 
 NEURON {
-	THREADSAFE SUFFIX kdr
+	SUFFIX kdr
 	USEION k READ ek WRITE ik
         RANGE gkdr,gkdrbar
 	GLOBAL ninf,taun

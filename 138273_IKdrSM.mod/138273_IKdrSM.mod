@@ -13,7 +13,7 @@ UNITS {
 }
 
 PARAMETER {
-	gkdrmax=0 (mho/cm2)
+	gkdrmax=1.0 (mho/cm2)
 }
 
 ASSIGNED {

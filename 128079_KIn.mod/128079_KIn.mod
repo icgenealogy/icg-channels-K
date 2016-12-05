@@ -27,7 +27,7 @@ NEURON {
 }
  
 PARAMETER {
-    gkbar = .0 (mho/cm2)	 <0,1e9>   :   so these parameter are viewed and can be changed in GUI 
+    gkbar = 1.0 (mho/cm2)	 <0,1e9>   :   so these parameter are viewed and can be changed in GUI 
     scale_a = 1.0
     scale_i = 1.0
 }

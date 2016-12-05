@@ -12,7 +12,7 @@ UNITS {
  
 NEURON {
         SUFFIX KM
-	USEION k  WRITE ik
+	USEION k READ ek WRITE ik
         RANGE  gkbar, gk, minf,  mexp
 } 
  
@@ -23,7 +23,7 @@ PARAMETER {
         celsius = 37 (degC)
         dt (ms)
         gkbar	= .00004 (mho/cm2)
-        ek	= -85 (mV)
+        :ek	= -85 (mV)
 	mon = 1
 }
  
@@ -32,6 +32,7 @@ STATE {
 }
  
 ASSIGNED {
+        ek (mV)
         ik (mA/cm2)
         gk minf  mexp 
 }

@@ -1,4 +1,5 @@
-NEURON { SUFFIX kdr }
+NEURON {
+    SUFFIX kdr }
   
 NEURON { USEION k READ ek WRITE ik }         
 
@@ -42,7 +43,7 @@ PARAMETER {
 
 } : end PARAMETER
 
-INCLUDE "bg_cvode.inc"
+INCLUDE "custom_code/inc_files/37819_bg_cvode.inc"
 
 PROCEDURE iassign () { i = g*(v-ek) ik=i }
 :** kmbg 

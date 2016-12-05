@@ -25,11 +25,11 @@ PARAMETER {
         v (mV)
         celsius = 6.3 (degC)
         dt (ms)
-        gnabar = .012 (mho/cm2)
+        gnabar = 0.0 (mho/cm2)
         ena = 50 (mV)
         gkbar = .0036 (mho/cm2)
         ek = -77.5 (mV)
-        gl = .00003 (mho/cm2)
+        gl = 0.0 (mho/cm2)
         el = -53.79 (mV)
 }
 

@@ -4,13 +4,13 @@ COMMENT
     modified for Neuron by FE GANNIER
 	francois.gannier@univ-tours.fr (University of TOURS)
 ENDCOMMENT
-INCLUDE "Unit.inc"
-INCLUDE "Volume.inc"
+INCLUDE "custom_code/inc_files/144520_Unit.inc"
+INCLUDE "custom_code/inc_files/144520_Volume.inc"
 NEURON {
 	SUFFIX ito
 	USEION k READ ek, ko, ki WRITE ik
-	USEION ca READ cai
-	RANGE g, ik, minf, mtau
+	:USEION ca READ cai
+	RANGE g, ik, minf, mtau, cai
 }
 
 PARAMETER {
@@ -18,6 +18,7 @@ PARAMETER {
 	Kmto = 10	(mM)
 	g = 0.28	(uS/mM) 
 :	kb = 4 (mM)
+	cai = 8.1929e-5 (mM)
 }
 
 STATE { : r
@@ -33,7 +34,6 @@ ASSIGNED {
 	ek (mV)
 	ko (mM)
 	ki (mM)
-	cai (mM)
 }
 
 LOCAL RT

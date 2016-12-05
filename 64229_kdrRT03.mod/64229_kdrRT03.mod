@@ -1,9 +1,16 @@
-NEURON { SUFFIX kdrRT03 }
-NEURON {  USEION k READ ek WRITE ik }
-ASSIGNED { ik }
+NEURON {
+    SUFFIX kdrRT03
+}
+NEURON {
+    USEION k READ ek WRITE ik
+}
+ASSIGNED {
+    ik
+    ek (mV)
+}
 
 PARAMETER {
-  erev 		= -95    (mV)
+  :erev 		= -95    (mV)
   gmax 		= 0.4  (S/cm2)
   vrest           = 0    (mV)
 
@@ -17,10 +24,10 @@ PARAMETER {
   hkconst 	= 0
   hq10		= 1
   hexp 		= 0
-  ek
+  :ek
 } : end PARAMETER
 
-INCLUDE "boltz_cvode.inc"
+INCLUDE "custom_code/inc_files/64229_boltz_cvode.inc"
 
 FUNCTION settau(j,v) {
   if (j==0) { : m

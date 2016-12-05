@@ -2,7 +2,7 @@
 COMMENT
 -----------------------------------------------------------------------------
 
-  Leak potassium current -- converted to a SUFFIX from kleak.mod
+  Leak potassium current -- converted to a SUFFX from kleak.mod
 
   This mechanism was written to be used as a potassium channel that is
   open or closed by neuromodulators.  
@@ -43,6 +43,6 @@ INITIAL {
 }
 
 BREAKPOINT {
-	i = gmax * (v - erev)
+	i = gmax * (v - ek)
         ik=i
 }

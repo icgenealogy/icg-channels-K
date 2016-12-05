@@ -12,7 +12,7 @@ UNITS {
  
 NEURON {
         SUFFIX Kdr
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
         RANGE  gkbar, gk, minf, hinf, mexp, hexp, ik, alpha, beta
 } 
  
@@ -23,7 +23,7 @@ PARAMETER {
         celsius = 37 (degC)
         dt (ms)
         gkbar	= .6 (mho/cm2)
-        ek	= -85 (mV)
+        :ek	= -85 (mV)
 
 }
  
@@ -32,6 +32,7 @@ STATE {
 }
  
 ASSIGNED {
+        ek (mV)
         ik (mA/cm2)
         gk minf hinf mexp hexp
 }

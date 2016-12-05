@@ -27,7 +27,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
         v (mV)
         ek = -90 (mV)
-        gbar = 0 (S/cm2) <0,1e9>
+        gbar = 1.0 (S/cm2) <0,1e9>
         bn = -20 (mV)
         gn = 10 (mV) 
         tn = 3 (ms)

@@ -26,9 +26,9 @@ NEURON {
  
 PARAMETER {
 	: for node
-        gnabar = .6 (S/cm2)	<0,1e9>
+        gnabar = 0.0 (S/cm2)	<0,1e9>
         gkbar = .1 (S/cm2)	<0,1e9>
-        gl = .003 (S/cm2)	<0,1e9>
+        gl = 0.0 (S/cm2)	<0,1e9>
         el = -54.3 (mV)
 	vrest = 0 (mV)
 	shift = 0

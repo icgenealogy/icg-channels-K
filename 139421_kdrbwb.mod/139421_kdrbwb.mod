@@ -24,18 +24,19 @@ UNITS {
 
 NEURON {
   SUFFIX Kdrbwb
-  USEION k WRITE ik
-  RANGE phin,gkdr,ek
+  USEION k READ ek WRITE ik
+  RANGE phin,gkdr
   RANGE taon,ninf
 }
 	
 PARAMETER {
   gkdr =   9 (mS/cm2)
-  ek   = -90 (mV)
+  :ek   = -90 (mV)
   phin = 5
 }
     
 ASSIGNED {
+  ek      (mV)
   v       (mV)
   ik      (mA/cm2)
   celsius (degC)
@@ -73,4 +74,4 @@ PROCEDURE rates(v(mV)) { LOCAL an, bn, q10
   taon = 1./((an+bn)*q10)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/139421_aux_fun.inc"

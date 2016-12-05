@@ -43,7 +43,7 @@ PARAMETER {
   ek
   v		(mV)
   celsius	= 36	(degC)
-  gmax	= 0.0	(mho/cm2)
+  gmax	= 1.0	(mho/cm2)
   exptemp= 23.5
   q10 = 3
 }

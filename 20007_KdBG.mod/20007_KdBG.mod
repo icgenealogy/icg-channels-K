@@ -13,7 +13,7 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX KdBG
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE  gbar,ik
 	GLOBAL xtau, ytau, xinf, yinf
 }
@@ -40,6 +40,7 @@ PARAMETER {
 }
 
 ASSIGNED {
+        ek      (mV)
 	v       (mV)
 	ik     	(mA/cm2)
 	xtau    (ms)
@@ -54,7 +55,7 @@ STATE { xs ys }
 
 BREAKPOINT { 
 	SOLVE states METHOD cnexp
-	ik= gbar * xs^4 * ys^4 * ( v + 95.0 ) 
+	ik= gbar * xs^4 * ys^4 * ( v - ek ) 
 }
 
 DERIVATIVE states {

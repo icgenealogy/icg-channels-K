@@ -19,7 +19,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gKsbar	:= 0.00014 (mho/cm2) <0,1e9>
+	gKsbar= 1.0	:= 0.00014 (mho/cm2) <0,1e9>
 	
 }
 

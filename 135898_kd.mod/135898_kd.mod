@@ -3,8 +3,8 @@ TITLE K-D
 
 NEURON {
 	SUFFIX kd
-	USEION k WRITE ik
-	RANGE  gkbar, ik, ek
+	USEION k READ ek WRITE ik
+	RANGE  gkbar, ik
 	GLOBAL minf, mtau, hinf, htau
 }
 
@@ -12,7 +12,7 @@ PARAMETER {
 	gkbar = 0.1   	(mho/cm2)	
 								
 	celsius
-	ek = -100	(mV)            : must be explicitly def. in hoc
+	:ek = -100	(mV)            : must be explicitly def. in hoc
 	v 		(mV)
 	vhalfm=-43  (mV)
 	km=8
@@ -30,6 +30,7 @@ UNITS {
 } 
 
 ASSIGNED {
+        ek (mV)
 	ik 		(mA/cm2)
 	minf 		mtau (ms)	 	
 	hinf 		htau (ms)	 	

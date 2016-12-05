@@ -15,7 +15,7 @@ UNITS {
  
 NEURON {
  	SUFFIX KAsm
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE gkasmbar, gkasm, minf, hinf, mtau, htau
 }
  
@@ -23,7 +23,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
  
 PARAMETER {
   	
-	ek	= -85	(mV)
+	:ek	= -85	(mV)
 	gkasmbar= 0.00032 (mho/cm2) :0.32mS
 	Etemp	= 22  : Delord correspondence 11/15/06 and fitting
 
@@ -45,6 +45,7 @@ STATE {
 }
  
 ASSIGNED {
+        ek (mV)
 	v  (mV)
         ik (mA/cm2)
 	celsius		(degC)

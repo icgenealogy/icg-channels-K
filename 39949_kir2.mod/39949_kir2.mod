@@ -21,9 +21,9 @@ ENDCOMMENT
 NEURON {
 	SUFFIX kir2
 	USEION k READ ek WRITE ik
-	RANGE gbar, g, i
+	RANGE gbar, g, i, mu
 	GLOBAL ninf, ntau
-	POINTER mu : hoc level DAsyn[i].msg--see dasyn.mod
+	:POINTER mu : hoc level DAsyn[i].msg--see dasyn.mod
 }
 
 UNITS {
@@ -39,6 +39,7 @@ PARAMETER {
 	vh = -111	(mV)	: half activation
 	ve = -11	(mV)	: slope
 	ntauconst = 0.1	(ms)	: n activates much faster than 100-1000 ms
+	mu = 1
 }
 
 ASSIGNED {
@@ -48,7 +49,7 @@ ASSIGNED {
 	ik	(mA/cm2)
 	ninf	(1)
 	ntau	(ms)
-	mu	(1)
+	:mu	(1)
 }
 
 STATE {
