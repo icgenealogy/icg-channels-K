@@ -10,7 +10,7 @@ ICG Class | [K](http://icg.neurotheory.ox.ac.uk/channels/1)
 
 ## Description
 
-This is a single channel model file that was originally part of a [published model on the ModelDB website](http://senselab.med.yale.edu/mModelDB/ShowModel.cshtml?model=97860).
+This is a single channel model file that was originally part of a [published model on the ModelDB website](http://senselab.med.yale.edu/ModelDB/ShowModel.cshtml?model=97860).
 
 
 The file [97860\_kv2\_hh.mod](97860_kv2_hh.mod) was extrated from [the ModelDB repository](http://senselab.med.yale.edu/ModelDB/ShowModel.cshtml?model=97860), and committed in its original form.
