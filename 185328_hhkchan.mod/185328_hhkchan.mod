@@ -6,7 +6,7 @@ NEURON {
 	SUFFIX HHk
 	USEION k READ ek WRITE ik
 	RANGE gkbar, ik
-	GLOBAL inf
+	GLOBAL inf, ek
 }
 
 UNITS {

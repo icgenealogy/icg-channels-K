@@ -43,6 +43,7 @@ NEURON {
     SUFFIX kap
     USEION k READ ek WRITE ik
     RANGE gbar,g, sh
+    GLOBAL ek
 :        GLOBAL ninf,linf,taul,taun,lmin
 }
 

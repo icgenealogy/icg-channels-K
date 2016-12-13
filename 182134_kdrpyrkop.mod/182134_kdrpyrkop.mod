@@ -22,8 +22,9 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX KdrPyrKop
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE gmax
+	GLOBAL ek
 }
 	
 UNITS {
@@ -74,4 +75,4 @@ PROCEDURE rates(v(mV)) { LOCAL an, bn
     taon = max(2.0,50.0*bn/(1.0+an))*1.0(ms)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/182134_aux_fun.inc"

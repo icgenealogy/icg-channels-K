@@ -15,6 +15,7 @@ NEURON {
 	SUFFIX iM
 	USEION k READ ek WRITE ik 
         RANGE gkbar, ikim, m_inf, tau_m, m, vshift
+	GLOBAL ek
 }
 
 UNITS {

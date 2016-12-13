@@ -7,10 +7,11 @@ TITLE Id and Ir currents of the Huber-Braun Model
 
 NEURON {
 	SUFFIX dr
-	USEION na READ ena WRITE ina
+	:USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
 	RANGE gd, gr
 	RANGE td, tr
+	GLOBAL ek
 }
 
 
@@ -27,6 +28,7 @@ PARAMETER {
     sd = 0.25       (/mV)
     sr = 0.25       (/mV)
     tr = 1.5         (ms)
+    ena = 50 (mV)
 }
 
 STATE {
@@ -35,10 +37,10 @@ STATE {
 
 ASSIGNED {
 	celsius	(degC)
-	ina     (mA/cm2)
+	:ina     (mA/cm2)
 	ik      (mA/cm2)
     v       (mV)
-	ena     (mV)
+	:ena=50     (mV)
     ek      (mV)
     rho     (1)
     arinf
@@ -54,7 +56,7 @@ BREAKPOINT {
 	SOLVE states METHOD cnexp
     rho = 1.3^((celsius - 25 (degC))/10(degC))
 	ad = 1/(1+exp(-sd*(v - V0d)))
-    ina = rho * gd * ad * (v - ena)
+    :ina = rho * gd * ad * (v - ena)
 	ik  = rho * gr * ar * (v - ek)
 }
 

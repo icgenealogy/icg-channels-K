@@ -12,7 +12,13 @@ ICG Class | [K](http://icg.neurotheory.ox.ac.uk/channels/1)
 
 This is a single channel model file that was originally part of a [published model on the ModelDB website](http://senselab.med.yale.edu/mModelDB/ShowModel.cshtml?model=181967).
 
+
 The file [181967\_hha\_old.mod](181967_hha_old_icgK.mod) was extrated from [the ModelDB repository](http://senselab.med.yale.edu/ModelDB/ShowModel.cshtml?model=181967), and committed as 181967\_hha\_old\_icgK.mod.
+
+The current version of the file was modified slighly for automatic evaluation by the [icg-nrn-sim](https://github.com/icgenealogy/icg-nrn-sim) tool. To find the original please check the git history.
+
+Since the original channel model *[181967\_hha\_old.mod](http://senselab.med.yale.edu/ModelDB/ShowModel.cshtml?model=181967)* contained several ionic currents, for the derived channel *181967\_hha\_old\_icgK.mod* we deactivated all currents except for one single remaining current.
+
 
 ## Usage
 

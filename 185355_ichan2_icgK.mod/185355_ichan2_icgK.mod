@@ -65,14 +65,15 @@ NEURON {
 SUFFIX ichan2
 
 : ION usage block
-USEION na READ ena WRITE ina VALENCE 1			: Na current
+:USEION na READ ena WRITE ina VALENCE 1			: Na current
 USEION k READ ek WRITE ik  				: K current
-NONSPECIFIC_CURRENT il, igabaa 				: leak current
+:NONSPECIFIC_CURRENT il, igabaa 				: leak current
 
 : range variable definition block,
 : i.e. variables that might change with space along a compartment / could be declared global in this case
 RANGE gnatbar, gkfbar, gksbar				: gbar values for Na, K(slow/fast)
 RANGE gl, el, ina, ik, il, ggabaa, igabaa, egabaa	: gbar and reversal poti for leak current	
+GLOBAL ek
 }
 
 : The INDEPENDENT statement was omitted; INDEPENDENT statements are irrelevant to NEURON. http://www.neuron.yale.edu/phpbb/viewtopic.php?f=16&t=2351 
@@ -88,8 +89,8 @@ PARAMETER {
         gnatbar (mho/cm2)   				: Na (gbar and reversal poti)
         ena  	(mV)	
 		
-	gkfbar 	(mho/cm2)				: K  (gbar(slow/fast), reversal is ek)
-	gksbar = 0 (mho/cm2)	                        : init to 0 (not included in BC, HIPP and MC) <ah>
+	gkfbar =1.0	(mho/cm2)				: K  (gbar(slow/fast), reversal is ek)
+	gksbar = 1.0 (mho/cm2)	                        : init to 0 (not included in BC, HIPP and MC) <ah>
         ek     	(mV)                      
 
 	gl 	(mho/cm2)    				: leak (gbar and reversal poti)
@@ -139,10 +140,10 @@ BREAKPOINT {
         gkf = gkfbar*nf*nf*nf*nf
         gks = gksbar*ns*ns*ns*ns
 
-        ina = gna*(v - ena)				: calculated currents flowing
+        :ina = gna*(v - ena)				: calculated currents flowing
        	ik = gkf*(v-ek) + gks*(v-ek)
-	il = gl*(v-el)
-	igabaa = ggabaa*(v-egabaa)
+	:il = gl*(v-el)
+	:igabaa = ggabaa*(v-egabaa)
 }
  
 : UNITSOFF

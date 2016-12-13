@@ -5,6 +5,7 @@ NEURON	{
 	SUFFIX Im
 	USEION k READ ek WRITE ik
 	RANGE gImbar, gIm, ik, offma, sloma, tauma, offmb, slomb, taumb
+	GLOBAL ek
 }
 
 UNITS	{

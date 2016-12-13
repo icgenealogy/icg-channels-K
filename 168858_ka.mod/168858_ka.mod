@@ -18,7 +18,7 @@ NEURON {
 	RANGE gbar, ik, vshift
 }
 PARAMETER { 
-	gbar = 0.0 	(mho/cm2)
+	gbar = 1.0 	(mho/cm2)
 	v ek 		(mV)  
         vshift = 0.0    (mV)
 } 

@@ -17,8 +17,8 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX Kdrbwb
-	USEION k WRITE ik
-	GLOBAL phin
+	USEION k READ ek WRITE ik
+	GLOBAL phin, ek
 }
 	
 UNITS {
@@ -73,4 +73,4 @@ PROCEDURE rates(v(mV)) { LOCAL an, bn, q10
     taon = 1./((an+bn)*q10)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/182134_aux_fun.inc"

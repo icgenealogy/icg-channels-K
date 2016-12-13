@@ -24,7 +24,7 @@ NEURON {
 	SUFFIX KPyr
 	USEION k READ ek WRITE ik
 	RANGE gbar, ik
-	GLOBAL  v_table_min, v_table_max,phin
+	GLOBAL  v_table_min, v_table_max,phin,ek
 }
 
 PARAMETER { 

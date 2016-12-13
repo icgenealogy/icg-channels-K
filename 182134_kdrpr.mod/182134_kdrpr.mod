@@ -19,8 +19,9 @@ ENDCOMMENT
 NEURON {
 
 	SUFFIX kdrpr
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE gkdr, ik
+	GLOBAL ek
 }
 	
 UNITS {
@@ -75,4 +76,4 @@ PROCEDURE rates(v(mV)) { LOCAL a, b
     taun = 1.0/(a+b)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/182134_aux_fun.inc"

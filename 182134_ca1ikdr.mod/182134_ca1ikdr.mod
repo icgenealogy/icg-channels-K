@@ -7,7 +7,8 @@ UNITS {
  
 NEURON {
 	SUFFIX kdrcurrent
-	NONSPECIFIC_CURRENT ik
+	:NONSPECIFIC_CURRENT ik
+	USEION k READ ek WRITE ik
 	RANGE g, e
 }
  
@@ -16,6 +17,7 @@ PARAMETER {
         celsius		(degC)
         g= 0.010		(mho/cm2)
         e= -90		(mV)
+	ek (mV)
 }
  
 STATE {
@@ -30,7 +32,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        ik=g*n*(v-e)      
+        ik=g*n*(v-ek)      
 }
  
 DERIVATIVE states { 

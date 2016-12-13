@@ -24,11 +24,11 @@ UNITS {
 ? interface
 NEURON {
         SUFFIX hh1
-        USEION na READ ena WRITE ina
+        :USEION na READ ena WRITE ina
         USEION k READ ek WRITE ik
-        NONSPECIFIC_CURRENT il
+        :NONSPECIFIC_CURRENT il
         RANGE gnabar, gkbar, gl, el, gna, gk
-        GLOBAL minf, hinf, ninf, mtau, htau, ntau
+        GLOBAL minf, hinf, ninf, mtau, htau, ntau, ek
 }
  
 PARAMETER {
@@ -63,10 +63,10 @@ LOCAL mexp, hexp, nexp
 BREAKPOINT {
         SOLVE states METHOD cnexp
         gna = gnabar*m*m*m*h
-	    ina = (1e-4)*gna*(v - ena)
+	:    ina = (1e-4)*gna*(v - ena)
         gk = gkbar*n*n*n*n
 	    ik = (1e-4)*gk*(v - ek)      
-        il = gl*(v - el)
+        :il = gl*(v - el)
 }
  
  

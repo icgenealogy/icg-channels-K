@@ -12,7 +12,7 @@ ENDCOMMENT
 NEURON {
 	SUFFIX erg
 	USEION k READ ek WRITE ik
-	NONSPECIFIC_CURRENT i
+	:NONSPECIFIC_CURRENT i
 	RANGE gbar, g, ik, i, igate, nc, ca, cva, cka, cb, cvb, ckb, vth, delay, vhalf, vslope, vhalfhat, vslopehat
 	GLOBAL ninf, tau
 	GLOBAL gateCurrent, gunit

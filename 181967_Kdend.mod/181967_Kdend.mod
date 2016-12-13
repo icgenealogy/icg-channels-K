@@ -21,7 +21,7 @@ PARAMETER {
         celsius = 24 (degC)
         dt (ms)
         gkdend = .0230 (mho/cm2)
-        ek = -100 (mV)
+        :ek = -100 (mV)
 }
  
 STATE {
@@ -33,6 +33,7 @@ ASSIGNED {
         ninf 
 	nexp 
 	ntau (ms)
+	ek (mV)
 }
  
 INITIAL {

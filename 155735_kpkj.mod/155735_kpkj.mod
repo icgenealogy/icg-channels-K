@@ -5,7 +5,7 @@ NEURON {
     SUFFIX kpkj
     USEION k READ ek WRITE ik
     RANGE gkbar, ik, gk
-    GLOBAL minf, hinf, mtau, htau
+    GLOBAL minf, hinf, mtau, htau, ek
 }
 
 UNITS {

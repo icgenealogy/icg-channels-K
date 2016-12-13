@@ -8,6 +8,7 @@ NEURON	{
 	SUFFIX K_Pst
 	USEION k READ ek WRITE ik
 	RANGE gK_Pstbar, gK_Pst, ik
+	GLOBAL ek
 }
 
 UNITS	{

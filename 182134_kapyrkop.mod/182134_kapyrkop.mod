@@ -22,7 +22,7 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX KaPyrKop
-	USEION k WRITE ik
+	USEION k READ ek WRITE ik
 	RANGE  ck, dk, ek, fk, gmax, ik, atau, btau, ainf, binf
 }
 	
@@ -33,7 +33,7 @@ UNITS {
 }
 
 PARAMETER {
-    gmax =    0.0 (mS/cm2)
+    gmax =    1.0 (mS/cm2)
     erev =  -90.0 (mV)
     ck   =    0.0 (1)
     dk   =    0.0 (1)
@@ -90,4 +90,4 @@ PROCEDURE rates(v (mV)) { LOCAL aa, ba
 }
 
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/182134_aux_fun.inc"

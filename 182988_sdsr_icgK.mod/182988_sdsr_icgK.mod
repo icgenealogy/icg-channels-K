@@ -8,9 +8,10 @@ TITLE Isd and Isr currents of the Huber-Braun Model
 
 NEURON {
 	SUFFIX sdsr
-	USEION na READ ena WRITE ina
+	:USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
 	RANGE gsd, gsr, isd
+	GLOBAL ek
 }
 
 
@@ -30,6 +31,7 @@ PARAMETER {
     tsr = 24        (ms)
 	n = 2
 	Kd = 0.4	
+    ena = 50 (mV)
 }
 
 STATE {
@@ -39,11 +41,11 @@ STATE {
 
 ASSIGNED {
 	celsius	(degC)
-	ina     (mA/cm2)
+	:ina     (mA/cm2)
 	ik      (mA/cm2)
     v       (mV)
     rho     (1)
-    ena     (mV)
+    :ena = 50    (mV)
     ek      (mV)
     isd     (mA/cm2)
 }
@@ -59,7 +61,7 @@ BREAKPOINT {
 	SOLVE states METHOD cnexp
     rho = 1.3^((celsius - 25 (degC))/10(degC))
 	isd = rho * gsd * asd * (v - ena)
-	ina = isd
+	:ina = isd
 	ik  = rho * gsr * (v - ek) * asr^n /(Kd^n + asr^n)
 }
 

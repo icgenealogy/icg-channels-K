@@ -8,9 +8,9 @@ TITLE HH channel that includes both a sodium and a delayed rectifier channel
 
 NEURON {
 	SUFFIX hha_old
-	USEION na READ ena WRITE ina 
+	:USEION na READ ena WRITE ina 
 	USEION k READ ek WRITE ik
-	NONSPECIFIC_CURRENT il
+	:NONSPECIFIC_CURRENT il
 	RANGE gnabar, gkbar, gl, el
 	RANGE ar2, vhalfs
 	RANGE inf, fac, tau
@@ -42,7 +42,7 @@ PARAMETER {   : parameters that can be entered when function is called in cell-s
 :	gkbar = 0.12 (mho/cm2)
 :	gl = 0.0001  (mho/cm2)
         gnabar = 0   (mho/cm2)  :initialized conductances
-	gkbar = 0    (mho/cm2)  :actual values set in cell-setup.hoc
+	gkbar = 1.0    (mho/cm2)  :actual values set in cell-setup.hoc
 	gl = 0       (mho/cm2)
 	ena = 60     (mV)       :Na reversal potential (also reset in
 	ek = -77     (mV)       :K reversal potential  cell-setup.hoc)
@@ -57,9 +57,9 @@ STATE {                         : the unknown parameters to be solved in the DEs
 }
 
 ASSIGNED {			: parameters needed to solve DE
-	ina (mA/cm2)
+	:ina (mA/cm2)
 	ik (mA/cm2)
-	il (mA/cm2)
+	:il (mA/cm2)
 	inf[4]
 	fac[4]
 	tau[4]
@@ -67,17 +67,17 @@ ASSIGNED {			: parameters needed to solve DE
 
 BREAKPOINT {
 	SOLVE states
-	ina = gnabar*m*m*h*s*(v - ena) :Sodium current
+	:ina = gnabar*m*m*h*s*(v - ena) :Sodium current
 	ik = gkbar*n*n*(v - ek)        :Potassium current
-	il = gl*(v - el)               :leak current
+	:il = gl*(v - el)               :leak current
 }
 
 INITIAL {                       : initialize the following parameter using states()
 	states()
 	s=1
-	ina = gnabar*m*m*h*s*(v - ena)
+	:ina = gnabar*m*m*h*s*(v - ena)
 	ik = gkbar*n*n*(v - ek)
-	il = gl*(v - el)
+	:il = gl*(v - el)
 }
 
 PROCEDURE calcg() {

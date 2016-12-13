@@ -5,7 +5,7 @@ NEURON {
 	SUFFIX kpkjslow
 	USEION k READ ek WRITE ik
 	RANGE gkbar, ik
-	GLOBAL ninf, ntau
+	GLOBAL ninf, ntau, ek
 }
 
 UNITS {

@@ -22,9 +22,10 @@ UNITS {
 ? interface 
 NEURON { 
 SUFFIX ichan2 
-USEION kf READ ekf WRITE ikf  VALENCE 1
-USEION ks READ eks WRITE iks  VALENCE 1
-NONSPECIFIC_CURRENT il 
+:USEION kf READ ekf WRITE ikf  VALENCE 1
+:USEION ks READ eks WRITE iks  VALENCE 1
+USEION k READ ek WRITE ik
+:NONSPECIFIC_CURRENT il 
 RANGE  gkf, gks
 RANGE gkfbar, gksbar
 RANGE gl, el
@@ -38,9 +39,9 @@ PARAMETER {
         celsius = 6.3 (degC)
         dt (ms) 
         ekf  (mV)
-	gkfbar (mho/cm2)
+	gkfbar = 1.0 (mho/cm2)
         eks  (mV)
-	gksbar (mho/cm2)
+	gksbar = 1.0 (mho/cm2)
 	gl (mho/cm2)    
  	el (mV)
 }
@@ -50,13 +51,13 @@ STATE {
 }
  
 ASSIGNED {
-         
+        ek (mV) 
         gkf (mho/cm2)
         gks (mho/cm2)
 
         ikf (mA/cm2)
         iks (mA/cm2)
-
+	ik (mA/cm2)
 
 	il (mA/cm2)
 
@@ -72,6 +73,7 @@ BREAKPOINT {
         ikf = gkf*(v-ekf)
         gks = gksbar*ns*ns*ns*ns
         iks = gks*(v-eks)
+	ik = iks
 
 	il = gl*(v-el)
 }

@@ -53,7 +53,7 @@ NEURON {
 	SUFFIX kir 			
 	USEION k READ ek WRITE ik	
         RANGE  ik, gkbar, vhalfl, kl, vhalft, at, bt, q10 
-        GLOBAL linf,taul
+        GLOBAL linf,taul,ek
 }
 
 

@@ -18,7 +18,7 @@ NEURON {
 }
 
 PARAMETER {
-           gbar=0.0    (mho/cm2)
+           gbar=1.0    (mho/cm2)
            Vkd = 10.0  (mV)
            a1 =0.25    (ms)
            b1 = 4.35   (ms)

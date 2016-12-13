@@ -7,6 +7,7 @@ NEURON	{
 	SUFFIX K_Tst
 	USEION k READ ek WRITE ik
 	RANGE gK_Tstbar, gK_Tst, ik
+	GLOBAL ek
 }
 
 UNITS	{

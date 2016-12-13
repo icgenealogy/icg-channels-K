@@ -5,7 +5,7 @@ NEURON {
     SUFFIX kpkjslow_cn
     USEION k READ ek WRITE ik
     RANGE gkbar, ik
-    GLOBAL ninf, ntau
+    GLOBAL ninf, ntau, ek
     : channel noise - start
     RANGE gk, gamma_k
     RANGE Nk, one_over_Nk

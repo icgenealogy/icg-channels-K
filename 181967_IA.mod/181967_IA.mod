@@ -56,7 +56,7 @@ PARAMETER {
         p = 5 (degC)
         dt (ms)
         gkAbar = 0.0165 (mho/cm2)	:from Martina et al.
-        ek = -90 (mV)
+        :ek = -90 (mV)
 	tau_a = 5 (ms)
 }
  
@@ -68,6 +68,7 @@ ASSIGNED {
         ik (mA/cm2)
 	ainf binf aexp bexp
 	tau_b
+	ek (mV)
 }
  
 BREAKPOINT {

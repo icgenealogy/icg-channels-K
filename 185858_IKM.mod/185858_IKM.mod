@@ -23,7 +23,7 @@ NEURON {
 	SUFFIX im
 	USEION k READ ek WRITE ik
         RANGE gkbar, m_inf, tau_m
-	GLOBAL taumax
+	GLOBAL taumax,ek
 
 }
 

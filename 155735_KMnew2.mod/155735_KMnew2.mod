@@ -12,8 +12,9 @@ UNITS {
  
 NEURON {
         SUFFIX KMnew2
-        USEION k  WRITE ik
+        USEION k READ ek WRITE ik
         RANGE  gkbar, gk, minf,  mexp, ik
+	GLOBAL ek
 } 
 
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
@@ -23,7 +24,7 @@ PARAMETER {
         celsius = 37 (degC)
         dt (ms)
         gkbar   = .00004 (mho/cm2)
-        ek      = -85 (mV)
+        ek     (mV)
 
 }
  
