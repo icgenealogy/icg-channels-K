@@ -8,7 +8,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 NEURON {
 	SUFFIX kLT_VCN2003
 	USEION k READ ek WRITE ik
-	RANGE gkbar 
+	RANGE gbar 
 	RANGE w_inf,z_inf
 	RANGE tau_w,tau_z
 	RANGE w_exp,z_exp
@@ -23,7 +23,7 @@ UNITS {
 }
 
 PARAMETER {
-	gkbar	= 0.04	(mho/cm2)  
+	gbar	= 0.04	(mho/cm2)  
 	ek=-70		(mV) 
 	celsius =22		(degC)
 	dt              (ms)
@@ -50,7 +50,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states
-	gk=gkbar *w^4*z
+	gk=gbar *w^4*z
 	ik  = gk*(v-ek)
 }
 

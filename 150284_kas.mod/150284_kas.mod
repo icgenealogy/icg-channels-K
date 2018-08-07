@@ -21,11 +21,11 @@ UNITS {
 NEURON {
         SUFFIX kas
         USEION k READ ek WRITE ik
-        RANGE  gkbar, ik
+        RANGE  gbar, ik
 }
  
 PARAMETER {
-    gkbar   =   0.01 (mho/cm2)	: 0.01 soma&prox; 0.00091483 mid&dist
+    gbar   =   0.01 (mho/cm2)	: 0.01 soma&prox; 0.00091483 mid&dist
 
 	qfact = 9				: qfact = 3 after equations were set but before 
 							:	temp correction for fig 6E; QF = 9 is 35 degC
@@ -77,7 +77,7 @@ INITIAL {
 
 BREAKPOINT {
         SOLVE state METHOD cnexp
-        gk = gkbar * m * m * (a*h + (1-a)) 
+        gk = gbar * m * m * (a*h + (1-a)) 
         ik = gk * ( v - ek )
 }
 

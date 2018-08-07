@@ -3,7 +3,7 @@
 NEURON {
 	SUFFIX im
 	USEION k READ ek WRITE ik
-	RANGE gmbar, gm
+	RANGE gbar, gm
 	RANGE inf, tau
 }
 
@@ -13,7 +13,7 @@ UNITS {
 }
 
 PARAMETER {
-	gmbar = 0.0003 (siemens/cm2) <0,1e9>
+	gbar = 0.0003 (siemens/cm2) <0,1e9>
 }
 
 ASSIGNED {
@@ -31,7 +31,7 @@ STATE {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	gm = gmbar*n*n
+	gm = gbar*n*n
 	ik = gm*(v-ek)
 }
 

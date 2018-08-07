@@ -25,7 +25,7 @@ SUFFIX ichan2
 :NONSPECIFIC_CURRENT il 
 USEION k READ ek WRITE ik
 RANGE  gnat, gkf, gks
-RANGE gnatbar, gkfbar, gksbar
+RANGE gnatbar, gkfbar, gbar
 RANGE gl, el
 RANGE minf, mtau, hinf, htau, nfinf, nftau, inat, ikf, nsinf, nstau, iks
 GLOBAL ek
@@ -42,7 +42,7 @@ PARAMETER {
         ekf  (mV)
 	gkfbar =1.0 (mho/cm2)
         eks  (mV)
-	gksbar =1.0 (mho/cm2)
+	gbar =1.0 (mho/cm2)
 	gl (mho/cm2)    
  	el (mV)
 }
@@ -76,7 +76,7 @@ BREAKPOINT {
         :inat = gnat*(v - enat)
         gkf = gkfbar*nf*nf*nf*nf
         ik = gkf*(v-ekf)
-        :gks = gksbar*ns*ns*ns*ns
+        :gks = gbar*ns*ns*ns*ns
         :ik = gks*(v-eks)
 
 	:il = gl*(v-el)

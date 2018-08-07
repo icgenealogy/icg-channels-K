@@ -11,7 +11,7 @@ PARAMETER {
 	v (mV)
         ek		 (mV)
 	celsius		(degC)
-	gkdrbar=.003 (mho/cm2)
+	gbar=.003 (mho/cm2)
         vhalfn=-32   (mV)
         vhalfl=-61   (mV)
         a0l=0.001      (/ms)
@@ -26,7 +26,7 @@ PARAMETER {
 NEURON {
 	SUFFIX borgkdr
 	USEION k READ ek WRITE ik
-        RANGE gkdrbar,gkdr
+        RANGE gbar,gkdr
         GLOBAL ninf,linf,taun,taul,ek
 }
 
@@ -52,7 +52,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	gkdr = gkdrbar*n^3*l
+	gkdr = gbar*n^3*l
 	ik = gkdr*(v-ek)
 
 }

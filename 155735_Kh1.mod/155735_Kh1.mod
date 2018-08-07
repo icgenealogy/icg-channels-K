@@ -17,7 +17,7 @@ UNITS {
 NEURON {
         SUFFIX Kh1
         USEION k READ ek WRITE ik
-        RANGE  gkbar, gk, minf, mexp, nexp, ik
+        RANGE  gbar, gk, minf, mexp, nexp, ik
 	GLOBAL ek
 } 
  
@@ -27,7 +27,7 @@ PARAMETER {
         v (mV)
         celsius = 37 (degC)
         dt (ms)
-        gkbar   = .0003 (mho/cm2)
+        gbar   = .0003 (mho/cm2)
         ek      (mV)
 
 }
@@ -43,7 +43,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states
-        gk = gkbar *m
+        gk = gbar *m
         ik = gk* (v-ek)
 }
  

@@ -100,7 +100,7 @@ INITIAL {
 BREAKPOINT {
         SOLVE states METHOD cnexp
         gk = tadj*gbar*a*a*(0.5*b+0.5*b1)
-	  ik = (1e-4) * gk * (v - ek)
+	  ik = 1 * gk * (v - ek)
 } 
 
 LOCAL aexp, bexp,b1exp, z 

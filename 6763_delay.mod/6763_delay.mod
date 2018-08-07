@@ -18,7 +18,7 @@ INDEPENDENT {v FROM -100 TO 50 WITH 50 (mV)}
 NEURON {
 	SUFFIX delay
 	USEION k READ ek WRITE ik
-	RANGE  ik,gkbar,slope,vhalf
+	RANGE  ik,gbar,slope,vhalf
         GLOBAL ninf
  
 }
@@ -26,7 +26,7 @@ NEURON {
 
 PARAMETER {
         dt (ms)
-        gkbar = 800  (uS/cm2)
+        gbar = 800  (uS/cm2)
         :ek =  -100 (mV)
         celsius = 35  (degC)
         vhalf = 10 (mV) 
@@ -44,7 +44,7 @@ ASSIGNED {
 
 BREAKPOINT {
         ninf= 1/(1+ exp((vhalf-v)/slope))
-	ik = (0.000001)*ninf*gkbar*(v-ek)
+	ik = (0.000001)*ninf*gbar*(v-ek)
 }
 
 

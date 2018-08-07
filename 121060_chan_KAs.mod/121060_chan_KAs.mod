@@ -3,7 +3,7 @@ TITLE KAs channel
 NEURON {
 	SUFFIX KAs
 	USEION  k READ ek WRITE ik
-	RANGE gmax, g, ik
+	RANGE gbar, g, ik
 	GLOBAL minf, mtau, hinf, htau
 }
 
@@ -15,7 +15,7 @@ UNITS {
 }
 
 PARAMETER {
-	gmax = 9.51e-4	(mho/cm2)	<0,1e9> : for middle and distal dendrites
+	gbar = 9.51e-4	(mho/cm2)	<0,1e9> : for middle and distal dendrites
 	ek	        (mV)
 	m_vh = -27	(mV)	: half activation
 	m_ve = -16	(mV)	: slope
@@ -44,7 +44,7 @@ STATE {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	g = gmax*m*m*(a*h+(1-a))
+	g = gbar*m*m*(a*h+(1-a))
 	ik = g*(v - ek)
 }
 

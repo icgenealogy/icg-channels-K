@@ -17,7 +17,7 @@ NEURON {
 	RANGE gl, el, ilk                                      : leak
 	RANGE gcatbar, eca, p_inf, tau_p, q_inf, tau_q	       : T-type ca current
 	RANGE gcalbar, eca, c_inf, d1_inf, d2_inf, tau_c, tau_d1, tau_d2, icaT, icaL  : L-type ca current
-	RANGE gkabar, ek, a_inf, tau_a, b_inf, tau_b, ikA      : A-type K current
+	RANGE gbar, ek, a_inf, tau_a, b_inf, tau_b, ikA      : A-type K current
 	RANGE gkcabar, ek, r_inf, ikAHP                        : ca dependent AHP K current
       RANGE kca, vol, caGain                                 : ca dynamics
 }
@@ -118,7 +118,7 @@ PARAMETER {
 	tau_d2 = 130 (ms)
 
 :A current
-	gkabar  = 5e-3	(S/cm2)  
+	gbar  = 5e-3	(S/cm2)  
 	theta_a = -45 (mV)
 	theta_b = -90 (mV) 
 	k_a = -14.7 (mV)    
@@ -218,7 +218,7 @@ BREAKPOINT {
 
 	ina   = gnabar * m*m*m*h * (v - ena)
 	ikD   = gkdrbar * n^4 * (v - ek)
-	ikA   = gkabar * a*a*b * (v - ek)
+	ikA   = gbar * a*a*b * (v - ek)
 	ikAHP   = gkcabar * (v - ek)*r^(power_r)
 	ik=ikA :+ikAHP
 	icaT   = gcatbar * p*p*q * (v - eca)

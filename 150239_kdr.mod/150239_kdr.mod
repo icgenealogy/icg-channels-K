@@ -19,7 +19,7 @@ UNITS {
 NEURON {
         SUFFIX kdr
         USEION k READ ek WRITE ik
-        RANGE gkdr,gkdrbar,ik
+        RANGE gkdr,gbar,ik
         RANGE ninf,taun
         GLOBAL nscale
 }
@@ -32,7 +32,7 @@ PARAMETER {
 
         temp    = 24            (degC)
 
-        gkdrbar = 0.003         (mho/cm2)
+        gbar = 0.003         (mho/cm2)
 
         vhalfn  = 13            (mV)
         a0n     = 0.02          (/ms)
@@ -58,13 +58,13 @@ ASSIGNED {
 INITIAL {
         rates(v)
         n=ninf
-        gkdr = gkdrbar*n
+        gkdr = gbar*n
         ik = gkdr*(v-ek)
 }        
 
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gkdr = gkdrbar*n
+        gkdr = gbar*n
         ik = gkdr*(v-ek)
 }
 

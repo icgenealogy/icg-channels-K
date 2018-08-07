@@ -4,7 +4,7 @@
 NEURON {
     SUFFIX kpkj_cn
     USEION k READ ek WRITE ik
-    RANGE gkbar, ik
+    RANGE gbar, ik
     GLOBAL minf, hinf, mtau, htau, ek
     : channel noise - start
     RANGE gk, gamma_k
@@ -24,7 +24,7 @@ UNITS {
 }
 
 PARAMETER {
-    gkbar = .004 (mho/cm2)
+    gbar = .004 (mho/cm2)
     
     mivh = -24 (mV)
     mik = 15.4 (1)
@@ -84,7 +84,7 @@ INITIAL {
     h = hinf
     
     : channel noise - start
-    Nk = ceil(((1e-8)*area)*(gkbar)/((1e-12)*gamma_k))
+    Nk = ceil(((1e-8)*area)*(gbar)/((1e-12)*gamma_k))
     one_over_Nk = 1.0 / Nk
     printf("kpkj>> the number of channels is %.0f.\n", Nk)
     z1_kpkj = 0.0
@@ -100,12 +100,12 @@ INITIAL {
 
 BREAKPOINT {
     SOLVE states
-    gk = gkbar * (m*m*m*h + z1_kpkj+z2_kpkj+z3_kpkj+z4_kpkj+z5_kpkj+z6_kpkj+z7_kpkj)
+    gk = gbar * (m*m*m*h + z1_kpkj+z2_kpkj+z3_kpkj+z4_kpkj+z5_kpkj+z6_kpkj+z7_kpkj)
     if (gk < 0) {
 	gk = 0
     }
-    else if (gk > gkbar) {
-	gk = gkbar
+    else if (gk > gbar) {
+	gk = gbar
     }
     ik = gk * (v - ek)
 }

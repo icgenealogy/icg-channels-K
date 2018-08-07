@@ -22,12 +22,12 @@ NEURON {
     THREADSAFE
     SUFFIX KIn                                                                                           :   KIn   
     USEION k READ ek WRITE ik                                                            :   local K may affect ion flux, and ion fluc may affect local K
-    RANGE gkbar, gk, scale_a, scale_i                                                                                  :   functions of position  
+    RANGE gbar, gk, scale_a, scale_i                                                                                  :   functions of position  
     GLOBAL ninf, ntau, hinf, htau
 }
  
 PARAMETER {
-    gkbar = 1.0 (mho/cm2)	 <0,1e9>   :   so these parameter are viewed and can be changed in GUI 
+    gbar = 1.0 (mho/cm2)	 <0,1e9>   :   so these parameter are viewed and can be changed in GUI 
     scale_a = 1.0
     scale_i = 1.0
 }
@@ -53,7 +53,7 @@ ASSIGNED {
 ? currents
 BREAKPOINT {                                      : this block is responsible for making all variables consistent at time t 
     SOLVE states METHOD cnexp
-    gk = gkbar*n*n*n*n*h
+    gk = gbar*n*n*n*n*h
     ik = gk*(v - ek)      
 }
  

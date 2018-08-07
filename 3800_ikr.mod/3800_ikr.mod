@@ -17,7 +17,8 @@ UNITS {
 }
 
 PARAMETER {
-	 gKr=0.0588e-3 (S/cm2) <0,1e9>
+	 :gKr=0.0588e-3 (S/cm2) <0,1e9>
+	 gKr=1.0 (S/cm2) <0,1e9>
 	Tauact=1 (ms)
 	
 }

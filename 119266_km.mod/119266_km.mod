@@ -62,7 +62,7 @@ INITIAL {
 BREAKPOINT {
         SOLVE states METHOD cnexp
  	ik = tadj* gbar*n * (v - ek)
-:	ik = (1e-4) *tadj* gbar*n * (v - ek)
+:	ik = 1 *tadj* gbar*n * (v - ek)
 }
 
 

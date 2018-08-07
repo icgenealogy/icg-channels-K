@@ -10,7 +10,7 @@ ENDCOMMENT
 NEURON { 
 	SUFFIX Golgi_KM 
 	USEION k READ ek WRITE ik 
-	RANGE gkbar, ik, g
+	RANGE gbar, ik, g
 	:RANGE Aalpha_n, Kalpha_n, V0alpha_n, alpha_n, beta_n 
 	:RANGE Abeta_n, Kbeta_n, V0beta_n
 	:RANGE V0_ninf, B_ninf
@@ -34,7 +34,7 @@ PARAMETER {
 	V0_ninf = -35 (mV)
 	B_ninf =  6 (mV)
 	
-	gkbar= 0.001 (mho/cm2)
+	gbar= 0.001 (mho/cm2)
 	ek   (mV)
 	celsius (degC) 
 	Q10 = 3	(1) 
@@ -62,7 +62,7 @@ INITIAL {
  
 BREAKPOINT { 
 	SOLVE states METHOD derivimplicit 
-	g = gkbar*n 
+	g = gbar*n 
 	ik = g*(v - ek) 
 	alpha_n = alp_n(v) 
 	beta_n = bet_n(v) 

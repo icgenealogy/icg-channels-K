@@ -8,7 +8,7 @@ NEURON
 	:USEION Kv WRITE iKv VALENCE 1
 	USEION k READ ek WRITE ik	
 	
-        RANGE  gKvbar
+        RANGE  gbar
 	
 }
 
@@ -23,7 +23,7 @@ UNITS
 PARAMETER
 {
         : potassium delayed rectifier (originally was 2 mS/cm2, -80 mV)
-        gKvbar = 36 (mS/cm2) <0,1e9> :was 1
+        gbar = 36 (mS/cm2) <0,1e9> :was 1
         :eKv = -80 (mV) :was -74mV
 
 }
@@ -61,7 +61,7 @@ INITIAL
 BREAKPOINT
 {
 	SOLVE states METHOD cnexp
-	gKv = (0.001)*gKvbar*mKv*mKv*mKv*mKv
+	gKv = (0.001)*gbar*mKv*mKv*mKv*mKv
 	ik = gKv*(v - ek)
 }
 

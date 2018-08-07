@@ -10,7 +10,7 @@ NEURON {
 	USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
 	NONSPECIFIC_CURRENT il
-	RANGE gnabar, gkbar, gl, el
+	RANGE gnabar, gbar, gl, el
 	GLOBAL taus,taun,taum,tauh,tausb
 	GLOBAL tausv,tausd,mN,nN
 }
@@ -27,7 +27,7 @@ PARAMETER {
 	celsius = 37	(degC)
 	dt (ms)
 	gnabar=0.0 (mho/cm2)
-	gkbar=.12 (mho/cm2)
+	gbar=.12 (mho/cm2)
 	gl=0.0 (mho/cm2)
 	ena = 40 (mV)
 	ek = -80 (mV)
@@ -56,10 +56,10 @@ BREAKPOINT {
 	SOLVE states
 
 	ina = gnabar*h*s*(v - ena)*m^mN
-	ik = gkbar*(v - ek)*n^nN
+	ik = gbar*(v - ek)*n^nN
 
 :ina = gnabar*m*m*h*(v - ena)
-:ik = gkbar*n*n*(v - ek)
+:ik = gbar*n*n*(v - ek)
 	il = gl*(v - el)
 }
 

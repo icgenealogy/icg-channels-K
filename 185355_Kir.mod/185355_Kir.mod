@@ -31,7 +31,7 @@ UNITS {
 
 PARAMETER {
 	v 		(mV)
-	gkbar  = 1.44e-05	(S/cm2) 	: to be fitted     	
+	gbar  = 1.44e-05	(S/cm2) 	: to be fitted     	
 
 	: Boltzman steady state curve	
         vhalfl = -98.92  (mV)    		: fitted to patch data, Stegen et al. 2012
@@ -52,7 +52,7 @@ PARAMETER {
 NEURON {
 	SUFFIX kir 			
 	USEION k READ ek WRITE ik	
-        RANGE  ik, gkbar, vhalfl, kl, vhalft, at, bt, q10 
+        RANGE  ik, gbar, vhalfl, kl, vhalft, at, bt, q10 
         GLOBAL linf,taul,ek
 }
 
@@ -78,7 +78,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp	: solve differential equations in states with method 'cnexp'
-	gk = gkbar*l			: use state l to calulate gk
+	gk = gbar*l			: use state l to calulate gk
         ik = gk * ( v - ek )		: calculate ik 
 }
 

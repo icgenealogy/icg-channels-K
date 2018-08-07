@@ -116,7 +116,7 @@ BREAKPOINT {
     } else{                                           
       gka = strap(N1L1) * scale_dens
     }
-    ik = gka*(v-ek)*(1e-4)
+    ik = gka*(v-ek)*1
 }
 
 

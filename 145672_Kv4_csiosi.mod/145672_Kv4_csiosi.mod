@@ -7,7 +7,7 @@
 NEURON {
 	SUFFIX kv4csiosi
 	USEION k READ ek WRITE ik
-        RANGE g, gmax				
+        RANGE g, gbar				
 }
 
 UNITS {
@@ -16,7 +16,7 @@ UNITS {
 } 
 
 PARAMETER {
-      	gmax = 1.00	(mho/cm2)		
+      	gbar = 1.00	(mho/cm2)		
       	celsius 	(deg C)			
       	F = 9.6485e4 				:Faraday constant
       	R = 8.3145e3 				:Gas constant
@@ -90,7 +90,7 @@ ASSIGNED {
 STATE { C0 C1 C2 C3 C4 C5 I0 I1 I2 I3 I4 I5 O I6 I7 }
 BREAKPOINT {
       SOLVE states METHOD sparse
-      g = gmax * O
+      g = gbar * O
       ik = g * (v - ek)
 }
 

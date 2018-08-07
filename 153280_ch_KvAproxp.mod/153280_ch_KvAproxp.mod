@@ -11,7 +11,7 @@ UNITS {
 PARAMETER {
 	v (mV)
 	celsius		(degC)
-	gmax=.008 (mho/cm2)
+	gbar=.008 (mho/cm2)
 	vhalfn=11   (mV)
 	vhalfl=-56   (mV)
 	a0l=0.05      (/ms)
@@ -35,7 +35,7 @@ PARAMETER {
 NEURON {
 	SUFFIX ch_KvAproxp
 	USEION k READ ek WRITE ik
-	RANGE gmax, myi, e
+	RANGE gbar, myi, e
 	GLOBAL ninf,linf,taul,taun,lmin
 }
 
@@ -63,7 +63,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	g = gmax*n*l
+	g = gbar*n*l
 	ik = g*(v-ek)
 	myi = ik
 }

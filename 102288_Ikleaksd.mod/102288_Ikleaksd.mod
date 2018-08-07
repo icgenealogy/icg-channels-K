@@ -13,7 +13,8 @@ NEURON {
                                                                                 
 PARAMETER {
 	v		(mV)
-        gkl = .001        (mho/cm2)
+        :gkl = .001        (mho/cm2)
+        gkl = 1.0        (mho/cm2)
         ek = -70      (mV)
 }
                                                                                 

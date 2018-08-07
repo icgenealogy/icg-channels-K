@@ -12,7 +12,7 @@ UNITS {
 NEURON {
         SUFFIX Kaxon
         USEION k READ ek WRITE ik
-        RANGE gkaxon, ik
+        RANGE gbar, ik
         GLOBAL ninf, nexp, ntau
 }
  
@@ -22,7 +22,7 @@ PARAMETER {
         v (mV)
         celsius = 24 (degC)
         dt (ms)
-        gkaxon = .0319 (mho/cm2)
+        gbar = .0319 (mho/cm2)
         ek = -100 (mV)
 }
  
@@ -43,7 +43,7 @@ INITIAL {
 
 BREAKPOINT {
         SOLVE states
-	ik = gkaxon*n*n*n*n*(v - ek)    
+	ik = gbar*n*n*n*n*(v - ek)    
 }
 
 PROCEDURE states() {	:exact when v held constant

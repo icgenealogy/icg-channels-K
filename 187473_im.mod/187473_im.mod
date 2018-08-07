@@ -14,7 +14,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 NEURON {
 	SUFFIX iM
 	USEION k READ ek WRITE ik 
-        RANGE gkbar, ikim, m_inf, tau_m, m, vshift
+        RANGE gbar, ikim, m_inf, tau_m, m, vshift
 	GLOBAL ek
 }
 
@@ -28,7 +28,7 @@ PARAMETER {
 	celsius		(degC)
         dt              (ms)
 	ek		(mV)
-	gkbar= 0.00031	(mho/cm2)
+	gbar= 0.00031	(mho/cm2)
 	vshift = 0 	(mV)
 }
 
@@ -47,7 +47,7 @@ ASSIGNED {
 
 BREAKPOINT { 
 	SOLVE states :METHOD euler
-	ik = gkbar * m * (v-ek)
+	ik = gbar * m * (v-ek)
 	ikim = ik
 }
 

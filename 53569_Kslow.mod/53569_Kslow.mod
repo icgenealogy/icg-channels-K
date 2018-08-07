@@ -26,7 +26,7 @@ ENDCOMMENT
 NEURON {
 	SUFFIX Ks
 	USEION k READ ek WRITE ik
-	RANGE gkbar, vtraub, rate_change
+	RANGE gbar, vtraub, rate_change
 	RANGE n_inf
 	RANGE tau_n
 	RANGE ik 
@@ -39,7 +39,7 @@ UNITS {
 }
 
 PARAMETER {
-	gkbar		= .0003 	(mho/cm2)
+	gbar		= .0003 	(mho/cm2)
 	ek				(mV)
 	celsius			(degC)
 	v               		(mV)
@@ -61,7 +61,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik  = gkbar * n * (v - ek)
+	ik  = gbar * n * (v - ek)
 }
 
 DERIVATIVE states {

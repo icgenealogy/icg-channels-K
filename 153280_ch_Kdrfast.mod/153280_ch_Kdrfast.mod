@@ -31,7 +31,7 @@ UNITS {
 NEURON { 
 	SUFFIX ch_Kdrfast 
 	USEION k READ ek WRITE ik VALENCE 1
-	RANGE g, gmax, ninf, ntau, ik
+	RANGE g, gbar, ninf, ntau, ik
 	RANGE myi
 	THREADSAFE
 }
@@ -42,7 +42,7 @@ PARAMETER {
 	dt (ms) 
 
 	ek  (mV)
-	gmax = 1.0 (mho/cm2)
+	gbar = 1.0 (mho/cm2)
 }
  
 STATE {
@@ -60,7 +60,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states
-	g = gmax*n*n*n*n
+	g = gbar*n*n*n*n
 	ik = g*(v-ek)
 	myi =  ik
 }

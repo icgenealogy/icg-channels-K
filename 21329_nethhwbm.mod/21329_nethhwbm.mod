@@ -56,7 +56,7 @@ NEURON {
 	USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
 
-        RANGE gnabar,gna,egna,m, gkbar,gk,egk, gl,el
+        RANGE gnabar,gna,egna,m, gbar,gk,egk, gl,el
 	GLOBAL hinf, ninf, htau, ntau
 
 }
@@ -64,7 +64,7 @@ NEURON {
 PARAMETER {
         gnabar = 0.0 (mho/cm2)	<0,1e9>
 	:egna	= 55 (mV)	
-        gkbar = .009 (mho/cm2)	<0,1e9>
+        gbar = .009 (mho/cm2)	<0,1e9>
 	:egk	= -90 (mV)	
         gl = 0.0 (mho/cm2)	<0,1e9>
         el = -65 (mV)
@@ -99,7 +99,7 @@ BREAKPOINT {
 	m = minf
         gna = gnabar*m*m*m*h
 	ina = gna*(v - ena)
-        gk = gkbar*n*n*n*n
+        gk = gbar*n*n*n*n
 	ik = gk*(v - ek)      
         il = gl*(v - el)
 }

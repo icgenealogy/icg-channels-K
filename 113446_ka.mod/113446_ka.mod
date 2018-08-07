@@ -20,7 +20,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 100 (ms)}
 NEURON {
 	SUFFIX ka
 	USEION k READ ek WRITE ik
-	RANGE gkbar, ik, qk
+	RANGE gbar, ik, qk
 	GLOBAL shiftm, shifth
 }
 
@@ -32,7 +32,7 @@ UNITS {
 
 PARAMETER {
 	celsius		(degC)
-	gkbar=1e-3	(cm/s)		: Maximum Permeability .2e-3*5 hans
+	gbar=1e-3	(cm/s)		: Maximum Permeability .2e-3*5 hans
 	shiftm = 0	(mV)
 	shifth = 0	(mV)
 }
@@ -48,7 +48,7 @@ STATE { am ac bm bc qk }			: fraction of states, m=fraction in open state.
 
 BREAKPOINT {
 	SOLVE kstate METHOD sparse
-	ik = gkbar*am*am*bm*(v-ek)
+	ik = gbar*am*am*bm*(v-ek)
 }
 
 INITIAL {
@@ -57,7 +57,7 @@ INITIAL {
 	bm=b_inf(v)
 	bc=1-bm
 	qk=0
-	ik = gkbar*am*am*bm*(v-ek)
+	ik = gbar*am*am*bm*(v-ek)
 
 }
 
@@ -111,7 +111,7 @@ FUNCTION b_inf(v(mV)) {
 }
 
 FUNCTION window(v(mV)) {
-	window=gkbar*a_inf(v)*a_inf(v)*b_inf(v)*(v-ek)
+	window=gbar*a_inf(v)*a_inf(v)*b_inf(v)*(v-ek)
 }
 
 FUNCTION ghk(v(mV), ci(mM), co(mM)) (.001 coul/cm3) {

@@ -6,7 +6,7 @@ ENDCOMMENT
 NEURON {
 	SUFFIX KRP
 	USEION  k READ ek WRITE ik
-	RANGE g, gmax, ik
+	RANGE g, gbar, ik
 	GLOBAL minf, mtau, hinf, htau
 }
 
@@ -18,7 +18,7 @@ UNITS {
 }
 
 PARAMETER {
-	gmax = 0.001	(mho/cm2)	<0,1e9>
+	gbar = 0.001	(mho/cm2)	<0,1e9>
 	ek 		        (mV)
 	m_vh = -13.5	(mV)	: half activation
 	m_ve = -11.8	(mV)	: slope
@@ -47,7 +47,7 @@ STATE {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	g = gmax*m*(a*h+(1-a))
+	g = gbar*m*(a*h+(1-a))
 	ik = g*(v - ek)
 }
 

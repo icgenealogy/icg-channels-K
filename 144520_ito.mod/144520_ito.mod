@@ -48,7 +48,7 @@ BREAKPOINT {
 : original
 :	ik = m * g/S * ((0.2 + ko) / (Km1 + ko)) * (cai / (Kmto + cai)) * ((v + 10) / (1 - exp(-0.2(/mV) * (v + 10)))) * (ki*exp(0.02(/mV) * v) - kb*exp(-0.02(/mV) * v))
 :	correction
-	ik = (1e-06)* m * g/S * (0.2 + (ko / (Kmto + ko))) * (cai / (Kmca + cai)) * (v + 10) / (1 - exp(-0.2(/mV) * (v + 10))) * (ki*exp(0.5 * v *F/RT) - ko*exp(-0.5 * v*F/RT))
+	ik = m * g/S * (0.2 + (ko / (Kmto + ko))) * (cai / (Kmca + cai)) * (v + 10) / (1 - exp(-0.2(/mV) * (v + 10))) * (ki*exp(0.5 * v *F/RT) - ko*exp(-0.5 * v*F/RT))
 }
 
 DERIVATIVE states {

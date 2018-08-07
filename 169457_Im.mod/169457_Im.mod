@@ -4,7 +4,7 @@
 NEURON	{
 	SUFFIX Im
 	USEION k READ ek WRITE ik
-	RANGE gImbar, gIm, ik, offma, sloma, tauma, offmb, slomb, taumb
+	RANGE gbar, gIm, ik, offma, sloma, tauma, offmb, slomb, taumb
 	GLOBAL ek
 }
 
@@ -15,7 +15,7 @@ UNITS	{
 }
 
 PARAMETER	{
-	gImbar = 0.00001 (S/cm2) 
+	gbar = 0.00001 (S/cm2) 
         offma = -35 (mV)
         sloma = 10 (mV)
         tauma = 303.0303 (ms)
@@ -41,7 +41,7 @@ STATE	{
 
 BREAKPOINT	{
 	SOLVE states METHOD cnexp
-	gIm = gImbar*m
+	gIm = gbar*m
 	ik = gIm*(v-ek)
 }
 

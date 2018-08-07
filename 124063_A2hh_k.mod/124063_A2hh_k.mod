@@ -5,7 +5,7 @@ TITLE HH k channel channel
 NEURON {
 	SUFFIX HHk
 	USEION k READ ek WRITE ik
-	RANGE gkbar, ik
+	RANGE gbar, ik
 	GLOBAL inf, tau
 }
 
@@ -15,7 +15,7 @@ UNITS {
 }
 
 PARAMETER {
-	gkbar=.00026 (mho/cm2) <0,1e9>
+	gbar=.00026 (mho/cm2) <0,1e9>
 	ek (mV) : -77 suggested, default set by NEURON
 }
 STATE {
@@ -36,7 +36,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik = gkbar*n*n*n*n*(v - ek)
+	ik = gbar*n*n*n*n*(v - ek)
 }
 
 DERIVATIVE states {	: exact when v held constant

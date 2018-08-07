@@ -20,11 +20,11 @@ UNITS {
 NEURON {
 	SUFFIX kaf
 	USEION k READ ek WRITE ik
-	RANGE gkbar, ik, mshift, hshift
+	RANGE gbar, ik, mshift, hshift
 }
 
 PARAMETER {
-	gkbar = 0.21	(S/cm2)		: 0.21 in soma and prox; 0.019211 in mid/dist dends
+	gbar = 0.21	(S/cm2)		: 0.21 in soma and prox; 0.019211 in mid/dist dends
 
 	mvhalf = -10.0	(mV)		: Tkatch 2000 pg 581
 	mslope = -17.7	(mV)		: Tkatch 2000 pg 581 - need to use -17.7, not 17.7
@@ -54,7 +54,7 @@ STATE {
 
 BREAKPOINT {
     SOLVE states METHOD cnexp
-	ik  = gkbar * m^power * h * (v-ek)
+	ik  = gbar * m^power * h * (v-ek)
 }
 
 INITIAL {

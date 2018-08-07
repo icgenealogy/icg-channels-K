@@ -24,7 +24,7 @@ NEURON {
     SUFFIX KDRf
     USEION k READ ki,ek WRITE ik
     RANGE gk
-    GLOBAL rate_k,gmax_k
+    GLOBAL rate_k,gbar
 }
 
 PARAMETER {
@@ -45,19 +45,19 @@ ASSIGNED {
     pinf
     ptau (ms)
     rate_k
-    gmax_k
+    gbar
 }
 
 BREAKPOINT {
     SOLVE states METHOD cnexp
-    ik = (gk*gmax_k)*pfast*(v-ek)
+    ik = (gk*gbar)*pfast*(v-ek)
 }
 
 UNITSOFF
 
 INITIAL {
     rate_k = 2.05
-    gmax_k = 2.05
+    gbar = 2.05
     settables(v)
     pfast = pinf
 }

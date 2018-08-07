@@ -23,7 +23,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 NEURON {
 	SUFFIX ikdT
 	USEION k READ ek WRITE ik
-	RANGE gkbar, g, vtraub
+	RANGE gbar, g, vtraub
 	RANGE n_inf
 	RANGE tau_n
 	RANGE n_exp
@@ -36,7 +36,7 @@ UNITS {
 }
 
 PARAMETER {
-	gkbar	= .005 	(mho/cm2)
+	gbar	= .005 	(mho/cm2)
 	vtraub	= -55	(mV)		: adjusts threshold
 	ek	= -90	(mV)
 	celsius = 36    (degC)
@@ -60,7 +60,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states
-	g  = gkbar * n*n*n*n
+	g  = gbar * n*n*n*n
 	ik  = g * (v - ek)
 }
 

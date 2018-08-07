@@ -60,7 +60,7 @@ ASSIGNED {
 BREAKPOINT {
 	SOLVE states METHOD euler
 	gk = gbar * m
-	ik =  (1e-4)*gk * (v - ek)
+	ik =  1*gk * (v - ek)
 }
 
 DERIVATIVE states { 

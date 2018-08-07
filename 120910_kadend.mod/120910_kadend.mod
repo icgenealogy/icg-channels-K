@@ -10,7 +10,7 @@ UNITS {
 PARAMETER {
 	v (mV)
 	celsius		(degC)
-	gkabar= 0.01 (mho/cm2)
+	gbar= 0.01 (mho/cm2)
         vhalfn=-73.1   (mV)
         vl=-73.1   (mV)
 	vn=11	(mV)
@@ -32,7 +32,7 @@ PARAMETER {
 
 NEURON {
 	SUFFIX kadend USEION k READ ek WRITE ik
-        RANGE gkabar,gka
+        RANGE gbar,gka
         GLOBAL ninf,linf,taul,taun,lmin
 }
 
@@ -59,7 +59,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	gka = gkabar*n*l
+	gka = gbar*n*l
 	ik = gka*(v-ek)
 
 }

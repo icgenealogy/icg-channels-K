@@ -8,7 +8,7 @@ NEURON {
 	USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
 	GLOBAL inf
-	RANGE gnabar, gkbar, ena, ek, ik
+	RANGE gnabar, gbar, ena, ek, ik
 }
 
 UNITS {
@@ -21,7 +21,7 @@ PARAMETER {
 	v (mV)
 	celsius = 37	(degC)
 	gnabar=0.0 (mho/cm2)
-	gkbar=.12 (mho/cm2)
+	gbar=.12 (mho/cm2)
 	:ena = 40 (mV)
 	:ek = -85 (mV)
 	naactvha = 40 (mV)
@@ -50,7 +50,7 @@ ASSIGNED {
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	ina = gnabar*m*m*h*(v - ena)
-	ik = gkbar*n*n*(v - ek)
+	ik = gbar*n*n*(v - ek)
 }
 
 DERIVATIVE states {	: exact when v held constant

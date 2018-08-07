@@ -13,12 +13,12 @@ UNITS {
 NEURON {
 	SUFFIX kdrRL
 	USEION k READ ek WRITE ik
-	RANGE ik, g, gMax, mVh
+	RANGE ik, g, gbar, mVh
 	GLOBAL  mslp, tVh, tslp, tmin,taumax
 }
 
 PARAMETER {
-	gMax = 0.1 (S/cm2)
+	gbar = 0.1 (S/cm2)
 	mVh = -25 (mV)     : original value = -25
 	mslp = 20 (mV)
 	tVh = -39 (mV)			
@@ -47,7 +47,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE state METHOD cnexp
-	g = gMax * m^4
+	g = gbar * m^4
 	ik = g*(v - ek)
 }
 

@@ -16,7 +16,7 @@ PARAMETER {
 	v (mV)
         ek = -90 (mV)              : must be explicitely def. in hoc
 	celsius = 24	(degC)
-	gkabar=.008 (mho/cm2)
+	gbar=.008 (mho/cm2)
         vhalfn=-1   (mV)
         vhalfl=-56   (mV)
         a0l=0.05      (/ms)
@@ -40,7 +40,7 @@ PARAMETER {
 NEURON {
 	SUFFIX kad
 	USEION k READ ek WRITE ik
-        RANGE gkabar,gka,ik
+        RANGE gbar,gka,ik
         RANGE ninf,linf,taul,taun
         GLOBAL lmin,nscale,lscale
 }
@@ -64,13 +64,13 @@ INITIAL {
         rates(v)
         n=ninf
         l=linf
-        gka = gkabar*n*l
+        gka = gbar*n*l
 	ik = gka*(v-ek)
 }        
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	gka = gkabar*n*l
+	gka = gbar*n*l
 	ik = gka*(v-ek)
 }
 

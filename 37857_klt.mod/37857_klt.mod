@@ -40,7 +40,7 @@ UNITS {
 NEURON {
         SUFFIX klt
         USEION k READ ek WRITE ik
-        RANGE gkltbar, gklt, ik
+        RANGE gbar, gklt, ik
         GLOBAL winf, zinf, wtau, ztau
 }
 
@@ -51,7 +51,7 @@ PARAMETER {
         celsius = 22 (degC)  : model is defined on measurements made at room temp in Baltimore
         dt (ms)
         ek = -77 (mV)
-        gkltbar = 0.01592 (mho/cm2) <0,1e9>
+        gbar = 0.01592 (mho/cm2) <0,1e9>
         zss = 0.5   <0,1>   : steady state inactivation of glt
 }
 
@@ -71,7 +71,7 @@ LOCAL wexp, zexp
 BREAKPOINT {
 	SOLVE states
     
-	gklt = gkltbar*(w^4)*z
+	gklt = gbar*(w^4)*z
     ik = gklt*(v - ek)
 
 }

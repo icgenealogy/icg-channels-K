@@ -13,13 +13,13 @@ UNITS {
 NEURON {
  SUFFIX Kv4s
  USEION k READ ek WRITE ik
- RANGE gmax, iKv4s
+ RANGE gbar, iKv4s
 }
 
 PARAMETER {
  v (mV)
  dt (ms)
- gmax  = 0.001 (mho/cm2)
+ gbar  = 0.001 (mho/cm2)
  iKv4s  = 0.0 (mA/cm2)
  ek (mV)
 
@@ -54,7 +54,7 @@ ASSIGNED {
 
 BREAKPOINT {
  SOLVE states METHOD cnexp
- ik  = gmax*m*m*m*m*h*(v-ek)
+ ik  = gbar*m*m*m*m*h*(v-ek)
  iKv4s = ik
 }
 

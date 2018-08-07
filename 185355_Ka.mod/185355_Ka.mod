@@ -24,7 +24,7 @@ PARAMETER {
 	v (mV)
         ek (mV)
 	celsius =6.3	(degC)  : default Neuron value (implictly used)
-	gkabar	=.01 	(mho/cm2)
+	gbar	=.01 	(mho/cm2)
         vhalfn	=-33.6  (mV)
         vhalfl	=-83   	(mV)
         a0n	=0.02   (/ms)
@@ -39,7 +39,7 @@ PARAMETER {
 NEURON {
 	SUFFIX ka
 	USEION k READ ek WRITE ik
-        RANGE gkabar,gka, ik
+        RANGE gbar,gka, ik
         GLOBAL ninf,linf,taul,taun,ek
 }
 
@@ -65,7 +65,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	gka = gkabar*n*l
+	gka = gbar*n*l
 	ik = gka*(v-ek)
 }
 

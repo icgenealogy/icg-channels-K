@@ -12,12 +12,12 @@ UNITS {
 NEURON {
         SUFFIX kdr
         USEION k READ ek WRITE ik
-        RANGE gskbar,   gsk
+        RANGE gbar,   gsk
         GLOBAL ninf,  ntau
 }
  
 PARAMETER {
-        gskbar = .003 (S/cm2)	<0,1e9>
+        gbar = .003 (S/cm2)	<0,1e9>
 }
  
 STATE {
@@ -39,7 +39,7 @@ LOCAL  nexp
 
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gsk = gskbar*n*n*n*n
+        gsk = gbar*n*n*n*n
 	ik = gsk*(v - ek)      
 }
  

@@ -6,14 +6,14 @@ COMMENT
 	Author: E.D'Angelo, T.Nieus, A. Fontana
 	Last revised: 8.10.2000
 	Old values:
-			gkbar = 0.0003 (mho/cm2) 
+			gbar = 0.0003 (mho/cm2) 
 			
 ENDCOMMENT
  
 NEURON { 
 	SUFFIX GRC_KIR
 	USEION k READ ek WRITE ik 
-	RANGE gkbar, ik, g, alpha_d, beta_d 
+	RANGE gbar, ik, g, alpha_d, beta_d 
 	RANGE Aalpha_d, Kalpha_d, V0alpha_d
 	RANGE Abeta_d, Kbeta_d, V0beta_d
 	RANGE d_inf, tau_d 
@@ -38,7 +38,7 @@ PARAMETER {
 
 	V0beta_d = -83.94 (mV)
 	v (mV) 
-	gkbar = 0.0009 (mho/cm2) 
+	gbar = 0.0009 (mho/cm2) 
 	ek = -84.69 (mV) 
 	celsius = 30 (degC) 
 } 
@@ -63,7 +63,7 @@ INITIAL {
  
 BREAKPOINT { 
 	SOLVE states METHOD derivimplicit
-	g = gkbar*d   : primo ordine!!!
+	g = gbar*d   : primo ordine!!!
 	ik = g*(v - ek) 
 	alpha_d = alp_d(v) 
 	beta_d = bet_d(v) 

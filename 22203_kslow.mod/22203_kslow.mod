@@ -110,7 +110,7 @@ INITIAL {
 BREAKPOINT {
         SOLVE states
         gkslow = tadj*gbar*a*a*(c1*b+c2*b1)
-	ik = (1e-4) * gkslow * (v - ek)
+	ik = 1 * gkslow * (v - ek)
 } 
 
 LOCAL aexp, bexp,b1exp, z 

@@ -4,7 +4,7 @@
 NEURON	{
 	SUFFIX SKv3_1
 	USEION k READ ek WRITE ik
-	RANGE gSKv3_1bar, gSKv3_1, ik 
+	RANGE gbar, gSKv3_1, ik 
 }
 
 UNITS	{
@@ -14,7 +14,7 @@ UNITS	{
 }
 
 PARAMETER	{
-	gSKv3_1bar = 0.00001 (S/cm2) 
+	gbar = 0.00001 (S/cm2) 
 }
 
 ASSIGNED	{
@@ -32,7 +32,7 @@ STATE	{
 
 BREAKPOINT	{
 	SOLVE states METHOD cnexp
-	gSKv3_1 = gSKv3_1bar*m
+	gSKv3_1 = gbar*m
 	ik = gSKv3_1*(v-ek)
 }
 

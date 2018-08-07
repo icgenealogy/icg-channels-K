@@ -14,7 +14,7 @@ PARAMETER {
         ek (mV)
 	tm=10
 	celsius 	(degC)
-	gkmbar=.003 (mho/cm2)
+	gbar=.003 (mho/cm2)
         vhalf=-55   (mV)
         a0=0.0002      (/ms)
         zeta=-7    (1)
@@ -25,7 +25,7 @@ PARAMETER {
 NEURON {
 	SUFFIX borgkm
 	USEION k READ ek WRITE ik
-        RANGE gkmbar
+        RANGE gbar
         GLOBAL inf,tau
 }
 
@@ -46,7 +46,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE state METHOD cnexp
-	ik = gkmbar*m*(v-ek)
+	ik = gbar*m*(v-ek)
 
 }
 

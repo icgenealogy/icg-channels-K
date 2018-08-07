@@ -7,7 +7,7 @@ TITLE HH fast potassium channel with FUNCTION_TABLEs
 NEURON {
 	SUFFIX kfasttab
 	USEION k READ ek WRITE ik
-	RANGE gkbar, ik
+	RANGE gbar, ik
 	GLOBAL ninf, kinf, ntau, ktau
 }
 
@@ -20,7 +20,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gkbar= 0.120 (mho/cm2) <0,1e9>
+	gbar= 0.120 (mho/cm2) <0,1e9>
 	ek = -70 (mV)
 }
 STATE {
@@ -42,7 +42,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik = gkbar*n*n*k*(v - ek)
+	ik = gbar*n*n*k*(v - ek)
 }
 
 DERIVATIVE states {

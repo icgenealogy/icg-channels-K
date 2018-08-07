@@ -20,7 +20,7 @@ UNITS {
 NEURON {
  	SUFFIX Km
 	USEION k READ ek WRITE ik
-	RANGE gkmbar, gkm, ninf, an, Bn
+	RANGE gbar, gkm, ninf, an, Bn
 }
  
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
@@ -28,7 +28,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
   	
 	:ek	= -90	(mV)
-	gkmbar	= 0.006 (mho/cm2) : 6mS
+	gbar	= 0.006 (mho/cm2) : 6mS
 	phi	= 5  < 0, 1e9 > : according to Bruno delord 11/13/06
       Van	= -27 :NOT the original value from wang and Buzsaki
 	Kan	= 1
@@ -53,7 +53,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gkm = gkmbar*n^4
+        gkm = gbar*n^4
         ik = gkm*(v - ek)
   
 }

@@ -9,7 +9,7 @@ ENDCOMMENT
 NEURON {
 	SUFFIX IKs
 	USEION k READ ek WRITE ik
-	RANGE gk, ik, ek, gkbar
+	RANGE gk, ik, ek, gbar
 	GLOBAL qinf, tauq, rinf, taur
 }
 
@@ -19,7 +19,7 @@ UNITS {
 }
 
 PARAMETER {
-	gkbar 	= 0.002	(mho/cm2)	<0,1e9>
+	gbar 	= 0.002	(mho/cm2)	<0,1e9>
 }
 
 ASSIGNED {
@@ -40,7 +40,7 @@ STATE {
 
 BREAKPOINT {
 	SOLVE state METHOD cnexp
-	gk = gkbar * q * r 
+	gk = gbar * q * r 
 	ik = gk * ( v - ek )
 }
 

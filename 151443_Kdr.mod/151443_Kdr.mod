@@ -17,12 +17,12 @@ UNITS {
 NEURON {
         SUFFIX Kdr
         USEION k READ ek WRITE ik
-        RANGE gkmax, gk
+        RANGE gbar, gk
         RANGE ninf, ntau
 }
  
 PARAMETER { : value for soma
-        gkmax = .5 (S/cm2)	  <0,1e9>
+        gbar = .5 (S/cm2)	  <0,1e9>
 }
  
 STATE {
@@ -41,7 +41,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gk = gkmax*n*n*n*n
+        gk = gbar*n*n*n*n
 		ik = gk*(v - ek)
 } 
  

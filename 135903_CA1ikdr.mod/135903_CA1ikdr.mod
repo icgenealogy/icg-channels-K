@@ -15,7 +15,8 @@ NEURON {
 PARAMETER {
         v		(mV)
         celsius		(degC)
-        g= 0.010		(mho/cm2)
+        :g= 0.010		(mho/cm2)
+        g= 1.0		(mho/cm2)
         :e= -90		(mV)
 }
  

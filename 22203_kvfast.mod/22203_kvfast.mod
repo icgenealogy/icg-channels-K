@@ -100,7 +100,7 @@ INITIAL {
 BREAKPOINT {
         SOLVE states
         gkvfast = tadj*gbar*a*a*a*a*b
-	ik = (1e-4) * gkvfast * (v - ek)
+	ik = 1 * gkvfast * (v - ek)
 } 
 
 LOCAL aexp, bexp, z 

@@ -46,7 +46,7 @@ ASSIGNED {
 
 STATE { n }
 
-PROCEDURE iassign () { ik = (1e-3) * gkdr * n^4 * (v-ek) }
+PROCEDURE iassign () { ik = 1 * gkdr * n^4 * (v-ek) }
 
 INITIAL { 
   rates(v)

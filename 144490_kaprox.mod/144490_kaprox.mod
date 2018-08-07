@@ -14,7 +14,7 @@ PARAMETER { :parameters that can be entered when function is called in cell-setu
    	v               (mV)
     ek = -77        (mV) :K reversal potential  (reset in cell-setup.hoc)
   	celsius = 24	  (degC)
-   	gkabar = 1.0      (mho/cm2)           :initialized conductance
+   	gbar = 1.0      (mho/cm2)           :initialized conductance
     vhalfn = 11     (mV)                :activation half-potential
     vhalfl = -56    (mV)                :inactivation half-potential
     a0n = 0.05      (/ms)               :parameters used
@@ -33,7 +33,7 @@ PARAMETER { :parameters that can be entered when function is called in cell-setu
 NEURON {
 	  SUFFIX kap
 	  USEION k READ ek WRITE ik
-    RANGE gkabar,gka, gmax
+    RANGE gbar,gka, gmax
     GLOBAL ninf,linf,taul,taun,lmin
 }
 
@@ -55,14 +55,14 @@ INITIAL {		:initialize the following parameter using rates()
 	  rates(v)
 	  n = ninf
 	  l = linf
-	  gka = gkabar*n*l
+	  gka = gbar*n*l
 	  ik = gka*(v-ek)	
     gmax = gka
 }
 
 BREAKPOINT {
 	  SOLVE states METHOD cnexp
-	  gka = gkabar*n*l
+	  gka = gbar*n*l
 	  ik = gka*(v-ek)
     if (gka > gmax) {
         gmax = gka

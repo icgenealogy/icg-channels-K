@@ -45,7 +45,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE state METHOD cnexp
-	ik=(1e-4)*gbar*m*(v-ek)
+	ik=1*gbar*m*(v-ek)
 }
 
 FUNCTION alpha(v(mV)) {

@@ -7,7 +7,7 @@ NEURON
 	:USEION Kx WRITE iKx VALENCE 1
 	USEION k READ ek WRITE ik
 	
-	RANGE gKx, gKxbar, VhalfKx, SKx
+	RANGE gKx, gbar, VhalfKx, SKx
 	RANGE aoKx
 	
 	
@@ -23,7 +23,7 @@ UNITS
 
 PARAMETER
 {
-	gKxbar = 0.85 (mS/cm2) <0,1e9>
+	gbar = 0.85 (mS/cm2) <0,1e9>
 	
         :eKx = -74 (mV)
                 
@@ -68,7 +68,7 @@ INITIAL
 BREAKPOINT
 {
 	SOLVE states METHOD cnexp
-	gKx = (0.001)*gKxbar*nKx
+	gKx = (0.001)*gbar*nKx
 	ik = gKx*(v - ek)
 	
 	

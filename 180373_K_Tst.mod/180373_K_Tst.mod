@@ -6,7 +6,7 @@
 NEURON	{
 	SUFFIX K_Tst
 	USEION k READ ek WRITE ik
-	RANGE gK_Tstbar, gK_Tst, ik
+	RANGE gbar, gK_Tst, ik
 }
 
 UNITS	{
@@ -16,7 +16,7 @@ UNITS	{
 }
 
 PARAMETER	{
-	gK_Tstbar = 0.00001 (S/cm2)
+	gbar = 0.00001 (S/cm2)
 }
 
 ASSIGNED	{
@@ -37,7 +37,7 @@ STATE	{
 
 BREAKPOINT	{
 	SOLVE states METHOD cnexp
-	gK_Tst = gK_Tstbar*(m^4)*h
+	gK_Tst = gbar*(m^4)*h
 	ik = gK_Tst*(v-ek)
 }
 

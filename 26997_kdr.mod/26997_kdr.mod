@@ -8,7 +8,7 @@ ASSIGNED { ik }
 PARAMETER {
 	:erev 		= -90.  (mV)
 	ek		(mV)
-        gmax 		= 0.009    (mho/cm2)
+        gbar 		= 0.009    (mho/cm2)
         vrest           = 0.
 
 	exptemp		= 27

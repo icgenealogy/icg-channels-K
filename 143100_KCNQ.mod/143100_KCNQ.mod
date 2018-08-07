@@ -13,13 +13,13 @@ UNITS {
 NEURON {
  SUFFIX KCNQ
  USEION k READ ek WRITE ik
- RANGE gmax, iKCNQ
+ RANGE gbar, iKCNQ
 }
 
 PARAMETER {
  v (mV)
  dt (ms)
- gmax  = 0.001 (mho/cm2)
+ gbar  = 0.001 (mho/cm2)
  iKCNQ  = 0.0 (mA/cm2)
  ek (mV)
 
@@ -44,7 +44,7 @@ ASSIGNED {
 
 BREAKPOINT {
  SOLVE states METHOD cnexp
- ik  = gmax*m*m*m*m*(v-ek)
+ ik  = gbar*m*m*m*m*(v-ek)
  iKCNQ = ik
 }
 

@@ -22,7 +22,8 @@ UNITS {
 
 PARAMETER {
 	gd  = 0.0025  (mho/cm2)
-	gr  = 0.0028  (mho/cm2)
+	:gr  = 0.0028  (mho/cm2)
+	gr  = 1.0  (mho/cm2)
 	V0d = -25      (mV)
     V0r = -25       (mV)
     sd = 0.25       (/mV)

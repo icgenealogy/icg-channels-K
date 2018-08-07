@@ -13,7 +13,7 @@ UNITS {
 NEURON {
         SUFFIX KD
         USEION k READ ek WRITE ik
-        RANGE  gkbar, ik, gk, minf, hinf, mexp, hexp
+        RANGE  gbar, ik, gk, minf, hinf, mexp, hexp
 } 
  
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
@@ -22,7 +22,7 @@ PARAMETER {
         v (mV)
         celsius = 37 (degC)
         dt (ms)
-        gkbar = .0045 (mho/cm2)
+        gbar = .0045 (mho/cm2)
         :ek = -85 (mV)
 	mon = 1
 	hon = 1
@@ -40,7 +40,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states
-        gk = gkbar * m*h
+        gk = gbar * m*h
 	ik = gk* (v-ek)
 }
  

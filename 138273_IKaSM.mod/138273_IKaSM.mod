@@ -4,7 +4,7 @@ TITLE Potassium fast channel
 NEURON {
 	SUFFIX IKaSM
 	USEION k READ ek WRITE ik
-	RANGE gkamax, ik
+	RANGE gbar, ik
 }
 
 UNITS {
@@ -13,7 +13,7 @@ UNITS {
 }
 
 PARAMETER {
-	gkamax=1.0 (mho/cm2) 
+	gbar=1.0 (mho/cm2) 
 }
 
 ASSIGNED {
@@ -32,7 +32,7 @@ STATE {
 
 BREAKPOINT {
     SOLVE states METHOD cnexp
-    ik=gkamax*m*m*m*m*h*(v-ek)
+    ik=gbar*m*m*m*m*h*(v-ek)
 }
 
 INITIAL {

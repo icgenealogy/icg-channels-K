@@ -20,7 +20,8 @@ UNITS {
 }
 
 PARAMETER {
-	 gKur=0.13195e-3 (S/cm2) <0,1e9>
+	 :gKur=0.13195e-3 (S/cm2) <0,1e9>
+	 gKur=1.0 (S/cm2) <0,1e9>
 	Tauact=1 (ms)
 	Tauinactf=1 (ms)
 	Tauinacts=1 (ms)

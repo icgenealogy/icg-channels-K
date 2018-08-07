@@ -44,7 +44,7 @@ BREAKPOINT {
 : original
 :	ik = (1e-6) * m * imax/S * (ki - ko*exp(-v/25(mV)))/140(mM)
 :	correction
-	ik = (1e-06)* m * imax/S * (ki - ko*exp(-v*F/RT))/140(mM)
+	ik = m * imax/S * (ki - ko*exp(-v*F/RT))/140(mM)
 }
 
 DERIVATIVE states {

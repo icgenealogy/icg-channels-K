@@ -5,7 +5,7 @@ TITLE HH k channel channel
 NEURON {
 	SUFFIX HHk
 	USEION k READ ek WRITE ik
-	RANGE gkbar, ik
+	RANGE gbar, ik
 	GLOBAL inf, ek
 }
 
@@ -19,7 +19,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gkbar=.036 (S/cm2)
+	gbar=.036 (S/cm2)
 	ek = -77 (mV)
 	celsius = 16 (degC)
 }
@@ -39,7 +39,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states
-	ik = gkbar*n*n*n*n*(v - ek)
+	ik = gbar*n*n*n*n*(v - ek)
 }
 
 PROCEDURE states() {	: exact when v held constant

@@ -7,7 +7,7 @@ NEURON
 	:USEION Kv WRITE iKv VALENCE 1
 	USEION k READ ek WRITE ik
 	
-        RANGE gKv, gKvbar
+        RANGE gKv, gbar
 	
 	
 	
@@ -26,7 +26,7 @@ UNITS
 PARAMETER
 {
         : potassium rectifier
-        gKvbar = 2.0 (mS/cm2) <0,1e9>
+        gbar = 2.0 (mS/cm2) <0,1e9>
         :eKv = -80 (mV)
        
         
@@ -70,7 +70,7 @@ INITIAL
 BREAKPOINT
 {
 	SOLVE states METHOD cnexp
-	gKv = (0.001)*gKvbar*mKv*mKv*mKv *hKv
+	gKv = (0.001)*gbar*mKv*mKv*mKv *hKv
 	ik = gKv*(v - ek)
 }
 

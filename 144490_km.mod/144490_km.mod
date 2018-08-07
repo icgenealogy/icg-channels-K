@@ -57,15 +57,15 @@ INITIAL {
 	  trates(v)
 	  n = ninf
     gk = tadj*gbar*n
-    gmax = (1e-4) * gk
+    gmax = 1 * gk
 }
 
 BREAKPOINT {
     SOLVE states METHOD cnexp
 	  gk = tadj*gbar*n
-	  ik = (1e-4) * gk * (v - ek)
+	  ik = 1 * gk * (v - ek)
     if (((1e-4) * gk) > gmax) {
-        gmax = (1e-4) * gk
+        gmax = 1 * gk
     }
 } 
 

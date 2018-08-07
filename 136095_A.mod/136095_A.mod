@@ -11,7 +11,7 @@ ASSIGNED {
 
 PARAMETER {
   :erev = -70 (mV)
-  gmax  = 1.45e-07 (mho/cm2)
+  gbar  = 1.45e-07 (mho/cm2)
   VhlfMaxm = -24
   VhlfMaxh = 8
   slopem = -3.2

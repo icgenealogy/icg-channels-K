@@ -5,7 +5,7 @@ TITLE Cardiac time independent inward rectifier IK1  current
 NEURON {
 	SUFFIX IK1
 	USEION k READ ek WRITE ik
-	RANGE gK1, ik
+	RANGE gbar, ik
 	GLOBAL dummy : prevent vectorization for use with CVODE
 
 }
@@ -19,7 +19,7 @@ UNITS {
 }
 
 PARAMETER {
-	 gK1=0.1567e-3 (S/cm2) <0,1e9>
+	 gbar=0.1567e-3 (S/cm2) <0,1e9>
 	
 }
 
@@ -35,7 +35,7 @@ ASSIGNED {
 LOCAL k
 BREAKPOINT {
 	
-	ik = gK1/(1 + exp(0.07*(v + 80)))*(v - ek)
+	ik = gbar/(1 + exp(0.07*(v + 80)))*(v - ek)
 }
 
 

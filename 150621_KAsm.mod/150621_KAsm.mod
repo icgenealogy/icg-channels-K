@@ -16,7 +16,7 @@ UNITS {
 NEURON {
  	SUFFIX KAsm
 	USEION k READ ek WRITE ik
-	RANGE gkasmbar, gkasm, minf, hinf, mtau, htau
+	RANGE gbar, gkasm, minf, hinf, mtau, htau
 }
  
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
@@ -24,7 +24,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
   	
 	:ek	= -85	(mV)
-	gkasmbar= 0.00032 (mho/cm2) :0.32mS
+	gbar= 0.00032 (mho/cm2) :0.32mS
 	Etemp	= 22  : Delord correspondence 11/15/06 and fitting
 
 	Vsm	= -25.6
@@ -58,7 +58,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gkasm = gkasmbar*m*h
+        gkasm = gbar*m*h
         ik = gkasm*(v - ek)
   
 }

@@ -22,7 +22,8 @@ UNITS {
 
 PARAMETER {
 	gsd  = 0.00035   (mho/cm2)
-	gsr  = 0.0004   (mho/cm2)
+	:gsr  = 0.0004   (mho/cm2)
+	gsr  = 1.0   (mho/cm2)
 	V0sd = -40      (mV)
 	zsd = 0.1		(/mV)
     eta = 12        (cm2/mA)

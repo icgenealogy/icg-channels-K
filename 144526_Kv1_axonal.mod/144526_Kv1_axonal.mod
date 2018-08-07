@@ -111,7 +111,7 @@ INITIAL {
 BREAKPOINT {
 	SOLVE states METHOD cnexp
       	gkv1 = gbar * ( (1-propH2)*n^8*h1 + propH2*n^8*h2 )
-	ikv1 = (1e-4)*gkv1 * (v - ek)
+	ikv1 = 1*gkv1 * (v - ek)
 	ik = ikv1
 }
 

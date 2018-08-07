@@ -34,7 +34,7 @@ STATE { c o }
 BREAKPOINT {
       SOLVE states METHOD sparse
       g = gbar*o
-      ik = (1e-4)*g*(v - ek)
+      ik = 1*g*(v - ek)
 }
 
 INITIAL { SOLVE states STEADYSTATE sparse}
