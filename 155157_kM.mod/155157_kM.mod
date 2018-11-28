@@ -6,7 +6,7 @@ TITLE HH KM channel
 NEURON {
 	SUFFIX kM
 	USEION k READ ek WRITE ik
-	RANGE gbar, ik
+	RANGE gkbar, ik
 	GLOBAL xinf, xtau
 }
 
@@ -20,7 +20,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gbar=.036 (mho/cm2) <0,1e9>
+	gkbar=.036 (mho/cm2) <0,1e9>
 	ek = -70 (mV)
 }
 STATE {
@@ -39,7 +39,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik = gbar*x*(v - ek)
+	ik = gkbar*x*(v - ek)
 }
 
 DERIVATIVE states {

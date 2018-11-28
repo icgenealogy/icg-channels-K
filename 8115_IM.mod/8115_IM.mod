@@ -22,7 +22,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 NEURON {
 	SUFFIX imZ
 	USEION k READ ek WRITE ik
-        RANGE gbar, g, m_inf, tau_m
+        RANGE gkbar, g, m_inf, tau_m
 }
 
 UNITS {
@@ -35,7 +35,7 @@ PARAMETER {
 	v		(mV)
 	celsius = 36    (degC)
 	ek	= -90	(mV)
-	gbar	= 1e-6	(mho/cm2)
+	gkbar	= 1e-6	(mho/cm2)
 }
 
 
@@ -54,7 +54,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	g = gbar * m
+	g = gkbar * m
 	ik = g * (v - ek)
 }
 

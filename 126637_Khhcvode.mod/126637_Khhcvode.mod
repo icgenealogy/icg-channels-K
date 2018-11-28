@@ -23,7 +23,7 @@ UNITS {
 NEURON {
         SUFFIX Khhcvode
         USEION k READ ek WRITE ik
-        RANGE   gk,  gbar, ik
+        RANGE   gk,  gkbar, ik
         
 }
  
@@ -32,7 +32,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
         v (mV)
         celsius = 37 (degC)      
-        gbar = .036 (mho/cm2)
+        gkbar = .036 (mho/cm2)
         :ekcvode = -85(mV)
         non =1
 }
@@ -49,7 +49,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE state METHOD cnexp : see http://www.neuron.yale.edu/phpBB/viewtopic.php?f=28&t=592
-        gk  = gbar*n*n*n*n
+        gk  = gkbar*n*n*n*n
 
         ik = gk*(v - ek)      
 }

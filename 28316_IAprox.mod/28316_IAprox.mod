@@ -20,7 +20,7 @@ Reference:
 	neurons of rat hippocampus, J. Neurosci. 18(20):8111-8125, 1998.	
 	(only the gkAbar is from this paper)
 
-		gbar = 0.0175 mho/cm2
+		gkabar = 0.0175 mho/cm2
 		Activation V1/2 = -6.2 +/- 3.3 mV
 		slope = 23.0 +/- 0.7 mV
 		Inactivation V1/2 = -75.5 +/- 2.5 mV
@@ -31,7 +31,7 @@ Reference:
 	cell electrophysiology by computer simulation, J. Neurophysiol.
 	71(6):2033-2045, 1994.
 
-		gbar = 0.01 mho/cm2
+		gkabar = 0.01 mho/cm2
 		(number taken from the work by Numann et al. in guinea pig
 		CA1 neurons)
 

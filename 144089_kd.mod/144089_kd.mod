@@ -5,7 +5,7 @@
 NEURON {
 	SUFFIX Ks
 	USEION k READ ek WRITE ik
-	RANGE gbar, ik, gk
+	RANGE gKsbar, ik, gk
 	
 }
 
@@ -19,7 +19,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gbar= 1.0	:= 0.00014 (mho/cm2) <0,1e9>
+	gKsbar= 1.0	:= 0.00014 (mho/cm2) <0,1e9>
 	
 }
 
@@ -51,7 +51,7 @@ INITIAL {
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 		
-	gk = gbar * a * b
+	gk = gKsbar * a * b
 	:ek = 25 * log(ko/ki)
 	ik = gk*(v-ek)
 	

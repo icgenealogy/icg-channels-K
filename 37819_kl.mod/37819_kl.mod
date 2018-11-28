@@ -17,7 +17,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 NEURON {
 	SUFFIX kl
         USEION k READ ek WRITE ik VALENCE 1
-	RANGE gbar, i
+	RANGE gmax, i
         GLOBAL erev
 }
 
@@ -29,7 +29,7 @@ UNITS {
 
 PARAMETER {
   ek  (mV)
-  gbar	= 4e-4	(S/cm2)		: maximum conductance
+  gmax	= 4e-4	(S/cm2)		: maximum conductance
   erev	= -100	(mV)		: reversal potential (potassium)
 }
 
@@ -43,6 +43,6 @@ INITIAL {
 }
 
 BREAKPOINT {
-	i = gbar * (v - ek)
+	i = gmax * (v - ek)
         ik=i
 }

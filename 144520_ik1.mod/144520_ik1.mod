@@ -34,5 +34,5 @@ INITIAL {
 }
 
 BREAKPOINT { 
-	ik = g/S * (ko/(ko + Km1))*((v-ek)/(1 + exp((v - ek + 10)*2*F/RT)))
+	ik = (1e-06)* g/S * (ko/(ko + Km1))*((v-ek)/(1 + exp((v - ek + 10)*2*F/RT)))
 }

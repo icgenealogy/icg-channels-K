@@ -4,7 +4,7 @@
 NEURON {
 	SUFFIX Ks
 	USEION k READ ki, ko WRITE ik
-	RANGE gbar, gk
+	RANGE gKsbar, gk
 }
 
 UNITS {
@@ -14,7 +14,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar= 0.00014 (mho/cm2) <0,1e9>
+	gKsbar= 0.00014 (mho/cm2) <0,1e9>
 }
 
 STATE {
@@ -43,7 +43,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD derivimplicit
-	gk = gbar*a*b
+	gk = gKsbar*a*b
 	ek = 25*log(ko/ki)
 	ik = gk*(v-ek)
 }

@@ -24,7 +24,7 @@ ENDCOMMENT
 NEURON {
 	SUFFIX KaPyrKop
 	USEION k READ ek WRITE ik
-	RANGE  ck, dk, fk, gbar, ik, atau, btau, ainf, binf
+	RANGE  ck, dk, fk, gmax, ik, atau, btau, ainf, binf
 }
 	
 UNITS {
@@ -34,7 +34,7 @@ UNITS {
 }
 
 PARAMETER {
-    gbar =    1.0 (mS/cm2)
+    gmax =    1.0 (mS/cm2)
     :erev =  -90.0 (mV)
     ck   =    0.0 (1)
     dk   =    0.0 (1)
@@ -62,7 +62,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik = 1 * gbar * a * b * (v-ek)
+	ik = (1e-3) * gmax * a * b * (v-ek)
 }
 
 

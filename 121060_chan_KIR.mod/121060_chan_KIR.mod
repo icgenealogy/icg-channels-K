@@ -4,7 +4,7 @@ NEURON {
 	SUFFIX KIR
 	USEION  k READ ek WRITE ik
 	RANGE g, ik
-	GLOBAL minf, mtau, gbar
+	GLOBAL minf, mtau, gmax
 }
 
 CONSTANT {
@@ -20,7 +20,7 @@ UNITS {
 
 PARAMETER {
 	ek			(mV)
-	gbar = 1.4e-4	(mho/cm2)	<0,1e9>
+	gmax = 1.4e-4	(mho/cm2)	<0,1e9>
 	m_vh = -82	(mV)	: half activation
 	m_ve = 13		(mV)	: slope
 }
@@ -40,7 +40,7 @@ STATE {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	g = gbar*m
+	g = gmax*m
 	ik = g*(v - ek)
 }
 

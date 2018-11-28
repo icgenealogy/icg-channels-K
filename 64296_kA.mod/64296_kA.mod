@@ -7,7 +7,7 @@ TITLE HH KA anomalous rectifier channel
 NEURON {
 	SUFFIX kA
 	USEION k READ ek WRITE ik
-	RANGE gbar, ik
+	RANGE gkbar, ik
 	GLOBAL pinf, qinf, ptau, qtau
 }
 
@@ -20,7 +20,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gbar=.036 (mho/cm2) <0,1e9>
+	gkbar=.036 (mho/cm2) <0,1e9>
 	ek = -70 (mV)
 }
 STATE {
@@ -42,7 +42,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik = gbar*p*q*(v - ek)
+	ik = gkbar*p*q*(v - ek)
 }
 
 DERIVATIVE states {

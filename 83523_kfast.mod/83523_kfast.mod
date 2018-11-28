@@ -98,7 +98,7 @@ INITIAL {
 BREAKPOINT {
       SOLVE states METHOD cnexp
 	gkfast = gbar*a^4*b
-	ik = 1 * gkfast * (v - ek)
+	ik = (1e-4) * gkfast * (v - ek)
 } 
 
 

@@ -30,7 +30,7 @@ NEURON {
 	SUFFIX KDR
 	USEION k READ ki,ek WRITE ik
 	RANGE gk
-	GLOBAL rest,activate_Q10,Q10,gmaxQ10,rate_k,gbar,temp1,temp2,tempb
+	GLOBAL rest,activate_Q10,Q10,gmaxQ10,rate_k,gmax_k,temp1,temp2,tempb
 }
 
 PARAMETER {
@@ -59,12 +59,12 @@ ASSIGNED {
 	alphan (/ms)
 	betan (/ms)
 	rate_k
-	gbar
+	gmax_k
 }
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik   = (gk*gbar)*n*(v-ek)
+	ik   = (gk*gmax_k)*n*(v-ek)
 }
 
 UNITSOFF
@@ -73,13 +73,13 @@ INITIAL {
 	LOCAL ktemp,ktempb,ktemp1,ktemp2
 	if (activate_Q10>0) {
           rate_k = Q10^((celsius-tempb)/10)
-          gbar = gmaxQ10^((celsius-tempb)/10)
+          gmax_k = gmaxQ10^((celsius-tempb)/10)
 	}else{
 	  : Note, its not 1.0, as we have rescaled the kinetics
           :  (reverting the scaleing Traub did), the original is
           :  acheived using this rate
 	  rate_k = 1.60
-	  gbar = 1.60
+	  gmax_k = 1.60
 	}
         settables(v)
 	n = alphan/(alphan+betan)

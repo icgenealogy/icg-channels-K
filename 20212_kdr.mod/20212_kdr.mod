@@ -4,7 +4,7 @@ TITLE Borg-Graham-like K-A channel
 NEURON {
 	SUFFIX borgkdr
 	USEION k READ ek WRITE ik
-        RANGE  gbar,gkdr,vhalfl,vhalfn
+        RANGE  gkdrbar,gkdr,vhalfl,vhalfn
 	GLOBAL ninf,linf,taun,taul
 }
 
@@ -21,7 +21,7 @@ PARAMETER {
 	v (mV)
         ek= -91 (mV)
 	celsius = 30	(degC)
-	gbar=.003 (mho/cm2)
+	gkdrbar=.003 (mho/cm2)
         vhalfn=-40   (mV)
         vhalfl=-60   (mV)
         a0l=0.001      (/ms)
@@ -55,7 +55,7 @@ INITIAL {
  	rates(v,vhalfn,vhalfl)
         n=ninf
         l=linf
-	gkdr = gbar*n^3*l
+	gkdr = gkdrbar*n^3*l
 	ik = gkdr*(v-ek)
 
 }
@@ -63,7 +63,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states
-	gkdr = gbar*n^3*l
+	gkdr = gkdrbar*n^3*l
 	ik = gkdr*(v-ek)
 
 }

@@ -24,7 +24,7 @@ ENDCOMMENT
 NEURON {
 	SUFFIX KdrPyrKop
 	USEION k READ ek WRITE ik
-	RANGE gbar
+	RANGE gmax
 }
 	
 UNITS {
@@ -34,7 +34,7 @@ UNITS {
 }
 
 PARAMETER {
-    gbar =  10.0 (mS/cm2)
+    gmax =  10.0 (mS/cm2)
     :ek   = -90.0 (mV)
 }
     
@@ -57,7 +57,7 @@ BREAKPOINT {
 
 	SOLVE states METHOD cnexp
 	
-	ik = 1 * gbar * n * (v-ek)
+	ik = (1e-3) * gmax * n * (v-ek)
 }
 
 

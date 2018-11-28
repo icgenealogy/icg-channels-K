@@ -20,12 +20,12 @@ NEURON {
 	USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
 	NONSPECIFIC_CURRENT il
-	RANGE gnabar, gbar, gl, el, NNa, NK, next_evK, next_evNa, Nast, Kst
+	RANGE gnabar, gkbar, gl, el, NNa, NK, next_evK, next_evNa, Nast, Kst
 }
  
 PARAMETER {
 	gnabar = 0.0 (S/cm2)	<0,1e9>
-	gbar = .036 (S/cm2)	<0,1e9>
+	gkbar = .036 (S/cm2)	<0,1e9>
 	gl = 0.0 (S/cm2)	<0,1e9>
 	el = -54.3 (mV)
 	NNa = 5000
@@ -71,7 +71,7 @@ STATE {mock}
 BREAKPOINT {
 	SOLVE mula METHOD cnexp
 	ina = gnabar*Nast[7]*(v - ena)/NNa
-	ik = gbar*Kst[4]*(v - ek)/NK      
+	ik = gkbar*Kst[4]*(v - ek)/NK      
 	il = gl*(v - el)
 }
  

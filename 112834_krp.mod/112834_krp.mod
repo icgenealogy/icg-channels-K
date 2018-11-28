@@ -21,11 +21,11 @@ UNITS {
 NEURON {
         SUFFIX krp
         USEION k READ ek WRITE ik
-        RANGE  gbar, ik
+        RANGE  gkbar, ik
 }
  
 PARAMETER {
-	gbar   =   0.002 (S/cm2)
+	gkbar   =   0.002 (S/cm2)
 
 	mvhalf = -13.5		(mV)	: Nisenbaum 1996, Fig 6C
 	mslope = -11.8		(mV)	: Nisenbaum 1996, Fig 6C
@@ -52,7 +52,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE state METHOD cnexp
-        gk = gbar * m * (a*h + (1-a)) 
+        gk = gkbar * m * (a*h + (1-a)) 
         ik = gk * ( v - ek )
 }
  

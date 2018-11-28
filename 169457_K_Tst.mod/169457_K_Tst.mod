@@ -6,7 +6,7 @@
 NEURON	{
 	SUFFIX K_Tst
 	USEION k READ ek WRITE ik
-	RANGE gbar, gK_Tst, ik, offm, slom, offh, sloh, offmt, slomt, taummin, taumdiff,offht, sloht, tauhmin, tauhdiff
+	RANGE gK_Tstbar, gK_Tst, ik, offm, slom, offh, sloh, offmt, slomt, taummin, taumdiff,offht, sloht, tauhmin, tauhdiff
 }
 
 UNITS	{
@@ -16,7 +16,7 @@ UNITS	{
 }
 
 PARAMETER	{
-	gbar = 0.00001 (S/cm2)
+	gK_Tstbar = 0.00001 (S/cm2)
         offm = -10 (mV)
         slom = 19 (mV)
         offh = -76 (mV)
@@ -49,7 +49,7 @@ STATE	{
 
 BREAKPOINT	{
 	SOLVE states METHOD cnexp
-	gK_Tst = gbar*(m^4)*h
+	gK_Tst = gK_Tstbar*(m^4)*h
 	ik = gK_Tst*(v-ek)
 }
 

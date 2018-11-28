@@ -27,7 +27,7 @@ SUFFIX ichan2
 USEION k READ ek WRITE ik
 :NONSPECIFIC_CURRENT il 
 RANGE  gkf, gks
-RANGE gkfbar, gbar
+RANGE gkfbar, gksbar
 RANGE gl, el
 RANGE nfinf, nftau, ikf, nsinf, nstau, iks
 }
@@ -41,7 +41,7 @@ PARAMETER {
         ekf  (mV)
 	gkfbar = 1.0 (mho/cm2)
         eks  (mV)
-	gbar = 1.0 (mho/cm2)
+	gksbar = 1.0 (mho/cm2)
 	gl (mho/cm2)    
  	el (mV)
 }
@@ -72,7 +72,7 @@ BREAKPOINT {
 	SOLVE states
         gkf = gkfbar*nf*nf*nf*nf
         ikf = gkf*(v-ekf)
-        gks = gbar*ns*ns*ns*ns
+        gks = gksbar*ns*ns*ns*ns
         iks = gks*(v-eks)
 	ik = ikf
 

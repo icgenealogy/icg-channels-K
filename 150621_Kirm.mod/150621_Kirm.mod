@@ -17,7 +17,7 @@ UNITS {
 NEURON {
  	SUFFIX Kirm
 	USEION k READ ek WRITE ik
-	RANGE gbar, gkirm, minf
+	RANGE gkirmbar, gkirm, minf
 }
  
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
@@ -25,7 +25,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
   	
 	:ek	= -90	(mV)
-	gbar= 0.00015 (mho/cm2) :0.15
+	gkirmbar= 0.00015 (mho/cm2) :0.15
 	tau	= 0.01	 (ms)
 	Vsm	= -100
 	ksm	= -10   
@@ -47,7 +47,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gkirm = gbar*m
+        gkirm = gkirmbar*m
         ik = gkirm*(v - ek)
   
 }

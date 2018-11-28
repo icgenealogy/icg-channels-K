@@ -4,7 +4,7 @@ TITLE Cardiac IKx1 current
 NEURON {
 	SUFFIX IKx1
 	USEION k READ ek WRITE ik
-	RANGE gx1, ik, gbar, Tauact, minf, mtau
+	RANGE gx1, ik, ix1bar, Tauact, minf, mtau
 }
 
 UNITS {
@@ -26,7 +26,7 @@ ASSIGNED {
 	v (mV)
 	celsius (degC) : 37
 	ik (mA/cm2)
-	gbar (mA/cm2)
+	ix1bar (mA/cm2)
 	minf 
 	mtau (ms)  
 	ek (mV)      
@@ -39,8 +39,8 @@ INITIAL {
 
 BREAKPOINT {
 SOLVE states METHOD derivimplicit
-	gbar = gx1*(exp(0.04*(v+ 77))-1)/exp(0.04*(v + 35))
-	ik = gbar*m
+	ix1bar = gx1*(exp(0.04*(v+ 77))-1)/exp(0.04*(v + 35))
+	ik = ix1bar*m
 }
 
 DERIVATIVE states {	

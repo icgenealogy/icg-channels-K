@@ -12,10 +12,7 @@ UNITS {
      (mA) = (milliamp)
 }
 
-PARAMETER { 
-	:gk = 3e-5 (S/cm2) 
-	gk = 1.0 (S/cm2)
-}
+PARAMETER { gk = 3e-5 (S/cm2) }
 
 ASSIGNED {
      v       (mV)

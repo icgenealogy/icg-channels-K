@@ -16,7 +16,7 @@ UNITS {
 NEURON {
  	SUFFIX KAfm
 	USEION k READ ek WRITE ik
-	RANGE gbar, gkafm
+	RANGE gkafmbar, gkafm
 }
  
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
@@ -24,7 +24,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
   	
 	:ek	= -73	(mV)
-	gbar= 0.00009 (mho/cm2) :0.09 mS
+	gkafmbar= 0.00009 (mho/cm2) :0.09 mS
 	Etemp	= 22 :delord correspondence 11/15/06
 	Vsm	= -33.1
 	ksm	= 7.5
@@ -53,7 +53,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gkafm = gbar*m*h
+        gkafm = gkafmbar*m*h
         ik = gkafm*(v - ek)
   
 }

@@ -54,7 +54,7 @@ STATE {
 BREAKPOINT { 
 	settables(v) 
 	SOLVE states METHOD cnexp
-	ik =1*gbar * n * n * n * n * (v - ek)
+	ik =(1e-4)*gbar * n * n * n * n * (v - ek)
 } 
 
 INITIAL { 

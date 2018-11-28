@@ -16,7 +16,7 @@ PARAMETER {
 	v               (mV)
         ek = -90        (mV)      :K reversal potential  (to be reset in init.hoc)
 	celsius = 24	(degC)
-       	gbar = 1.0      (mho/cm2) :initialized conductance
+       	gkabar = 1.0      (mho/cm2) :initialized conductance
         vhalfn = 11     (mV)      :activation half-potential
         vhalfl = -56    (mV) 	  :inactivation half-potential
         a0n = 0.05      (/ms)     :parameters used
@@ -36,7 +36,7 @@ PARAMETER {
 NEURON {
 	SUFFIX kap
 	USEION k READ ek WRITE ik
-        RANGE gbar,gka
+        RANGE gkabar,gka
         GLOBAL ninf,linf,taul,taun,lmin
 }
 
@@ -57,13 +57,13 @@ INITIAL {		:initialize the following parameter using rates()
 	rates(v)
 	n = ninf
 	l = linf
-	gka = gbar*n*l
+	gka = gkabar*n*l
 	ik = gka*(v-ek)
 }
 
 BREAKPOINT {
 	SOLVE states 
-	gka = gbar*n*l
+	gka = gkabar*n*l
 	ik = gka*(v-ek)
 }
 

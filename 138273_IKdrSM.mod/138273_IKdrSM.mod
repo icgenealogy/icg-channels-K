@@ -4,7 +4,7 @@ TITLE Potassium delayed rectifier channel
 NEURON {
 	SUFFIX IKdrSM
 	USEION k READ ek WRITE ik
-	RANGE gbar, ik
+	RANGE gkdrmax, ik
 }
 
 UNITS {
@@ -13,7 +13,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar=1.0 (mho/cm2)
+	gkdrmax=1.0 (mho/cm2)
 }
 
 ASSIGNED {
@@ -30,7 +30,7 @@ STATE {
 
 BREAKPOINT {
     SOLVE states METHOD cnexp
-    ik=gbar*m*m*m*m*(v-ek)
+    ik=gkdrmax*m*m*m*m*(v-ek)
 }
 
 INITIAL {

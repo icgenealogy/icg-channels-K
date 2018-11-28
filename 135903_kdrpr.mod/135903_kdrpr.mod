@@ -56,7 +56,7 @@ BREAKPOINT {
 
 	SOLVE states METHOD cnexp
 	
-	ik = 1 * gkdr * n * (v-ek)
+	ik = (1e-3) * gkdr * n * (v-ek)
 }
 
 

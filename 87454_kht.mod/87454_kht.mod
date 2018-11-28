@@ -42,7 +42,7 @@ NEURON {
         SUFFIX kht
 :        USEION k READ ek WRITE ik
         USEION k WRITE ik
-        RANGE gbar, gkht, ik
+        RANGE gkhtbar, gkht, ik
         GLOBAL ninf, pinf, ntau, ptau
 	RANGE ek
 }
@@ -54,7 +54,7 @@ PARAMETER {
         celsius = 22 (degC)  : model is defined on measurements made at room temp in Baltimore
         dt (ms)
         ek = -77 (mV)
-        gbar = 0.01592 (mho/cm2) <0,1e9>
+        gkhtbar = 0.01592 (mho/cm2) <0,1e9>
 		nf = 0.85 <0,1> :proportion of n vs p kinetics
 }
 
@@ -74,7 +74,7 @@ LOCAL nexp, pexp
 BREAKPOINT {
 	SOLVE states
     
-	gkht = gbar*(nf*(n^2) + (1-nf)*p)
+	gkht = gkhtbar*(nf*(n^2) + (1-nf)*p)
     ik = gkht*(v - ek)
 
 }

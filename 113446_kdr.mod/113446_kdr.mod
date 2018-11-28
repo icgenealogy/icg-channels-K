@@ -18,7 +18,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 100 (ms)}
 NEURON {
 	SUFFIX kdr
 	USEION k READ ek WRITE ik
-	RANGE gbar, gk, ik, qk
+	RANGE gkbar, gk, ik, qk
 	GLOBAL scaletaun, shiftn
 }
 
@@ -30,7 +30,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar=1e-3	(mho/cm2)	: default max. perm.
+	gkbar=1e-3	(mho/cm2)	: default max. perm.
 	scaletaun=1.5
 	shiftn=0	(mV)
 }
@@ -48,7 +48,7 @@ STATE { n c qk }
 
 BREAKPOINT {
 	SOLVE kstate METHOD sparse
-	gk = gbar*n*n*n*n
+	gk = gkbar*n*n*n*n
 	ik = gk*(v-ek)
 	:n  = 1 - c
 }
@@ -56,7 +56,7 @@ BREAKPOINT {
 INITIAL {
 	n=n_inf(v)
 	c=1-n
-	gk = gbar*n*n*n*n
+	gk = gkbar*n*n*n*n
 	ik = gk*(v-ek)
 	qk=0
 }
@@ -88,5 +88,5 @@ FUNCTION n_inf(v(mV)) {
 }
 
 FUNCTION window(v(mV)) {
-	window=gbar*n_inf(v)^4*(v-ek)
+	window=gkbar*n_inf(v)^4*(v-ek)
 }

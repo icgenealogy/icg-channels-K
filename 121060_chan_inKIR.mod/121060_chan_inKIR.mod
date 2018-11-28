@@ -37,7 +37,7 @@ CONSTANT {
 
 PARAMETER {
 	ek			(mV)
-	gbar = 1.4e-4	(mho/cm2)	<0,1e9>
+	gmax = 1.4e-4	(mho/cm2)	<0,1e9>
 	m_vh = -82	(mV)	: half activation
 	m_ve = 13		(mV)	: slope
 	a = 0.47 (1)		: 0.47 default, 0.27 for pinKir
@@ -62,7 +62,7 @@ STATE {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	g=gbar*m*(a*h+(1 -a)) 
+	g=gmax*m*(a*h+(1 -a)) 
 	ik = g*(v - ek)
 }
 

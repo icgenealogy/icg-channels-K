@@ -4,7 +4,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 NEURON {
 	SUFFIX IA
 	USEION k READ ek WRITE ik
-	RANGE gbar
+	RANGE gkabar
 	RANGE m_inf, h_inf
 	RANGE tau_m, tau_h
 	RANGE m_exp, h_exp
@@ -21,7 +21,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar	= 0.0056	(mho/cm2)
+	gkabar	= 0.0056	(mho/cm2)
 	ek		(mV)
 	dt              (ms)
 	v               (mV)
@@ -52,7 +52,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states
-	ik = gbar * m*m*m *h* (v - ek)
+	ik = gkabar * m*m*m *h* (v - ek)
 
 }
 

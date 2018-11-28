@@ -16,8 +16,8 @@ PARAMETER {                        :parameters that can be entered when function
 	v (mV)
         ek = -80                   :K reversal potential  (reset in cell-setup.hoc)
 	celsius = 24	(degC)
-:	gbar = 0.008  (mho/cm2)  :suggested conductance value
-	gbar = 1.0      (mho/cm2)  :initialized conductance
+:	gkabar = 0.008  (mho/cm2)  :suggested conductance value
+	gkabar = 1.0      (mho/cm2)  :initialized conductance
         vhalfn = -1     (mV)       :activation half-potential
         vhalfl = -56    (mV)       :inactivation half-potential
         a0n = 0.1       (/ms)      :parameters used
@@ -37,7 +37,7 @@ PARAMETER {                        :parameters that can be entered when function
 NEURON {
 	SUFFIX kad
 	USEION k READ ek WRITE ik
-        RANGE gbar,gka
+        RANGE gkabar,gka
         GLOBAL ninf,linf,taul,taun,lmin
 }
 
@@ -58,13 +58,13 @@ INITIAL {    :initialize the following parameter using rates()
 	rates(v)
 	n=ninf
 	l=linf
-	gka = gbar*n*l
+	gka = gkabar*n*l
 	ik = gka*(v-ek)	
 }
 
 BREAKPOINT {
 	SOLVE states
-	gka = gbar*n*l
+	gka = gkabar*n*l
 	ik = gka*(v-ek)
 }
 

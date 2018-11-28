@@ -16,7 +16,7 @@ UNITS {
 NEURON {
  	SUFFIX Krpm
 	USEION k READ ek WRITE ik
-	RANGE gbar, gkrpm, minf, hinf, mtau, htau
+	RANGE gkrpmbar, gkrpm, minf, hinf, mtau, htau
 }
  
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
@@ -24,7 +24,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
   	
 	:ek	= -77.5	(mV)
-	gbar= 0.00042 (mho/cm2) :0.42 mS
+	gkrpmbar= 0.00042 (mho/cm2) :0.42 mS
 	Etemp	= 22 : Delord correspondence 11/15/06
 	Vsm	= -13.4
 	ksm	= 12.1
@@ -57,7 +57,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gkrpm = gbar*m*h
+        gkrpm = gkrpmbar*m*h
         ik = gkrpm*(v - ek)
   
 }

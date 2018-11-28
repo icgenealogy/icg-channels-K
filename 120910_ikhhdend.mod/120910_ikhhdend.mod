@@ -8,7 +8,7 @@ UNITS {
 NEURON {
         SUFFIX ikhhdend
         USEION k READ ek WRITE ik
-        RANGE gbar
+        RANGE gkbar
         GLOBAL ninf, nexp
 }
  
@@ -18,7 +18,7 @@ PARAMETER {
         v (mV)
         celsius (degC)
         dt (ms)
-	gbar = 0.001(mho/cm2)        
+	gkbar = 0.001(mho/cm2)        
 }
  
 STATE {
@@ -33,7 +33,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states
-        ik = gbar*n*n*(v - ek)      
+        ik = gkbar*n*n*(v - ek)      
 }
  
 UNITSOFF

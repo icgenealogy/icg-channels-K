@@ -17,12 +17,12 @@ UNITS {
 NEURON {
         SUFFIX K_No
         USEION k READ ek WRITE ik
-        RANGE gbar, gk
+        RANGE gkmax, gk
         RANGE sinf, stau
 }
  
 PARAMETER { 
-        gbar = 0.08 (S/cm2)   <0,1e9>
+        gkmax = 0.08 (S/cm2)   <0,1e9>
 }
  
 STATE {
@@ -41,7 +41,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gk = gbar*s
+        gk = gkmax*s
 		ik = gk*(v - ek)
 } 
  

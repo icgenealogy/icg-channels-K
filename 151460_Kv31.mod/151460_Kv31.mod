@@ -28,7 +28,7 @@ NEURON {
 	SUFFIX Kv31
 	USEION k READ ki,ek WRITE ik
 	RANGE gk
-	GLOBAL activate_Q10,Q10,gmaxQ10,rate_k,gbar,temp1,temp2,tempb
+	GLOBAL activate_Q10,Q10,gmaxQ10,rate_k,gmax_k,temp1,temp2,tempb
 }
 
 PARAMETER {
@@ -56,12 +56,12 @@ ASSIGNED {
 	pinf
 	ptau (ms)
 	rate_k
-	gbar
+	gmax_k
 }
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik   = (gk*gbar)*p*(v-ek)
+	ik   = (gk*gmax_k)*p*(v-ek)
 }
 
 UNITSOFF
@@ -74,10 +74,10 @@ INITIAL {
 	  ktemp1 = temp1+273.0
 	  ktemp2 = temp2+273.0
 	  rate_k = exp( log(Q10)*((1/ktempb)-(1/ktemp))/((1/ktemp1)-(1/ktemp2)) )
-	  gbar = exp( log(gmaxQ10)*((1/ktempb)-(1/ktemp))/((1/ktemp1)-(1/ktemp2)) )
+	  gmax_k = exp( log(gmaxQ10)*((1/ktempb)-(1/ktemp))/((1/ktemp1)-(1/ktemp2)) )
 	}else{
 	  rate_k = 1.0
-	  gbar = 1.0
+	  gmax_k = 1.0
 	}
         settables(v)
 	p = pinf

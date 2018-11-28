@@ -9,7 +9,7 @@ ASSIGNED {
 PARAMETER {
 	:erev 		= -90    (mV)
 	:ek		(mV)
-        gbar 		= 0.1    (S/cm2)
+        gmax 		= 0.1    (S/cm2)
         vrest           = 0.
 
 	mvalence 	= 3.5

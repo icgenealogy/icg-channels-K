@@ -16,7 +16,7 @@ NEURON {
     USEION na READ ena WRITE ina
     USEION k READ ek WRITE ik
     :NONSPECIFIC_CURRENT il
-    RANGE gnapbar, gnabar, gbar, gl, ena, ek, el
+    RANGE gnapbar, gnabar, gkbar, gl, ena, ek, el
     RANGE mp_inf, m_inf, h_inf, s_inf, inap
     RANGE tau_mp, tau_m, tau_h, tau_s
 }
@@ -29,7 +29,7 @@ UNITS {
 PARAMETER {
     gnapbar = 0.0  (mho/cm2)
     gnabar  = 0.0   (mho/cm2)
-    gbar   = 0.08  (mho/cm2)
+    gkbar   = 0.08  (mho/cm2)
     gl	    = 0.0 (mho/cm2)
     :ena     = 55.0  (mV)
     :ek      = -85.0 (mV)
@@ -93,7 +93,7 @@ BREAKPOINT {
     SOLVE states METHOD cnexp
     inap = gnapbar * mp*mp*mp * (v - ena)
     ina = gnabar * m*m*m*h * (v - ena)
-    ik   = gbar * s * (v - ek)
+    ik   = gkbar * s * (v - ek)
     :il   = gl * (v - el)
 }
 

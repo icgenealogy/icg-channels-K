@@ -15,7 +15,7 @@ UNITS {
 NEURON {
         SUFFIX khh
         USEION k READ ek WRITE ik
-        RANGE  gbar, gk, ik, alphaVHalf, alphaK, alpha0, betaVHalf, betaK, beta0, q10, T0
+        RANGE  gkbar, gk, ik, alphaVHalf, alphaK, alpha0, betaVHalf, betaK, beta0, q10, T0
 }
 
 COMMENT
@@ -24,7 +24,7 @@ COMMENT
 ENDCOMMENT
  
 PARAMETER {
-        gbar = .036 (S/cm2)	<0,1e9>
+        gkbar = .036 (S/cm2)	<0,1e9>
         alpha0 = 0.1 (/ms)	    <0,1e9>
         alphaVHalf = -55 (mV)
         alphaK = 10.0 (mV)		<0,1e9>
@@ -50,7 +50,7 @@ STATE { n }
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gk = gbar*n*n*n*n
+        gk = gkbar*n*n*n*n
         ik = gk*(v - ek)      
 }
  

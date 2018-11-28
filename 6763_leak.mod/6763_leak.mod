@@ -21,7 +21,7 @@ NEURON {
 	USEION na READ nai,ena  WRITE ina
 	USEION k  WRITE ik
 	USEION cl  WRITE icl VALENCE 1
-	RANGE  ileak,ina,ica,ik,gnabar,gbar,nai,nainit,ggabaa
+	RANGE  ileak,ina,ica,ik,gnabar,gkbar,nai,nainit,ggabaa
  
 }
 
@@ -30,7 +30,7 @@ PARAMETER {
         dt (ms)
         gcabar =  0.0 (uS/cm2)
         gnabar = 16.3 (uS/cm2)
-        gbar = 83.7 (uS/cm2)
+        gkbar = 83.7 (uS/cm2)
         ggabaa = 0.0 (uS/cm2)
         eca =  20 (mV)
         ecl =  -65 (mV)
@@ -58,7 +58,7 @@ BREAKPOINT {
 	ica = (0.000001)*gcabar*(v-eca)
 	ina = (0.000001)*gnabar*(v-ena)
 	icl = (0.000001)*ggabaa*(v-ecl)
-	ik = (0.000001)*gbar*(v-ek)
+	ik = (0.000001)*gkbar*(v-ek)
         ileak= ica + ina + ik 
 }
 

@@ -26,7 +26,7 @@ SUFFIX ichan2
 USEION na READ ena WRITE ina
 USEION k READ ek WRITE ik
 RANGE  gnat, gkf, gks
-RANGE gnatbar, gkfbar, gbar
+RANGE gnatbar, gkfbar, gksbar
 RANGE gl, el
 RANGE minf, mtau, hinf, htau, nfinf, nftau, inat, ikf, nsinf, nstau, iks
 }
@@ -42,7 +42,7 @@ PARAMETER {
         ek  (mV)
 	gkfbar = 1.0 (mho/cm2)
         :eks  (mV)
-	gbar = 0.0 (mho/cm2)
+	gksbar = 0.0 (mho/cm2)
 	gl = 0.0 (mho/cm2)    
  	el (mV)
 }
@@ -76,7 +76,7 @@ BREAKPOINT {
         ina = gnat*(v - ena)
         gkf = gkfbar*nf*nf*nf*nf
         ikf = gkf*(v-ek)
-        gks = gbar*ns*ns*ns*ns
+        gks = gksbar*ns*ns*ns*ns
         iks = gks*(v-ek)
 	ik = ikf
 

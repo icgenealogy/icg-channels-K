@@ -11,7 +11,7 @@ NEURON {
 	  USEION na READ ena WRITE ina 
 	  USEION k READ ek WRITE ik
 	  NONSPECIFIC_CURRENT il
-	  RANGE gnabar, gbar, gl, el, gna, gk, gmax
+	  RANGE gnabar, gkbar, gl, el, gna, gk, gmax
 	  RANGE ar2, vhalfs
 	  RANGE inf, tau
 	  RANGE taus
@@ -39,10 +39,10 @@ PARAMETER {                     :parameters that can be entered when function is
     vhalfr = -60 (mV)       :half potential for "s" attenuation system
 	  W = 0.016    (/mV)      :this 1/61.5 mV
     :	gnabar = 0.2 (mho/cm2)  :suggested conductance values
-    :	gbar = 0.12 (mho/cm2)
+    :	gkbar = 0.12 (mho/cm2)
     :	gl = 0.0001  (mho/cm2)
     gnabar = 0.0   (mho/cm2)  :initialized conductances
-	  gbar = 1.0    (mho/cm2)  :actual values set in cell-setup.hoc
+	  gkbar = 1.0    (mho/cm2)  :actual values set in cell-setup.hoc
 	  gl = 0       (mho/cm2)
 	  el = -70.0   (mV)       :steady state 
 	  v            (mV)
@@ -70,7 +70,7 @@ BREAKPOINT {
 	  SOLVE states METHOD cnexp
     gna = gnabar*m*m*h*s
 	  ina = gna*(v - ena)                :Sodium current
-    gk =  gbar*n*n
+    gk =  gkbar*n*n
 	  ik = gk*(v - ek)                   :Potassium current
 	  il = gl*(v - el)                    :leak current
     if (gna + gk + gl > gmax) {
@@ -86,7 +86,7 @@ INITIAL {			:initialize the following parameter using states()
 	  s=1
     gna = gnabar*m*m*h*s
 	  ina = gna*(v - ena)                :Sodium current
-    gk =  gbar*n*n
+    gk =  gkbar*n*n
 	  ik = gk*(v - ek)                   :Potassium current
 	  il = gl*(v - el)
     gmax = gk + gna + gl

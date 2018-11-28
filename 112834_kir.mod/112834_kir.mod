@@ -33,11 +33,11 @@ UNITS {
 NEURON {
         SUFFIX kir
         USEION k READ ek WRITE ik
-        RANGE  gbar, ik, mvhalf, mslope, mshift, qfact
+        RANGE  gkbar, ik, mvhalf, mslope, mshift, qfact
 }
  
 PARAMETER {
-	gbar  = 0.00015 		(S/cm2)	: 
+	gkbar  = 0.00015 		(S/cm2)	: 
 
 	mvhalf = -52		(mV)	: fit to Hayashi 1988 fig 14; minf = alpha/(alpha+beta)
 	mslope = 13		(mV)	: fit to Hayashi 1988 fig 14
@@ -60,7 +60,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE state METHOD cnexp
-        gk = gbar * m
+        gk = gkbar * m
         ik = gk * ( v - ek )
 }
   

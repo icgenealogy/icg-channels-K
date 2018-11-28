@@ -17,8 +17,7 @@ UNITS {
 }
 
 PARAMETER {
-	 :gto=0.3304e-3 (S/cm2) <0,1e9>
-	 gto=1.0 (S/cm2) <0,1e9>
+	 gto=0.3304e-3 (S/cm2) <0,1e9>
 	Tauact=1 (ms)
 	Tauinact=1 (ms)
 }

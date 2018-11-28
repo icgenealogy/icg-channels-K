@@ -9,7 +9,7 @@ NEURON {
 
 	SUFFIX kdr
 	USEION k READ ek WRITE ik
-	RANGE gbar, ik
+	RANGE gkbar, ik
 }
 	
 UNITS {
@@ -21,7 +21,7 @@ UNITS {
 
 PARAMETER {
 
-    gbar =  15 (mS/cm2)
+    gkbar =  15 (mS/cm2)
     :ek   = -75 (mV)
 }
     
@@ -46,7 +46,7 @@ BREAKPOINT {
 
 	SOLVE states METHOD cnexp
 	
-	ik = 1 * gbar * n * (v-ek)
+	ik = (1e-3) * gkbar * n * (v-ek)
 }
 
 

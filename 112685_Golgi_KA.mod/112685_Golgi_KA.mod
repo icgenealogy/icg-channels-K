@@ -10,7 +10,7 @@ ENDCOMMENT
 NEURON { 
 	SUFFIX Golgi_KA
 	USEION k READ ek WRITE ik 
-	RANGE gbar, ik, g
+	RANGE gkbar, ik, g
 	:RANGE Aalpha_a, Kalpha_a, V0alpha_a, alpha_a, beta_a, alpha_b
 	:RANGE Abeta_a, Kbeta_a, V0beta_a, beta_b
 	:RANGE Aalpha_b, Kalpha_b, V0alpha_b
@@ -25,7 +25,7 @@ UNITS {
 } 
  
 PARAMETER { 
-	gbar= 0.008 (mho/cm2)
+	gkbar= 0.008 (mho/cm2)
 	Aalpha_a = 0.8147 (/ms)
 	Kalpha_a = -23.32708 (mV)
 	V0alpha_a = -9.17203 (mV)
@@ -78,7 +78,7 @@ INITIAL {
  
 BREAKPOINT { 
 	SOLVE states METHOD derivimplicit 
-	g = gbar*a*a*a*b 
+	g = gkbar*a*a*a*b 
 	ik = g*(v - ek)
 	alpha_a = alp_a(v)
 	beta_a = bet_a(v) 

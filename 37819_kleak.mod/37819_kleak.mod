@@ -18,7 +18,7 @@ COMMENT
 	access <compartment_name>
 	kl.loc(0.5)
 
-	kl.gbar = ...
+	kl.gmax = ...
 
   A. Destexhe , The Salk Institute, Feb 1994.
 
@@ -31,7 +31,7 @@ NEURON {
 	SUFFIX kleak
 	:POINT_PROCESS kleak
 	USEION k READ ek WRITE ik
-	RANGE gbar
+	RANGE gmax
 	:GLOBAL Erev
 	:NONSPECIFIC_CURRENT i
 }
@@ -42,7 +42,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar	= 0.004	(umho)		: maximum conductance (microSiemens)
+	gmax	= 0.004	(umho)		: maximum conductance (microSiemens)
 	:Erev	= -100	(mV)		: reversal potential (potassium)
 }
 
@@ -57,6 +57,6 @@ INITIAL {
 }
 
 BREAKPOINT {
-	ik = gbar * (v - ek)
+	ik = gmax * (v - ek)
 }
 

@@ -9,7 +9,7 @@ NEURON {
 	SUFFIX fastK	
 	USEION k READ ek WRITE ik
 	NONSPECIFIC_CURRENT iflut
-	RANGE gbar, gflut, eflut
+	RANGE gkfbar, gflut, eflut
 	RANGE n_inf
 	RANGE tau_n
 }
@@ -21,7 +21,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar = 0.04	(mho/cm2)
+	gkfbar = 0.04	(mho/cm2)
 	gflut (mho/cm2)
 	eflut=-70	(mV)
 }
@@ -39,7 +39,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik = gbar*n*n*n*n*(v - ek)
+	ik = gkfbar*n*n*n*n*(v - ek)
 	iflut = gflut*(v-eflut)
 }
 

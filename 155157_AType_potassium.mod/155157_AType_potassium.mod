@@ -3,7 +3,7 @@
 NEURON {
 	SUFFIX ka
 	USEION k READ ek WRITE ik
-	RANGE gk, gbar, gcomp, glearn, i
+	RANGE gk, gkbar, gcomp, glearn, i
 	RANGE Tau, Te, Tp, eps, float, r, K
 	RANGE z, e, p, thresh, delay
 }
@@ -21,7 +21,7 @@ PARAMETER {
 	Tp = 1000.0 (ms) <1e-9,1e9>
 	eps = 1e-6
 	r = 0.8
-	gbar = 54.8 (uS/cm2)
+	gkbar = 54.8 (uS/cm2)
 	thresh = -20 (mV)
 	delay = 7
 	glearn = 0
@@ -52,9 +52,9 @@ BREAKPOINT {
 	SOLVE states METHOD cnexp
 	gcomp = g_comp(p)
 	if (K<eps) {
-		gk = gbar * glearn
+		gk = gkbar * glearn
 	} else {
-		gk = gbar * gcomp
+		gk = gkbar * gcomp
 	}
 	i = 1e-6*gk*(v-ek)
 	ik = i

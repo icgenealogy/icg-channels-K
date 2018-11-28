@@ -14,7 +14,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 NEURON {
 	SUFFIX iM
 	USEION k READ ek WRITE ik 
-        RANGE gbar, m_inf, tau_m, ik
+        RANGE gkbar, m_inf, tau_m, ik
 }
 
 UNITS {
@@ -27,7 +27,7 @@ PARAMETER {
 	celsius		(degC)
         dt              (ms)
 	ek		(mV)
-	gbar= 0.00031	(mho/cm2)
+	gkbar= 0.00031	(mho/cm2)
 }
 
 STATE {
@@ -44,7 +44,7 @@ ASSIGNED {
 
 BREAKPOINT { 
 	SOLVE states :METHOD euler
-	ik = gbar * m * (v+105)
+	ik = gkbar * m * (v+105)
 }
 
 :DERIVATIVE states {

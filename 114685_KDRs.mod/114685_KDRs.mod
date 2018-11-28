@@ -31,8 +31,7 @@ NEURON {
 PARAMETER {
     v             (mV)
     dt            (ms)
-    :gk = 0.0030   (mho/cm2)  : Baranauskas 1999
-    gk = 1.0   (mho/cm2)  : Baranauskas 1999
+    gk = 0.0030   (mho/cm2)  : Baranauskas 1999
     ek
     ki
     celsius

@@ -1,7 +1,7 @@
 
 PARAMETER {
 	erev 		= -90    (mV)
-	gbar 		= 0.08   (umho) :SRJones thinks this is actually S/cm^2
+	gmax 		= 0.08   (umho) :SRJones thinks this is actually S/cm^2
 
 	mvalence 	= 3.
 	mgamma 		= 0.7
@@ -78,7 +78,7 @@ NEURON {
 	:USEION na WRITE ina
 	USEION k READ ek WRITE ik
 	:USEION ca READ cao,cai  WRITE ica
-	RANGE gbar, g, i, mbaserate
+	RANGE gmax, g, i, mbaserate
 	GLOBAL erev, Inf, Tau, Mult, Add, vmin, vmax
 } : end NEURON
 
@@ -99,7 +99,7 @@ COMMENT
 ** Parameter values should come from files specific to particular channels
 PARAMETER {
 	erev 		= 0    (mV)
-	gbar 		= 1.0    (mho/cm^2)
+	gmax 		= 1.0    (mho/cm^2)
 
 	mvalence 	= 0
 	mgamma 		= 0
@@ -180,7 +180,7 @@ BREAKPOINT {
 
 	:			       mexp			    hexp
 	: Note that mexp_val is now = m      and hexp_val is now = h 
-	g = gbar * mexp_val * hexp_val
+	g = gmax * mexp_val * hexp_val
 	iassign()
 } : end BREAKPOINT
 

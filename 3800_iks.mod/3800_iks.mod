@@ -16,9 +16,8 @@ UNITS {
 }
 
 PARAMETER {
-	:gKs=0.258e-3 (S/cm2) <0,1e9>
-	gKs=1.0 (S/cm2) <0,1e9>
-
+	 gKs=0.258e-3 (S/cm2) <0,1e9>
+	
 }
 
 STATE {

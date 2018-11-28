@@ -8,7 +8,7 @@ ASSIGNED { ik }
 PARAMETER {
 	ek 		= -95        (mV)
 	erev 		= -95        (mV)
-	gbar 		= 0.005     (umho)
+	gmax 		= 0.005     (umho)
 
         vrest           = 0.0
 	mvalence 	= 2.8

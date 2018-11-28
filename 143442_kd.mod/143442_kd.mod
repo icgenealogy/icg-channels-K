@@ -4,12 +4,12 @@ TITLE K-D
 NEURON {
 	SUFFIX kd
 	USEION k READ ek WRITE ik
-	RANGE  gbar, ik
+	RANGE  gkbar, ik
 	GLOBAL minf, mtau, hinf, htau
 }
 
 PARAMETER {
-	gbar = 0.1   	(mho/cm2)	
+	gkbar = 0.1   	(mho/cm2)	
 								
 	celsius
 	:ek = -100	(mV)            : must be explicitly def. in hoc
@@ -41,7 +41,7 @@ STATE { m h}
 
 BREAKPOINT {
         SOLVE states METHOD cnexp
-       ik = gbar * m*h*(v-ek)
+       ik = gkbar * m*h*(v-ek)
 } 
 
 INITIAL {

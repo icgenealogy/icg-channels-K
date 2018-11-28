@@ -30,7 +30,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 NEURON {
 	SUFFIX ia
 	USEION k  READ ek WRITE ik VALENCE 1
-	RANGE gbar, i
+	RANGE gmax, i
 	GLOBAL m_inf, tau_m, h_inf, tau_h, exptemp, q10
 }
 
@@ -43,7 +43,7 @@ PARAMETER {
   ek
   v		(mV)
   celsius	= 36	(degC)
-  gbar	= 1.0	(mho/cm2)
+  gmax	= 1.0	(mho/cm2)
   exptemp= 23.5
   q10 = 3
 }
@@ -64,7 +64,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	i = gbar * (m*m*m*m*h * (v-ek))
+	i = gmax * (m*m*m*m*h * (v-ek))
         ik = i
 }
 

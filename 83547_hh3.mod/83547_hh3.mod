@@ -18,7 +18,7 @@ NEURON {
         SUFFIX hh3
         USEION na READ nai,nao WRITE ina
         USEION k READ ek WRITE ik
-        RANGE gnabar, gkhhbar,gbar, ina, ikhh,ika,ik,ena,miv,hiv,htv1,htv2
+        RANGE gnabar, gkhhbar,gkabar, ina, ikhh,ika,ik,ena,miv,hiv,htv1,htv2
         GLOBAL minf, hinf, ninf
 }
  
@@ -30,7 +30,7 @@ PARAMETER {
         dt (ms)
         gnabar =  0.0  (S/cm2)
         gkhhbar = 0.0 (S/cm2)
-        gbar = 1.0 (S/cm2)
+        gkabar = 1.0 (S/cm2)
         ek = -100  (mV)
         nao = 145 (mM)
         nai   (mM)
@@ -59,7 +59,7 @@ BREAKPOINT {
         ena = R*(celsius+273.15)/F*log(nao/nai)
         ina = gnabar*m*m*m*h*(v - ena)
         ikhh = gkhhbar*n*n*n*(v - ek)      
-        ika = gbar*p*p*p*q*(v - ek)      
+        ika = gkabar*p*p*p*q*(v - ek)      
         ik = ika :+ ikhh
 }
  

@@ -11,7 +11,7 @@ NEURON {
 	SUFFIX parak75
 	:NONSPECIFIC_CURRENT ik
 	USEION k READ ek WRITE ik
-        RANGE gbar
+        RANGE gkbar
 	RANGE n_inf
 	RANGE tau_n
 }
@@ -24,7 +24,7 @@ UNITS {
 
 PARAMETER {
 
-	gbar   = 0.01	(mho/cm2)
+	gkbar   = 0.01	(mho/cm2)
 	:ek      = -85.0 (mV)
 	celsius		(degC)
 	dt              (ms)
@@ -52,7 +52,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik   = gbar * n*n*n*n * (v - ek)
+	ik   = gkbar * n*n*n*n * (v - ek)
 }
 
 DERIVATIVE states {   : exact Hodgkin-Huxley equations

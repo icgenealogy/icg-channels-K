@@ -8,11 +8,11 @@ UNITS {
 NEURON {
     SUFFIX HH_Kdr35
     USEION k READ ek WRITE ik
-    RANGE gbar, gk
+    RANGE gmax, gk
 }
 
 PARAMETER {
-    gbar= 0.018 (mho/cm2)
+    gmax= 0.018 (mho/cm2)
 }
 
 ASSIGNED { 
@@ -30,8 +30,8 @@ STATE {
 
 BREAKPOINT {
     SOLVE states METHOD cnexp
-    gk  = gbar*n*n*n*n
-    ik  = gbar*n*n*n*n*(v-ek)
+    gk  = gmax*n*n*n*n
+    ik  = gmax*n*n*n*n*(v-ek)
 }
 
 INITIAL {

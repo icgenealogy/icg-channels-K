@@ -6,7 +6,7 @@ NEURON {
 	SUFFIX kO
 	:USEION O READ eO WRITE iO VALENCE 1
 	USEION k READ ek WRITE ik
-        RANGE gbar
+        RANGE gkbar
 }
 
 UNITS {
@@ -19,7 +19,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gbar = 1.0 (mho/cm2)
+	gkbar = 1.0 (mho/cm2)
 	:eO = -90 (mV)
 }
 
@@ -29,7 +29,7 @@ ASSIGNED {
 }
 
 BREAKPOINT {
-	ik = gbar*(v - ek)
+	ik = gkbar*(v - ek)
 }
 
 

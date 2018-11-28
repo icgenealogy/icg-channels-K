@@ -10,13 +10,13 @@ UNITS
 NEURON {
         SUFFIX KM
 	USEION k READ ek WRITE ik
-        RANGE gbar, gM, timesTau, plusTau
+        RANGE gMbar, gM, timesTau, plusTau
         GLOBAL uinf, utau
 }
  
 PARAMETER 
 {
-        gbar = 0.00034 (S/cm2)	<0,1e9>
+        gMbar = 0.00034 (S/cm2)	<0,1e9>
         eK = -95 (mV)
 	ek (mV)
 	timesTau=1
@@ -44,7 +44,7 @@ LOCAL uexp
 BREAKPOINT 
 {
         SOLVE states METHOD cnexp
-        gM = gbar*u*u
+        gM = gMbar*u*u
 	ik = gM*(v - eK)
 }
  

@@ -51,7 +51,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik = 1 * gka * a * b * (v-ek)
+	ik = (1e-3) * gka * a * b * (v-ek)
 }
 
 

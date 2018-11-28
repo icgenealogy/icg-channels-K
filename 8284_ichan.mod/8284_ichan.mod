@@ -29,7 +29,7 @@ SUFFIX ichan
 USEION na READ ena WRITE ina
 USEION k READ ek WRITE ik
 RANGE  gnat, gkf
-RANGE gnatbar, gbar
+RANGE gnatbar, gkfbar
 RANGE gl, el
 RANGE minf, mtau, hinf, htau, nfinf, nftau
 }
@@ -43,7 +43,7 @@ PARAMETER {
         ena  (mV)
 	gnatbar = 0.0 (mho/cm2)   
         ek  (mV)
-	gbar = 1.0 (mho/cm2)
+	gkfbar = 1.0 (mho/cm2)
 	gl = 0.0(mho/cm2)    
  	el (mV)
 }
@@ -73,7 +73,7 @@ BREAKPOINT {
 	SOLVE states
         gnat = gnatbar*m*m*m*h  
         ina = gnat*(v - ena)
-        gkf = gbar*nf*nf*nf*nf
+        gkf = gkfbar*nf*nf*nf*nf
         ik = gkf*(v-ek)
 	il = gl*(v-el)
 }

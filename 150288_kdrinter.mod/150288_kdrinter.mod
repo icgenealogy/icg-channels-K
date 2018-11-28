@@ -3,7 +3,7 @@
 NEURON {
 	SUFFIX kdrinter
 	USEION k READ ek WRITE ik
-	RANGE gbar, ik, gkdr, inf, tau
+	RANGE gkdrbar, ik, gkdr, inf, tau
 }
 
 UNITS {
@@ -14,7 +14,7 @@ UNITS {
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gbar = 0.008 (mho/cm2) <0,1e9>
+	gkdrbar = 0.008 (mho/cm2) <0,1e9>
 	ek = -80 (mV)
 }
 
@@ -36,7 +36,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	gkdr = gbar*n*n*n*n
+	gkdr = gkdrbar*n*n*n*n
 	ik = gkdr*(v-ek)
 }
 

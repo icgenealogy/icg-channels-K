@@ -11,7 +11,7 @@ ENDCOMMENT
 NEURON { 
 	SUFFIX GRC_KV 
 	USEION k READ ek WRITE ik 
-	RANGE gbar, ik, g, alpha_n, beta_n 
+	RANGE gkbar, ik, g, alpha_n, beta_n 
 	RANGE Aalpha_n, Kalpha_n, V0alpha_n
 	RANGE Abeta_n, Kbeta_n, V0beta_n
 	RANGE n_inf, tau_n 
@@ -33,7 +33,7 @@ PARAMETER {
 	Kbeta_n = -80 (mV)
 	V0beta_n = -35 (mV)
 	v (mV)  
-	gbar= 0.003 (mho/cm2) : 0.0015
+	gkbar= 0.003 (mho/cm2) : 0.0015
 	ek = -84.69 (mV) 
 	celsius = 30 (degC) 
 } 
@@ -58,7 +58,7 @@ INITIAL {
  
 BREAKPOINT { 
 	SOLVE states METHOD derivimplicit 
-	g = gbar*n*n*n*n 
+	g = gkbar*n*n*n*n 
 	ik = g*(v - ek) 
 	alpha_n = alp_n(v) 
 	beta_n = bet_n(v) 

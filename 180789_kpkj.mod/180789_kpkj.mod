@@ -4,7 +4,7 @@
 NEURON {
 	SUFFIX kpkj
 	USEION k READ ek WRITE ik
-	RANGE gbar
+	RANGE gkbar
 	GLOBAL minf, hinf, mtau, htau
 }
 
@@ -16,7 +16,7 @@ UNITS {
 PARAMETER {
 	v (mV)
 
-	gbar = .004	(mho/cm2)
+	gkbar = .004	(mho/cm2)
 
 	mivh = -24	(mV)
 	mik = 15.4	(1)
@@ -62,7 +62,7 @@ qt = 1
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ik = gbar * m^3 * h * (v - ek)
+	ik = gkbar * m^3 * h * (v - ek)
 }
 
 DERIVATIVE states {

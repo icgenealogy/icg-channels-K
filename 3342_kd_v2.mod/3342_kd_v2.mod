@@ -68,7 +68,7 @@ INITIAL {
 BREAKPOINT {
         SOLVE states METHOD cnexp
 	gk = gbar*n*n*n*n
-	ik = 1 * gk * (v - ek)
+	ik = (1e-4) * gk * (v - ek)
 } 
 
 LOCAL nexp

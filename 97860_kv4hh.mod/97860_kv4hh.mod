@@ -91,7 +91,7 @@ BREAKPOINT {
 
 
 DERIVATIVE states{
-	rates(v)
+	rates()
 	m' = (minf - m)/tm
     h1' = (hinf - h1)/thf
     h2' = (hinf - h2)/ths

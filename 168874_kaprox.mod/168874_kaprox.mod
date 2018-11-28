@@ -12,7 +12,7 @@ PARAMETER {
 	sh = 6
 	v (mV)
 	celsius		(degC)
-	gbar=.008 (mho/cm2)
+	gkabar=.008 (mho/cm2)
         vhalfn=11   (mV)
         vhalfl=-56   (mV)
         a0l=0.05      (/ms)
@@ -35,7 +35,7 @@ PARAMETER {
 NEURON {
 	SUFFIX kap
 	USEION k READ ek WRITE ik
-        RANGE gbar,gka, sh
+        RANGE gkabar,gka, sh
         GLOBAL ninf,linf,taul,taun,lmin
 }
 
@@ -62,7 +62,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	gka = gbar*n*l
+	gka = gkabar*n*l
 	ik = gka*(v-ek)
 
 }

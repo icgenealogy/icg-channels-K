@@ -9,7 +9,7 @@ TITLE K-A channel from Klee Ficker and Heinemann
 NEURON {
 	SUFFIX kad
 	USEION k READ ki, ko WRITE ik 		
-        RANGE gbar,gka,ik
+        RANGE gkabar,gka,ik
         GLOBAL ninf,linf,taul,taun,lmin
 }
 
@@ -22,7 +22,7 @@ UNITS {
 
 PARAMETER {    :parameters that can be entered when function is called in cell-setup   
 
-	gbar = 1.0      (mho/cm2)  :initialized conductance
+	gkabar = 1.0      (mho/cm2)  :initialized conductance
         vhalfn = -1     (mV)       :activation half-potential (-1), change for pfc, activation at -40
         vhalfl = -56    (mV)       :inactivation half-potential
        	a0n = 0.1       (/ms)      :parameters used
@@ -71,7 +71,7 @@ INITIAL {    :initialize the following parameter using rates()
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	ek=25 * log(ko/ki)		:Changed, added, 23/04/2010, Nassi
-	ik = gbar*n*l*(v-ek)
+	ik = gkabar*n*l*(v-ek)
 }
 
 

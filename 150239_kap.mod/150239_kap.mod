@@ -11,7 +11,7 @@ TITLE K-A channel from Klee Ficker and Heinemann
 NEURON {
         SUFFIX kap
         USEION k READ ek WRITE ik
-        RANGE gbar,gka,ik
+        RANGE gkabar,gka,ik
         RANGE ninf,linf,taul,taun
         RANGE vhalfn,vhalfl
         GLOBAL lmin,nscale,lscale
@@ -31,7 +31,7 @@ PARAMETER {
 
         temp    = 24                    (degC)
 
-        gbar = 1.0                          (mho/cm2)
+        gkabar = 1.0                          (mho/cm2)
 
         vhalfn  = 11                    (mV)
         a0n     = 0.05                  (/ms)
@@ -71,13 +71,13 @@ INITIAL {
         rates(v)
         n=ninf
         l=linf
-        gka = gbar*n*l
+        gka = gkabar*n*l
         ik = gka*(v-ek)
 }        
 
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gka = gbar*n*l
+        gka = gkabar*n*l
         ik = gka*(v-ek)
 }
 

@@ -5,7 +5,7 @@ TITLE Kdr channel with slow inactivation
 NEURON {
 	SUFFIX kdr_inac
         USEION k READ ek WRITE ik
-        RANGE  gbar
+        RANGE  gkbar
 	RANGE inf, fac, tau
 	
 }
@@ -21,7 +21,7 @@ PARAMETER {
         
 	celsius = 34	(degC)
 	dt (ms)
-	gbar=1.0 (mho/cm2)
+	gkbar=1.0 (mho/cm2)
 	ek = -77 (mV)
         v (mV)
 }
@@ -40,13 +40,13 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states
-	ik = gbar*n*n*l*(v - ek)
+	ik = gkbar*n*n*l*(v - ek)
 }
 
 INITIAL {
 	states()
         l=1
-	ik = gbar*n*n*l*(v - ek)
+	ik = gkbar*n*n*l*(v - ek)
 }
 
 PROCEDURE calcg() {

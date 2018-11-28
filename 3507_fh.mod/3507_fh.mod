@@ -6,7 +6,7 @@ NEURON {
 	USEION na READ nai, nao WRITE ina
 	USEION k READ ki, ko WRITE ik
 	NONSPECIFIC_CURRENT il, ip
-	RANGE pnabar, gbar, ppbar, gl, el, il, ip
+	RANGE pnabar, pkbar, ppbar, gl, el, il, ip
 	GLOBAL inf,tau
 }
 
@@ -25,7 +25,7 @@ PARAMETER {
 	celsius (degC) : 20
 	pnabar=0.0 (cm/s)
 	ppbar=0.0 (cm/s)
-	gbar=1.2e-3 (cm/s)
+	pkbar=1.2e-3 (cm/s)
 	nai (mM) : 13.74
 	nao (mM) : 114.5
 	ki (mM) : 120
@@ -59,7 +59,7 @@ BREAKPOINT {
 	ghkna = ghk(v, nai, nao)
 	ina = pnabar*m*m*h*ghkna
 	ip = ppbar*p*p*ghkna
-	ik = gbar*n*n*ghk(v, ki, ko)
+	ik = pkbar*n*n*ghk(v, ki, ko)
 	il = gl*(v - el)
 }
 

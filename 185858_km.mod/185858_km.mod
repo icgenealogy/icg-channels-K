@@ -17,7 +17,7 @@ ENDCOMMENT
 NEURON {
   SUFFIX km
   USEION k READ ek WRITE ik
-  RANGE n, gk, gbar, i
+  RANGE n, gk, gmax, i
   RANGE ninf, ntau, tadj
   GLOBAL Ra, Rb, ek
   GLOBAL q10, temp, vmin, vmax
@@ -31,7 +31,7 @@ UNITS {
 } 
 
 PARAMETER {
-  gbar = 10   	(pS/um2)	: 0.03 mho/cm2
+  gmax = 10   	(pS/um2)	: 0.03 mho/cm2
   v 		(mV)
   
   tha  = -30	(mV)		: v 1/2 for inf
@@ -72,8 +72,8 @@ INITIAL {
 
 BREAKPOINT {
   SOLVE states METHOD cnexp
-  gk = tadj*gbar*n
-  i = 1 * gk * (v - ek)
+  gk = tadj*gmax*n
+  i = (1e-4) * gk * (v - ek)
   ik = i
 } 
 

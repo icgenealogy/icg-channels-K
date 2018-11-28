@@ -17,7 +17,7 @@ PARAMETER {
         dt (ms)
 	v (mV)
         ek (mV)              : must be explicitely def. in hoc
-	gbar=.007 (mho/cm2)
+	gkabar=.007 (mho/cm2)
         vhalfn= 11   (mV)
         vhalfl=-56   (mV)
         a0l=0.05      (/ms)
@@ -27,7 +27,7 @@ PARAMETER {
 NEURON {
 	SUFFIX kap
 	USEION k READ ek WRITE ik
-        RANGE gbar,gka
+        RANGE gkabar,gka
         GLOBAL ninf,linf,taul,taun
 }
 
@@ -49,13 +49,13 @@ INITIAL {
 	rates(v)
 	n=ninf
 	l=linf
-	gka = gbar*n^4*l
+	gka = gkabar*n^4*l
 	ik = gka*(v-ek)
 }
 
 BREAKPOINT {
 	SOLVE states
-	gka = gbar*n^4*l
+	gka = gkabar*n^4*l
 	ik = gka*(v-ek)
 }
 

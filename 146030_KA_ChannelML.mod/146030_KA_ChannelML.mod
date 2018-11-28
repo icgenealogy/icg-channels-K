@@ -24,7 +24,7 @@ COMMENT
    /channelml/channel_type/neuronDBref/modelName = K channels 
    /channelml/channel_type/neuronDBref/uri = http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3 
    /channelml/channel_type/current_voltage_relation/ohmic/@ion = k 
-   /channelml/channel_type/current_voltage_relation/ohmic/conductance/@default_gbar = 2 
+   /channelml/channel_type/current_voltage_relation/ohmic/conductance/@default_gmax = 2 
    /channelml/channel_type/current_voltage_relation/ohmic/conductance/rate_adjustments/q10_settings/@q10_factor = 3 
    /channelml/channel_type/current_voltage_relation/ohmic/conductance/rate_adjustments/q10_settings/@experimental_temp = 24 
    /channelml/channel_type/current_voltage_relation/ohmic/conductance/rate_adjustments/offset/@value = 0 
@@ -128,7 +128,7 @@ NEURON {
     SUFFIX KA_ChannelML
     USEION k READ ek WRITE ik VALENCE 1 ? reversal potential of ion is read, outgoing current is written
             
-    RANGE gbar, gion
+    RANGE gmax, gion
     
     RANGE minf, mtau
     RANGE hinf, htau
@@ -137,7 +137,7 @@ NEURON {
 PARAMETER { 
       
 
-    gbar = 0.0020 (S/cm2) ? default value, should be overwritten when conductance placed on cell
+    gmax = 0.0020 (S/cm2) ? default value, should be overwritten when conductance placed on cell
     
 }
 
@@ -169,7 +169,7 @@ BREAKPOINT {
     SOLVE states METHOD cnexp
          
 
-    gion = gbar*((1*m)^1)*((1*h)^1)
+    gion = gmax*((1*m)^1)*((1*h)^1)
     ik = gion*(v - ek)
                 
 

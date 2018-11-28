@@ -29,7 +29,7 @@ UNITS {
 NEURON {
         SUFFIX ka
         USEION k READ ek WRITE ik
-        RANGE gbar, gka, ik
+        RANGE gkabar, gka, ik
         GLOBAL ainf, binf, cinf, atau, btau, ctau
 }
 
@@ -40,7 +40,7 @@ PARAMETER {
         celsius = 22 (degC)  : model is defined on measurements made at room temp in Baltimore
         dt (ms)
         ek = -77 (mV)
-        gbar = 0.00477 (mho/cm2) <0,1e9>
+        gkabar = 0.00477 (mho/cm2) <0,1e9>
 }
 
 STATE {
@@ -59,7 +59,7 @@ LOCAL aexp, bexp, cexp
 BREAKPOINT {
 	SOLVE states
     
-	gka = gbar*(a^4)*b*c
+	gka = gkabar*(a^4)*b*c
     ik = gka*(v - ek)
 
 }

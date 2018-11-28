@@ -5,7 +5,7 @@ TITLE HH sodium channel
 NEURON {
 	SUFFIX kder_sej
 	USEION k READ ek WRITE ik
-	RANGE gbar, ik, gkder
+	RANGE gkdersejbar, ik, gkder
 
 }
 
@@ -19,7 +19,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
         v (mV)
         dt (ms)
-	gbar=.086 (mho/cm2) <0,1e9>
+	gkdersejbar=.086 (mho/cm2) <0,1e9>
         ek = -104 (mV)
 }
 
@@ -41,7 +41,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	gkder = gbar*m*m*m*m
+	gkder = gkdersejbar*m*m*m*m
         ik = gkder*(v - ek)
 }
 

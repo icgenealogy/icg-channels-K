@@ -22,7 +22,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 NEURON {
 	SUFFIX im
 	USEION k READ ek WRITE ik
-        RANGE gbar, m_inf, tau_m
+        RANGE gkbar, m_inf, tau_m
 	GLOBAL taumax
 
 }
@@ -37,7 +37,7 @@ PARAMETER {
 	v		(mV)
 	celsius = 36    (degC)
 	ek		(mV)
-	gbar	= 1e-6	(mho/cm2)
+	gkbar	= 1e-6	(mho/cm2)
 	taumax	= 1000	(ms)		: peak value of tau
 }
 
@@ -57,7 +57,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states METHOD euler
-	ik = gbar * m * (v - ek)
+	ik = gkbar * m * (v - ek)
 }
 
 DERIVATIVE states { 

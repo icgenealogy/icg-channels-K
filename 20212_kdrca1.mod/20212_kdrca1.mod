@@ -16,7 +16,7 @@ PARAMETER {
 	v (mV)
         ek (mV)		: must be explicitely def. in hoc
 	celsius = 24	(degC)
-	gbar=.003 (mho/cm2)
+	gkdrbar=.003 (mho/cm2)
         vhalfn=13   (mV)
         a0n=0.02      (/ms)
         zetan=-3    (1)
@@ -29,7 +29,7 @@ PARAMETER {
 NEURON {
 	SUFFIX kdr
 	USEION k READ ek WRITE ik
-        RANGE gkdr,gbar
+        RANGE gkdr,gkdrbar
 	GLOBAL ninf,taun
 }
 
@@ -47,13 +47,13 @@ ASSIGNED {
 INITIAL {
 	rates(v)
 	n=ninf
-	gkdr = gbar*n
+	gkdr = gkdrbar*n
 	ik = gkdr*(v-ek)
 }
 
 BREAKPOINT {
 	SOLVE states
-	gkdr = gbar*n
+	gkdr = gkdrbar*n
 	ik = gkdr*(v-ek)
 
 }
