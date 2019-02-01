@@ -12,7 +12,7 @@ NEURON {
 }
 
 PARAMETER {
-	g = 0   	(S/cm2)
+	g = 1   	(S/cm2)
 	
 
 }

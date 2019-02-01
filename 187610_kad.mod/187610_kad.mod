@@ -27,7 +27,7 @@ PARAMETER {
 
         temp    =   24			(degC)
 
-        gkabar  			(mho/cm2)
+        gkabar  = 1			(mho/cm2)
 
         vhalfn  =   -1			(mV)
         a0n     =   .1			(/ms)

@@ -21,7 +21,7 @@ PARAMETER {
 	v (mV)
 	celsius		(degC)
 	Tscale = 10	(degC)
-	gbar=0.0 (pS/um2)
+	gbar= 1.0 (pS/um2)
         offn=-47   (mV)
         offl=-66   (mV)
         slon=29   (mV)

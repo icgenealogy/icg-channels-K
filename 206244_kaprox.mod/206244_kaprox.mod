@@ -16,7 +16,7 @@ PARAMETER {                       :parameters that can be entered when function 
 	v               (mV)
         ek = -77        (mV)      :K reversal potential  (reset in cell-setup.hoc)
 	celsius = 24	(degC)
-       	gkabar = 0      (mho/cm2) :initialized conductance
+       	gkabar = 1      (mho/cm2) :initialized conductance
         vhalfn = 11     (mV)      :activation half-potential
         vhalfl = -56    (mV) 	  :inactivation half-potential
         a0n = 0.05      (/ms)     :parameters used

@@ -19,7 +19,7 @@ UNITS {
 
 PARAMETER {
     temp    = 24                    (degC)
-    gkabar                          (mho/cm2)
+    gkabar  = 1                       (mho/cm2)
 
     vhalfn  = 11                    (mV)
     a0n     = 0.05                  (/ms)

@@ -29,7 +29,7 @@ NEURON {
 }
 
 PARAMETER {
-	gbar = 0   	(pS/um2)	: 
+	gbar = 1   	(pS/um2)	: 
 	vshift = 0	(mV)		: voltage shift (affects all)
 								
 	offh = -58	(mV)		: v 1/2 for inact (b) 

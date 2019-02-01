@@ -18,7 +18,7 @@ UNITS {
 INDEPENDENT {t FROM 0 TO 1 WITH 100 (ms)}
 
 PARAMETER { 
-	gkm = 0.0 	(mho/cm2)
+	gkm = 1.0 	(mho/cm2)
 } 
 
 ASSIGNED { 
